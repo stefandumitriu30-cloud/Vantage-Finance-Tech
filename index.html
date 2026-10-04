@@ -7,23 +7,93 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Expires" content="0" />
-<title>Vantage Finance & Tech</title>
-<meta name="description" content="Vantage Finance &amp; Tech: managerial consultancy for Oracle Cloud ERP Finance, SAP FI and PMO. Consulenza manageriale per Oracle ERP Cloud, SAP FI e Project Management." />
+<title>Vantage Finance &amp; Tech | Oracle ERP Cloud, SAP FI &amp; PMO Consulting</title>
+<meta name="description" content="Oracle Fusion Cloud ERP Finance, SAP FI / S/4HANA and PMO consulting based in Turin, Italy. Consulenza ERP finance e project management per modernizzare il back-office." />
 <link rel="canonical" href="https://vantagefinanceandtech.com/" />
 <link rel="icon" href="/favicon.ico" sizes="48x48" />
 <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-<meta property="og:title" content="Vantage Finance &amp; Tech" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Vantage Finance &amp; Tech" />
+<meta property="og:title" content="Vantage Finance &amp; Tech | Oracle ERP Cloud, SAP FI &amp; PMO Consulting" />
+<meta property="og:description" content="Oracle Fusion Cloud ERP Finance, SAP FI / S/4HANA and PMO consulting based in Turin, Italy. Consulenza ERP finance e project management per modernizzare il back-office." />
+<meta property="og:locale" content="en_GB" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta name="twitter:card" content="summary" />
 <meta property="og:url" content="https://vantagefinanceandtech.com/" />
 <meta property="og:image" content="https://vantagefinanceandtech.com/logo-vantage.png" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": "ProfessionalService",
+  "@id": "https://vantagefinanceandtech.com/#organization",
   "name": "Vantage Finance & Tech",
   "url": "https://vantagefinanceandtech.com/",
   "logo": "https://vantagefinanceandtech.com/logo-vantage.png",
-  "sameAs": ["https://www.linkedin.com/company/vantage-finance-tech/"]
+  "image": "https://vantagefinanceandtech.com/logo-vantage.png",
+  "slogan": "Precision Finance. Agile Delivery. Integrated Solutions.",
+  "description": "Managerial consultancy specialised in Oracle Fusion Cloud ERP Finance, SAP FI / S/4HANA and PMO & project management support.",
+  "telephone": "+39 327 930 4297",
+  "vatID": "IT13449530016",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Via Roma 23",
+    "addressLocality": "Rivalta di Torino",
+    "addressRegion": "TO",
+    "postalCode": "10040",
+    "addressCountry": "IT"
+  },
+  "founder": {
+    "@type": "Person",
+    "name": "Stefan Dumitriu",
+    "jobTitle": "Founder and Owner"
+  },
+  "knowsLanguage": [
+    "en",
+    "it"
+  ],
+  "knowsAbout": [
+    "Oracle Fusion Cloud ERP",
+    "Oracle ERP Cloud Financials",
+    "SAP FI",
+    "SAP S/4HANA",
+    "SAP S/4HANA Controlling",
+    "SAP VIM",
+    "Electronic invoicing",
+    "ERP localization",
+    "PMO",
+    "Project management"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Consulting services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Oracle Cloud ERP Finance consulting"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "SAP FI (Financial Accounting) consulting"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "PMO and project management support"
+        }
+      }
+    ]
+  },
+  "sameAs": [
+    "https://www.linkedin.com/company/vantage-finance-tech/"
+  ]
 }
 </script>
 <style>
@@ -351,6 +421,15 @@
   }
   a.spec-pill.vim-pill::after { content: ' ↗'; font-size: 0.7rem; opacity:0.85; }
 
+  /* SEO content: insights + FAQ */
+  .insights { background: var(--white); }
+  .insights .service-card p + p { margin-top: 0.75rem; }
+  .insights .card-links a { color: var(--blue); font-weight: 600; text-decoration: none; font-size: 0.86rem; display: inline-block; margin: 0.25rem 0.9rem 0 0; }
+  .insights .card-links a:hover { text-decoration: underline; }
+  .faq { background: var(--gray-light); }
+  .faq details { background: var(--white); border: 1px solid var(--gray-mid); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 0.75rem; }
+  .faq summary { font-weight: 700; color: var(--text-dark); cursor: pointer; font-size: 1rem; }
+  .faq details p { color: var(--text-gray); font-size: 0.95rem; line-height: 1.75; margin-top: 0.6rem; }
 </style>
 </head>
 <body>
@@ -378,6 +457,7 @@
     <li><a href="#about" onclick="closeMenu()"><span class="en">About</span><span class="it">Chi Siamo</span></a></li>
     <li><a href="#services" onclick="closeMenu()"><span class="en">Services</span><span class="it">Servizi</span></a></li>
     <li><a href="#specialities" onclick="closeMenu()"><span class="en">Specialities</span><span class="it">Specializzazioni</span></a></li>
+    <li><a href="#insights" onclick="closeMenu()"><span class="en">Guides</span><span class="it">Guide</span></a></li>
     <li><a href="#contact" onclick="closeMenu()"><span class="en">Contact</span><span class="it">Contatti</span></a></li>
   </ul>
   <a href="#contact" class="nav-cta">
@@ -484,6 +564,87 @@
       <!-- SAP VIM pill — opens Architettura Funzionale SAP VIM PDF -->
       <a class="spec-pill vim-pill" href="Architettura_Funzionale_SAP_VIM.pdf" target="_blank" rel="noopener">SAP VIM</a>
     </div>
+  </div>
+</section>
+
+<!-- INSIGHTS -->
+<section class="services insights" id="insights">
+  <div class="section-inner">
+    <p class="section-label"><span class="en">Guides &amp; Insights</span><span class="it">Guide e Approfondimenti</span></p>
+    <h2 class="section-title"><span class="en">Oracle ERP, SAP S/4HANA and PMO guides</span><span class="it">Guide su Oracle ERP, SAP S/4HANA e PMO</span></h2>
+    <p class="section-sub en-block">Free reference documents from our consulting practice on Oracle Fusion Cloud ERP, SAP S/4HANA Finance, e-invoicing and project management.</p>
+    <p class="section-sub it-block">Documenti di riferimento gratuiti dalla nostra attività di consulenza su Oracle Fusion Cloud ERP, SAP S/4HANA Finance, fatturazione elettronica e project management.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3><span class="en">Oracle Fusion Cloud ERP by industry</span><span class="it">Oracle Fusion Cloud ERP per settore</span></h3>
+        <p class="en-block">Accounting architectures for Oracle Fusion Cloud ERP in the industries we work in: retail, financial services, utilities, automotive and manufacturing.</p>
+        <p class="it-block">Architetture contabili per Oracle Fusion Cloud ERP nei settori in cui operiamo: retail, servizi finanziari, utilities, automotive e manifattura.</p>
+        <p class="card-links"><a href="Vantage_Oracle_Fusion_ERP_Retail.pdf" target="_blank" rel="noopener"><span class="en">Oracle ERP for Retail (PDF)</span><span class="it">Oracle ERP per il Retail (PDF)</span></a><a href="Vantage_Oracle_Fusion_ERP_Financial_Services.pdf" target="_blank" rel="noopener"><span class="en">Oracle ERP for Financial Services (PDF)</span><span class="it">Oracle ERP per i Servizi Finanziari (PDF)</span></a><a href="Oracle%20Fusion%20ERP%20Utilities%20Architecture.pdf" target="_blank" rel="noopener"><span class="en">Oracle ERP for Utilities (PDF)</span><span class="it">Oracle ERP per le Utilities (PDF)</span></a><a href="Automotive%20ERP%20and%20EPM%20Architecture.pdf" target="_blank" rel="noopener"><span class="en">Automotive ERP and EPM (PDF)</span><span class="it">ERP ed EPM per l'Automotive (PDF)</span></a><a href="Oracle%20Fusion%20ERP%20Manufacturing%20Architecture.pdf" target="_blank" rel="noopener"><span class="en">Oracle ERP for Manufacturing (PDF)</span><span class="it">Oracle ERP per la Manifattura (PDF)</span></a></p>
+      </div>
+      <div class="service-card">
+        <h3><span class="en">SAP S/4HANA implementation roadmap</span><span class="it">Roadmap di implementazione SAP S/4HANA</span></h3>
+        <p class="en-block">A delivery roadmap for an SAP S/4HANA Finance implementation in five phases following the SAP Activate methodology, including the use of agentic AI.</p>
+        <p class="it-block">Una roadmap di delivery per un'implementazione SAP S/4HANA Finance in cinque fasi secondo la metodologia SAP Activate, con l'impiego di agentic AI.</p>
+        <p class="card-links"><a href="Vantage_SAP_S4HANA_Implementation_Roadmap.pdf" target="_blank" rel="noopener"><span class="en">SAP S/4HANA implementation roadmap (PDF)</span><span class="it">Roadmap di implementazione SAP S/4HANA (PDF)</span></a></p>
+      </div>
+      <div class="service-card">
+        <h3><span class="en">SAP S/4HANA Controlling</span><span class="it">SAP S/4HANA Controlling</span></h3>
+        <p class="en-block">An SAP S/4HANA implementation approach and target Controlling (CO) model for a multinational manufacturing enterprise.</p>
+        <p class="it-block">Approccio di implementazione SAP S/4HANA e modello target di Controlling (CO) per un'azienda manifatturiera multinazionale.</p>
+        <p class="card-links"><a href="Vantage_SAP_S4HANA_Controlling_Guide.pdf" target="_blank" rel="noopener"><span class="en">SAP S/4HANA Controlling guide (PDF)</span><span class="it">Guida SAP S/4HANA Controlling (PDF)</span></a></p>
+      </div>
+      <div class="service-card">
+        <h3><span class="en">E-invoicing and localizations</span><span class="it">Fatturazione elettronica e localizzazioni</span></h3>
+        <p class="en-block">E-invoicing implementation compared in SAP S/4HANA and Oracle Fusion ERP, plus SAP S/4HANA localization requirements for Italy, Spain, France, Germany and the United Kingdom.</p>
+        <p class="it-block">L'implementazione della fatturazione elettronica a confronto in SAP S/4HANA e Oracle Fusion ERP, e i requisiti di localizzazione SAP S/4HANA per Italia, Spagna, Francia, Germania e Regno Unito.</p>
+        <p class="card-links"><a href="Vantage_E-Invoicing_Implementation_Guide.pdf" target="_blank" rel="noopener"><span class="en">E-invoicing implementation guide (PDF)</span><span class="it">Guida all'implementazione della fatturazione elettronica (PDF)</span></a><a href="Vantage_SAP_S4HANA_Localization_Guide.pdf" target="_blank" rel="noopener"><span class="en">SAP S/4HANA localization guide (PDF)</span><span class="it">Guida alle localizzazioni SAP S/4HANA (PDF)</span></a></p>
+      </div>
+      <div class="service-card">
+        <h3><span class="en">SAP VIM: Vendor Invoice Management</span><span class="it">SAP VIM: Vendor Invoice Management</span></h3>
+        <p class="en-block">Functional architecture of SAP Vendor Invoice Management by OpenText: automating supplier invoices from receipt to posting in SAP.</p>
+        <p class="it-block">Architettura funzionale di SAP Vendor Invoice Management by OpenText: l'automazione delle fatture passive dalla ricezione alla registrazione in SAP.</p>
+        <p class="card-links"><a href="Architettura_Funzionale_SAP_VIM.pdf" target="_blank" rel="noopener"><span class="en">SAP VIM functional architecture (PDF, Italian)</span><span class="it">Architettura funzionale SAP VIM (PDF)</span></a></p>
+      </div>
+      <div class="service-card">
+        <h3><span class="en">The modern PMO</span><span class="it">Il PMO moderno</span></h3>
+        <p class="en-block">A PMO playbook for cloud ERP implementations on SAP S/4HANA and Oracle Fusion ERP: governance, phase-by-phase activities and agentic AI controls.</p>
+        <p class="it-block">Un playbook PMO per le implementazioni ERP cloud su SAP S/4HANA e Oracle Fusion ERP: governance, attività per fase e controlli sull'agentic AI.</p>
+        <p class="card-links"><a href="Vantage_Modern_PMO_Guide.pdf" target="_blank" rel="noopener"><span class="en">Modern PMO guide (PDF)</span><span class="it">Guida al PMO moderno (PDF)</span></a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="about faq" id="faq">
+  <div class="section-inner">
+    <p class="section-label">FAQ</p>
+    <h2 class="section-title"><span class="en">Frequently asked questions</span><span class="it">Domande frequenti</span></h2>
+    <details>
+      <summary><span class="en">What does Vantage Finance &amp; Tech do?</span><span class="it">Di cosa si occupa Vantage Finance &amp; Tech?</span></summary>
+      <p class="en-block">We are a managerial consultancy focused on finance back-office modernization. Our three core services are Oracle Cloud ERP Finance, SAP FI (Financial Accounting) and PMO &amp; project management support.</p>
+      <p class="it-block">Siamo una società di consulenza manageriale focalizzata sulla modernizzazione del back-office finance. I nostri tre servizi principali sono Oracle Cloud ERP Finance, SAP FI (Contabilità Finanziaria) e supporto PMO e project management.</p>
+    </details>
+    <details>
+      <summary><span class="en">Which ERP systems do you work with?</span><span class="it">Con quali sistemi ERP lavorate?</span></summary>
+      <p class="en-block">Oracle Fusion Cloud ERP on the finance side, and SAP FI, including SAP S/4HANA, Controlling and SAP VIM. In SAP FI we cover General Ledger, Accounts Payable and Accounts Receivable.</p>
+      <p class="it-block">Oracle Fusion Cloud ERP in ambito finance e SAP FI, inclusi SAP S/4HANA, Controlling e SAP VIM. In SAP FI copriamo Contabilità Generale, Contabilità Fornitori e Contabilità Clienti.</p>
+    </details>
+    <details>
+      <summary><span class="en">Which industries do you have experience in?</span><span class="it">In quali settori avete esperienza?</span></summary>
+      <p class="en-block">Retail, financial services, utilities, automotive and manufacturing. You can download a reference document for each industry in the Guides section above.</p>
+      <p class="it-block">Retail, servizi finanziari, utilities, automotive e manifattura. Nella sezione Guide qui sopra puoi scaricare un documento di riferimento per ciascun settore.</p>
+    </details>
+    <details>
+      <summary><span class="en">Do you support e-invoicing and local requirements?</span><span class="it">Supportate fatturazione elettronica e requisiti locali?</span></summary>
+      <p class="en-block">Yes. E-invoicing and country localizations are among our focus areas, on both SAP S/4HANA and Oracle Fusion ERP. Our localization guide covers Italy, Spain, France, Germany and the United Kingdom.</p>
+      <p class="it-block">Sì. Fatturazione elettronica e localizzazioni per paese sono tra le nostre aree di specializzazione, sia su SAP S/4HANA sia su Oracle Fusion ERP. La nostra guida alle localizzazioni copre Italia, Spagna, Francia, Germania e Regno Unito.</p>
+    </details>
+    <details>
+      <summary><span class="en">Where are you based and how can I contact you?</span><span class="it">Dove avete sede e come posso contattarvi?</span></summary>
+      <p class="en-block">We are based in Rivalta di Torino (Turin), Italy. Call <a href="tel:+393279304297">+39 327 930 4297</a> or use the details in the <a href="#contact">contact section</a>.</p>
+      <p class="it-block">Abbiamo sede a Rivalta di Torino (TO). Chiama il <a href="tel:+393279304297">+39 327 930 4297</a> oppure usa i recapiti nella <a href="#contact">sezione contatti</a>.</p>
+    </details>
   </div>
 </section>
 
