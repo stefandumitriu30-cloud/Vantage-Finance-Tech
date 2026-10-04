@@ -422,12 +422,13 @@
   a.spec-pill.vim-pill::after { content: ' ↗'; font-size: 0.7rem; opacity:0.85; }
 
   /* SEO content: insights + FAQ */
-  .insights { background: var(--white); }
+  .insights { background: var(--gray-light); }
+  .insights .service-card { background: var(--white); }
   .insights .service-card p + p { margin-top: 0.75rem; }
   .insights .card-links a { color: var(--blue); font-weight: 600; text-decoration: none; font-size: 0.86rem; display: inline-block; margin: 0.25rem 0.9rem 0 0; }
   .insights .card-links a:hover { text-decoration: underline; }
-  .faq { background: var(--gray-light); }
-  .faq details { background: var(--white); border: 1px solid var(--gray-mid); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 0.75rem; }
+  .faq { background: var(--white); }
+  .faq details { background: var(--gray-light); border: 1px solid var(--gray-mid); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 0.75rem; }
   .faq summary { font-weight: 700; color: var(--text-dark); cursor: pointer; font-size: 1rem; }
   .faq details p { color: var(--text-gray); font-size: 0.95rem; line-height: 1.75; margin-top: 0.6rem; }
 </style>
@@ -456,7 +457,6 @@
   <ul class="nav-links" id="nav-links">
     <li><a href="#about" onclick="closeMenu()"><span class="en">About</span><span class="it">Chi Siamo</span></a></li>
     <li><a href="#services" onclick="closeMenu()"><span class="en">Services</span><span class="it">Servizi</span></a></li>
-    <li><a href="#specialities" onclick="closeMenu()"><span class="en">Specialities</span><span class="it">Specializzazioni</span></a></li>
     <li><a href="#insights" onclick="closeMenu()"><span class="en">Guides</span><span class="it">Guide</span></a></li>
     <li><a href="#contact" onclick="closeMenu()"><span class="en">Contact</span><span class="it">Contatti</span></a></li>
   </ul>
@@ -534,35 +534,6 @@
         <p class="en-block">Strategic oversight that transforms the Project Management Office from a reporting hub into a value-driven engine.</p>
         <p class="it-block">Supervisione strategica che trasforma il Project Management Office da un centro di reporting a un motore orientato al valore.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- SPECIALITIES -->
-<section class="specialities" id="specialities">
-  <div class="section-inner">
-    <p class="section-label" style="color:var(--cyan);"><span class="en">Our Focus Areas</span><span class="it">Le Nostre Aree di Interesse</span></p>
-    <h2 class="section-title"><span class="en">Industry &amp; Specialities</span><span class="it">Settore &amp; Specializzazioni</span></h2>
-    <p class="en-block" style="color:rgba(255,255,255,0.8); max-width:600px; margin-bottom:1rem;">We operate at the forefront of IT Services and IT Consulting, with deep expertise in the following domains:</p>
-    <p class="it-block" style="color:rgba(255,255,255,0.8); max-width:600px; margin-bottom:1rem;">Operiamo all'avanguardia dei Servizi IT e della Consulenza IT, con profonda esperienza nei seguenti ambiti:</p>
-    <div class="spec-pills">
-      <a class="spec-pill" href="Vantage_Oracle_Fusion_ERP_Retail.pdf" target="_blank" rel="noopener"><span class="en">Retail</span><span class="it">Retail</span></a>
-      <a class="spec-pill" href="Vantage_Oracle_Fusion_ERP_Financial_Services.pdf" target="_blank" rel="noopener"><span class="en">Financial Services</span><span class="it">Servizi Finanziari</span></a>
-      <a class="spec-pill" href="Oracle%20Fusion%20ERP%20Utilities%20Architecture.pdf" target="_blank" rel="noopener"><span class="en">Utilities</span><span class="it">Utilities</span></a>
-      <a class="spec-pill" href="Automotive%20ERP%20and%20EPM%20Architecture.pdf" target="_blank" rel="noopener"><span class="en">Automotive</span><span class="it">Automotive</span></a>
-      <a class="spec-pill" href="Oracle%20Fusion%20ERP%20Manufacturing%20Architecture.pdf" target="_blank" rel="noopener"><span class="en">Manufacturing</span><span class="it">Manifattura</span></a>
-      <!-- SAP S/4HANA pill — opens roadmap PDF -->
-      <a class="spec-pill sap-pill" href="Vantage_SAP_S4HANA_Implementation_Roadmap.pdf" target="_blank" rel="noopener">SAP S/4HANA</a>
-      <!-- E-Invoice pill — opens E-Invoicing PDF -->
-      <a class="spec-pill einvoice-pill" href="Vantage_E-Invoicing_Implementation_Guide.pdf" target="_blank" rel="noopener"><span class="en">E-Invoice</span><span class="it">E-Invoice</span></a>
-      <!-- Localizations pill — opens SAP S/4HANA Localization Guide PDF -->
-      <a class="spec-pill localizations-pill" href="Vantage_SAP_S4HANA_Localization_Guide.pdf" target="_blank" rel="noopener"><span class="en">Localizations</span><span class="it">Localizzazioni</span></a>
-      <!-- S4/HANA Controlling pill — opens Implementation & Controlling Guide PDF -->
-      <a class="spec-pill controlling-pill" href="Vantage_SAP_S4HANA_Controlling_Guide.pdf" target="_blank" rel="noopener">S4/HANA Controlling</a>
-      <!-- Modern PMO pill — opens Modern PMO Guide PDF -->
-      <a class="spec-pill pmo-pill" href="Vantage_Modern_PMO_Guide.pdf" target="_blank" rel="noopener">Modern PMO</a>
-      <!-- SAP VIM pill — opens Architettura Funzionale SAP VIM PDF -->
-      <a class="spec-pill vim-pill" href="Architettura_Funzionale_SAP_VIM.pdf" target="_blank" rel="noopener">SAP VIM</a>
     </div>
   </div>
 </section>
