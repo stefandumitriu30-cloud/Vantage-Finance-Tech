@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oracle Fusion ERP Accounting Architecture for Retail Companies | Vantage Finance &amp; Tech</title>
+<meta name="description" content="Oracle Fusion Cloud ERP accounting architecture for retail: chart of accounts design, finance modules, POS and e-commerce integration, key accounting flows, controls and a 12-month roadmap. Free PDF.">
+<link rel="canonical" href="https://vantagefinanceandtech.com/guides/oracle-fusion-erp-retail/">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Vantage Finance &amp; Tech">
+<meta property="og:title" content="Oracle Fusion ERP Accounting Architecture for Retail Companies">
+<meta property="og:description" content="Oracle Fusion Cloud ERP accounting architecture for retail: chart of accounts design, finance modules, POS and e-commerce integration, key accounting flows, controls and a 12-month roadmap. Free PDF.">
+<meta property="og:url" content="https://vantagefinanceandtech.com/guides/oracle-fusion-erp-retail/">
+<meta property="og:image" content="https://vantagefinanceandtech.com/logo-vantage.png">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/guides/guide.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "Oracle Fusion ERP Accounting Architecture for Retail",
+      "description": "Oracle Fusion Cloud ERP accounting architecture for retail: chart of accounts design, finance modules, POS and e-commerce integration, key accounting flows, controls and a 12-month roadmap. Free PDF.",
+      "inLanguage": "en",
+      "url": "https://vantagefinanceandtech.com/guides/oracle-fusion-erp-retail/",
+      "mainEntityOfPage": "https://vantagefinanceandtech.com/guides/oracle-fusion-erp-retail/",
+      "image": "https://vantagefinanceandtech.com/logo-vantage.png",
+      "datePublished": "2026-10-20",
+      "dateModified": "2026-10-20",
+      "author": {
+        "@type": "Person",
+        "name": "Stefan Dumitriu",
+        "url": "https://vantagefinanceandtech.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Vantage Finance & Tech",
+        "url": "https://vantagefinanceandtech.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://vantagefinanceandtech.com/logo-vantage.png"
+        }
+      },
+      "about": [
+        "Oracle Fusion Cloud ERP",
+        "Retail accounting",
+        "Chart of accounts",
+        "Oracle Integration Cloud"
+      ],
+      "associatedMedia": {
+        "@type": "MediaObject",
+        "contentUrl": "https://vantagefinanceandtech.com/Vantage_Oracle_Fusion_ERP_Retail.pdf",
+        "encodingFormat": "application/pdf"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://vantagefinanceandtech.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://vantagefinanceandtech.com/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Oracle ERP for Retail"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site">
+  <div class="inner">
+    <a class="brand" href="/"><img src="/guides/logo-header.png" alt="Vantage Finance &amp; Tech" height="44"></a>
+    <nav><a href="/guides/">Guides</a><a href="/#contact">Contact</a></nav>
+  </div>
+</header>
+
+<main>
+  <div class="crumbs"><a href="/">Home</a> › <a href="/guides/">Guides</a> › Oracle ERP for Retail</div>
+
+  <h1>Oracle Fusion ERP Accounting Architecture for Retail</h1>
+  <p class="lead">How to design the finance core of a retail business on Oracle Fusion Cloud ERP: a retail chart of accounts, the finance modules, integration with POS, merchandising and e-commerce, and the accounting flows that tie them together.</p>
+
+  <div class="download">
+    <div>
+      <strong>Download the full guide (PDF, 11 pages)</strong>
+      <p>Oracle ERP for Retail · free</p>
+    </div>
+    <a class="btn" href="/Vantage_Oracle_Fusion_ERP_Retail.pdf">Download the PDF</a>
+  </div>
+
+<h2>The architecture in three layers</h2>
+<p>A retail finance architecture on Oracle Fusion ERP is easiest to understand as three layers. At the top sits the <strong>retail front end</strong>: point-of-sale registers, e-commerce, the mobile app and clienteling tools. In the middle is the <strong>Oracle Fusion ERP application layer</strong> with General Ledger, Receivables, Payables, Fixed Assets, Cash Management and the tax engine. At the bottom, a <strong>data and analytics layer</strong> built on Oracle Analytics Cloud, OTBI and Smart View turns those transactions into reporting.</p>
+<p>Oracle Integration Cloud (OIC) connects the layers through REST and SOAP APIs and event-driven flows, so sales, stock movements and supplier invoices reach the ledger without manual re-keying.</p>
+
+<h2>A chart of accounts built for retail</h2>
+<p>The chart of accounts is where most retail reporting problems are either solved or created. The guide proposes six segments, each answering a question management actually asks:</p>
+<div class="table-wrap">
+<table>
+<tr><th>Segment</th><th>Length</th><th>What it answers</th></tr>
+<tr><td>Company</td><td>3 digits</td><td>Which legal entity or store company (e.g. headquarters vs. a regional store)</td></tr>
+<tr><td>Channel</td><td>2 digits</td><td>Where the sale happened: POS, web or wholesale</td></tr>
+<tr><td>Natural account</td><td>6 digits</td><td>Balance sheet and P&amp;L classification</td></tr>
+<tr><td>Product category</td><td>4 digits</td><td>Apparel, footwear and other merchandise families</td></tr>
+<tr><td>Cost centre</td><td>5 digits</td><td>Individual store or department</td></tr>
+<tr><td>Intercompany</td><td>3 digits</td><td>Counterparty company for intercompany entries</td></tr>
+</table>
+</div>
+<p>Separating <em>channel</em> from <em>product category</em> is what makes omnichannel margin reporting possible straight from the ledger, instead of rebuilding it in spreadsheets every month.</p>
+
+<h2>Finance modules and what they do in retail</h2>
+<ul class="points">
+<li><strong>General Ledger</strong> – multi-entity and multi-currency accounting, automated period close, configurable Subledger Accounting rules, intercompany eliminations, consolidation and integrated budgeting.</li>
+<li><strong>Accounts Receivable</strong> – B2B invoicing, corporate loyalty billing, collections, credit management and dunning.</li>
+<li><strong>Accounts Payable</strong> – three-way matching of purchase order, receipt and invoice, multiple payment methods, credit notes and supplier returns.</li>
+<li><strong>Fixed Assets</strong> – depreciation, revaluations and IFRS 16 lease accounting for store leases.</li>
+<li><strong>Cash Management</strong> – bank reconciliation, cash pooling and liquidity management.</li>
+<li><strong>Tax engine</strong> – VAT, withholding tax, e-invoicing and fiscal compliance.</li>
+</ul>
+
+<h2>Integration with retail systems</h2>
+<p>Retail finance depends on data that originates outside the ERP. The guide maps the main sources (Oracle Xstore POS, Oracle Retail Merchandising, the warehouse management system, Oracle Commerce Cloud, HCM payroll and supply chain) into Fusion through OIC, with a different frequency for each flow:</p>
+<ul class="points">
+<li>POS to General Ledger in real time</li>
+<li>Inventory every 15 minutes</li>
+<li>Payables and receivables in a nightly batch</li>
+<li>Analytics refreshed the following day</li>
+</ul>
+<p>Choosing these frequencies deliberately keeps the ledger current where it matters (cash and sales) without overloading it with low-value updates.</p>
+
+<h2>Key accounting flows</h2>
+<h3>Sales cycle</h3>
+<p>A POS or online sale creates the receivable or cash entry against revenue, VAT is recognised and collected, and the result posts automatically to the ledger.</p>
+<h3>Purchasing cycle</h3>
+<p>A purchase order leads to a goods receipt in the warehouse system, a three-way-matched payables invoice and, finally, supplier payment.</p>
+<h3>Inventory</h3>
+<p>Stock receipts debit inventory against payables, adjustments hit the P&amp;L, obsolete stock is written down automatically, and valuation follows FIFO or weighted average.</p>
+<h3>Period-end close</h3>
+<p>Sub-modules generate accruals automatically, subledgers are reconciled to the ledger, foreign-currency balances are revalued, and statutory and IFRS reporting is produced from the same data.</p>
+
+<h2>Reporting, controls and governance</h2>
+<p>Reporting combines OTBI, Financial Reporting Studio, Smart View for Excel users and Oracle Analytics Cloud for CFO dashboards covering metrics such as DSO, DPO, inventory turnover and gross margin.</p>
+<p>On the control side, the design relies on segregation of duties enforced through Oracle access controls, a complete audit trail, configurable approval workflows for payments, credit notes, manual journals and new suppliers or customers, and row-level data security by entity. For Italian retailers it also covers VAT, e-invoicing and withholding tax obligations.</p>
+
+<h2>A 12-month implementation roadmap</h2>
+<ol class="steps">
+<li><strong>Foundation (months 1–3)</strong> – cloud environment, chart of accounts design, General Ledger configuration, master data migration.</li>
+<li><strong>Finance core (months 4–6)</strong> – Receivables and Payables go-live, Cash Management, VAT tax engine, finance user acceptance testing.</li>
+<li><strong>Retail integration (months 7–9)</strong> – POS integration, merchandising sync, warehouse accounting flows, e-commerce flows.</li>
+<li><strong>Analytics and go-live (months 10–12)</strong> – OTBI reporting, CFO dashboard, user training, stabilisation and hypercare.</li>
+</ol>
+
+  <div class="download">
+    <div>
+      <strong>Want the complete version with diagrams and tables?</strong>
+      <p>11 pages from our consulting practice.</p>
+    </div>
+    <a class="btn" href="/Vantage_Oracle_Fusion_ERP_Retail.pdf">Download the PDF</a>
+  </div>
+
+  <section class="cta">
+    <h2>Working on a project like this?</h2>
+    <p>Vantage Finance &amp; Tech helps companies across Italy and Europe with Oracle Fusion Cloud ERP Finance, SAP FI and S/4HANA Finance, and PMO support, from design through configuration and go-live.</p>
+    <a class="btn" href="/#contact">Get in touch</a>
+  </section>
+
+  <section class="related">
+    <h2>Related guides</h2>
+    <ul>
+      <li><a href="/guides/oracle-fusion-erp-financial-services/">Oracle Fusion Cloud Accounting Architecture for Financial Services</a></li>
+      <li><a href="/guides/oracle-fusion-erp-manufacturing/">Oracle Fusion ERP Accounting Architecture for Manufacturing</a></li>
+      <li><a href="/guides/e-invoicing-sap-s4hana-oracle-fusion/">E-Invoicing Implementation in SAP S/4HANA and Oracle Fusion ERP</a></li>
+    </ul>
+    <p><a href="/guides/">All guides →</a></p>
+  </section>
+</main>
+
+<footer>© 2026 Vantage Finance &amp; Tech · VAT 13449530016 · Rivalta di Torino (TO), Italy</footer>
+
+</body>
+</html>

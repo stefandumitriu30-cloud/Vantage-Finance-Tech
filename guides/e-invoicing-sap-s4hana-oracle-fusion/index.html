@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>E-Invoicing in SAP S/4HANA (DRC) vs Oracle Fusion ERP: Implementation Guide | Vantage Finance &amp; Tech</title>
+<meta name="description" content="Comparative e-invoicing implementation guide: SAP Document and Reporting Compliance vs Oracle Fusion Tax and CMK, configuration steps, master data, transactions and tables, integration, testing and cutover. Free PDF.">
+<link rel="canonical" href="https://vantagefinanceandtech.com/guides/e-invoicing-sap-s4hana-oracle-fusion/">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Vantage Finance &amp; Tech">
+<meta property="og:title" content="E-Invoicing in SAP S/4HANA (DRC) vs Oracle Fusion ERP: Implementation Guide">
+<meta property="og:description" content="Comparative e-invoicing implementation guide: SAP Document and Reporting Compliance vs Oracle Fusion Tax and CMK, configuration steps, master data, transactions and tables, integration, testing and cutover. Free PDF.">
+<meta property="og:url" content="https://vantagefinanceandtech.com/guides/e-invoicing-sap-s4hana-oracle-fusion/">
+<meta property="og:image" content="https://vantagefinanceandtech.com/logo-vantage.png">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/guides/guide.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "E-Invoicing Implementation in SAP S/4HANA and Oracle Fusion ERP",
+      "description": "Comparative e-invoicing implementation guide: SAP Document and Reporting Compliance vs Oracle Fusion Tax and CMK, configuration steps, master data, transactions and tables, integration, testing and cutover. Free PDF.",
+      "inLanguage": "en",
+      "url": "https://vantagefinanceandtech.com/guides/e-invoicing-sap-s4hana-oracle-fusion/",
+      "mainEntityOfPage": "https://vantagefinanceandtech.com/guides/e-invoicing-sap-s4hana-oracle-fusion/",
+      "image": "https://vantagefinanceandtech.com/logo-vantage.png",
+      "datePublished": "2026-10-20",
+      "dateModified": "2026-10-20",
+      "author": {
+        "@type": "Person",
+        "name": "Stefan Dumitriu",
+        "url": "https://vantagefinanceandtech.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Vantage Finance & Tech",
+        "url": "https://vantagefinanceandtech.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://vantagefinanceandtech.com/logo-vantage.png"
+        }
+      },
+      "about": [
+        "E-invoicing",
+        "SAP Document and Reporting Compliance",
+        "Oracle Fusion Tax",
+        "Continuous Transaction Controls"
+      ],
+      "associatedMedia": {
+        "@type": "MediaObject",
+        "contentUrl": "https://vantagefinanceandtech.com/Vantage_E-Invoicing_Implementation_Guide.pdf",
+        "encodingFormat": "application/pdf"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://vantagefinanceandtech.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://vantagefinanceandtech.com/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "E-invoicing in SAP and Oracle"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site">
+  <div class="inner">
+    <a class="brand" href="/"><img src="/guides/logo-header.png" alt="Vantage Finance &amp; Tech" height="44"></a>
+    <nav><a href="/guides/">Guides</a><a href="/#contact">Contact</a></nav>
+  </div>
+</header>
+
+<main>
+  <div class="crumbs"><a href="/">Home</a> › <a href="/guides/">Guides</a> › E-invoicing in SAP and Oracle</div>
+
+  <h1>E-Invoicing Implementation in SAP S/4HANA and Oracle Fusion ERP</h1>
+  <p class="lead">A vendor-neutral comparison of how e-invoicing is implemented in SAP S/4HANA and Oracle Fusion ERP: the regulatory context, the components in each platform, the configuration steps, and how to test and run it.</p>
+
+  <div class="download">
+    <div>
+      <strong>Download the full guide (PDF, 9 pages)</strong>
+      <p>E-invoicing in SAP and Oracle · free</p>
+    </div>
+    <a class="btn" href="/Vantage_E-Invoicing_Implementation_Guide.pdf">Download the PDF</a>
+  </div>
+
+<h2>Why e-invoicing is now an ERP project</h2>
+<p>E-invoicing has become a legal obligation in a growing number of countries. Tax authorities increasingly require invoices to be issued in structured formats such as XML or UBL and, in many cases, cleared or reported in real time, an approach known as continuous transaction controls. The guide cites examples including Italy's SDI, Poland's KSeF, Germany's phased B2B mandate, the EU's VAT in the Digital Age package, and long-established models in Saudi Arabia, India and Brazil.</p>
+<p>Two model families recur. In the <strong>clearance model</strong>, the tax authority validates the invoice before or as it reaches the buyer (Italy, India, Saudi Arabia). In the <strong>reporting model</strong>, partners exchange invoices directly, often through Peppol, and report the data separately. A multinational rollout usually needs to support both at once.</p>
+
+<h2>E-invoicing in SAP S/4HANA</h2>
+<p>SAP's strategic solution is <strong>SAP Document and Reporting Compliance (DRC)</strong>, the successor to Document Compliance and the eDocument Framework. Its building blocks are the eDocument Cockpit for monitoring and reprocessing, the eDocument Framework that maps billing data to the target schema, scope items and communication arrangements (in the public cloud edition), and SAP Integration Suite for country-specific integration flows.</p>
+<p>A typical implementation activates the country scope item or business function, deploys the integration flow with separate test and production endpoints, configures the communication arrangement, maintains value mappings, completes tax master data and certificates, sets up output determination, and tests end to end before cutover.</p>
+
+<h2>E-invoicing in Oracle Fusion ERP</h2>
+<p>Oracle relies on the <strong>Oracle Fusion Tax</strong> engine and country localizations, with the <strong>Collaboration Messaging Framework (CMK)</strong> handling transmission. Increasingly, Oracle works with embedded compliance partners such as Thomson Reuters ONESOURCE Pagero and Avalara, which reduces the need for separate middleware.</p>
+<p>Implementation covers tax regimes, rates and rules, customer and supplier tax registrations, the customer invoice processing opt-in, CMK trading partner and message setup, partner onboarding and domain value mapping, and end-to-end validation in a test environment.</p>
+
+<h2>Side-by-side comparison</h2>
+<div class="table-wrap">
+<table>
+<tr><th>Dimension</th><th>SAP S/4HANA</th><th>Oracle Fusion ERP</th></tr>
+<tr><td>Core solution</td><td>Document and Reporting Compliance</td><td>Fusion Tax + CMK, plus embedded partners</td></tr>
+<tr><td>Monitoring</td><td>eDocument Cockpit</td><td>Fusion Tax, CMK message monitor and partner portal</td></tr>
+<tr><td>Integration</td><td>SAP Integration Suite with pre-built country flows</td><td>CMK outbound interface or embedded partner connectivity</td></tr>
+<tr><td>Activation</td><td>Scope item (cloud) or business function (on-premise)</td><td>Tax setup plus opt-in at customer/supplier level</td></tr>
+<tr><td>Value mapping</td><td>Per-country mapping tables in the eDocument Framework</td><td>Domain value mapping, often on the partner side</td></tr>
+</table>
+</div>
+
+<h2>Master data: the main cause of rejections</h2>
+<p>On either platform, poor master data is the most common reason e-invoices are rejected. Before go-live, check legal entity names and tax numbers exactly as held by the authority, customer and supplier tax IDs, consistent tax code mapping (standard, reduced, exempt, reverse charge), unit of measure and payment term code lists, bank details where required, and digital certificates. Expired certificates and inconsistent tax code mapping are the failures the guide sees most often.</p>
+
+<h2>Transactions, tables and setup tasks</h2>
+<p>The PDF lists the SAP transactions and tables involved (such as <code>EDOC_COCKPIT</code>, the eDocument customizing node, value mapping, output control and the eDocument header and log tables) and the equivalent Oracle Fusion setup tasks (tax regimes and rules, tax profiles, CMK setup, domain value mapping and delivery status lookups).</p>
+
+<h2>Testing, cutover and operations</h2>
+<ul class="points">
+<li>Unit-test every value mapping against all tax scenarios, and validate against the official schema.</li>
+<li>Test end to end in the provider's sandbox, including deliberately malformed data.</li>
+<li>Go live country by country, aligned with each mandate date, rather than in one big bang.</li>
+<li>Freeze tax master data and certificates just before cutover, and keep an approved manual fallback.</li>
+<li>After go-live, assign clear ownership for daily rejection review, certificate renewal and tracking new mandates.</li>
+</ul>
+
+  <div class="download">
+    <div>
+      <strong>Want the complete version with diagrams and tables?</strong>
+      <p>9 pages from our consulting practice.</p>
+    </div>
+    <a class="btn" href="/Vantage_E-Invoicing_Implementation_Guide.pdf">Download the PDF</a>
+  </div>
+
+  <section class="cta">
+    <h2>Working on a project like this?</h2>
+    <p>Vantage Finance &amp; Tech helps companies across Italy and Europe with Oracle Fusion Cloud ERP Finance, SAP FI and S/4HANA Finance, and PMO support, from design through configuration and go-live.</p>
+    <a class="btn" href="/#contact">Get in touch</a>
+  </section>
+
+  <section class="related">
+    <h2>Related guides</h2>
+    <ul>
+      <li><a href="/guides/sap-s4hana-localization-europe/">SAP S/4HANA Localization Guide: Italy, Spain, France, Germany, UK</a></li>
+      <li><a href="/guides/sap-vim-architettura-funzionale/">SAP VIM: architettura funzionale di Vendor Invoice Management</a></li>
+      <li><a href="/guides/oracle-fusion-erp-retail/">Oracle Fusion ERP Accounting Architecture for Retail</a></li>
+    </ul>
+    <p><a href="/guides/">All guides →</a></p>
+  </section>
+</main>
+
+<footer>© 2026 Vantage Finance &amp; Tech · VAT 13449530016 · Rivalta di Torino (TO), Italy</footer>
+
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oracle Fusion Cloud Accounting Architecture for Financial Services | Vantage Finance &amp; Tech</title>
+<meta name="description" content="Oracle Fusion Cloud accounting architecture for banks, insurers and financial services: Subledger Accounting, multi-book General Ledger, close and consolidation, SOX controls and integration. Free PDF.">
+<link rel="canonical" href="https://vantagefinanceandtech.com/guides/oracle-fusion-erp-financial-services/">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Vantage Finance &amp; Tech">
+<meta property="og:title" content="Oracle Fusion Cloud Accounting Architecture for Financial Services">
+<meta property="og:description" content="Oracle Fusion Cloud accounting architecture for banks, insurers and financial services: Subledger Accounting, multi-book General Ledger, close and consolidation, SOX controls and integration. Free PDF.">
+<meta property="og:url" content="https://vantagefinanceandtech.com/guides/oracle-fusion-erp-financial-services/">
+<meta property="og:image" content="https://vantagefinanceandtech.com/logo-vantage.png">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/guides/guide.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "Oracle Fusion Cloud Accounting Architecture for Financial Services",
+      "description": "Oracle Fusion Cloud accounting architecture for banks, insurers and financial services: Subledger Accounting, multi-book General Ledger, close and consolidation, SOX controls and integration. Free PDF.",
+      "inLanguage": "en",
+      "url": "https://vantagefinanceandtech.com/guides/oracle-fusion-erp-financial-services/",
+      "mainEntityOfPage": "https://vantagefinanceandtech.com/guides/oracle-fusion-erp-financial-services/",
+      "image": "https://vantagefinanceandtech.com/logo-vantage.png",
+      "datePublished": "2026-10-20",
+      "dateModified": "2026-10-20",
+      "author": {
+        "@type": "Person",
+        "name": "Stefan Dumitriu",
+        "url": "https://vantagefinanceandtech.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Vantage Finance & Tech",
+        "url": "https://vantagefinanceandtech.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://vantagefinanceandtech.com/logo-vantage.png"
+        }
+      },
+      "about": [
+        "Oracle Fusion Cloud ERP",
+        "Subledger Accounting",
+        "Financial services accounting",
+        "IFRS 9",
+        "IFRS 17"
+      ],
+      "associatedMedia": {
+        "@type": "MediaObject",
+        "contentUrl": "https://vantagefinanceandtech.com/Vantage_Oracle_Fusion_ERP_Financial_Services.pdf",
+        "encodingFormat": "application/pdf"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://vantagefinanceandtech.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://vantagefinanceandtech.com/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Oracle ERP for Financial Services"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site">
+  <div class="inner">
+    <a class="brand" href="/"><img src="/guides/logo-header.png" alt="Vantage Finance &amp; Tech" height="44"></a>
+    <nav><a href="/guides/">Guides</a><a href="/#contact">Contact</a></nav>
+  </div>
+</header>
+
+<main>
+  <div class="crumbs"><a href="/">Home</a> › <a href="/guides/">Guides</a> › Oracle ERP for Financial Services</div>
+
+  <h1>Oracle Fusion Cloud Accounting Architecture for Financial Services</h1>
+  <p class="lead">How banks, insurers and other financial institutions can structure accounting on Oracle Fusion Cloud: event-driven Subledger Accounting, a multi-book General Ledger, a controlled close, and the integrations that feed it.</p>
+
+  <div class="download">
+    <div>
+      <strong>Download the full guide (PDF, 9 pages)</strong>
+      <p>Oracle ERP for Financial Services · free</p>
+    </div>
+    <a class="btn" href="/Vantage_Oracle_Fusion_ERP_Financial_Services.pdf">Download the PDF</a>
+  </div>
+
+<h2>The end-to-end accounting stack</h2>
+<p>In a financial institution, most accounting events start outside the ERP: in the core banking system, treasury, loans and leasing, or investment platforms. The architecture in this guide flows top-down through five layers:</p>
+<ol class="steps">
+<li><strong>Source systems</strong> – banking core, treasury, loans and leasing, investments, payables and receivables.</li>
+<li><strong>Oracle Fusion subledgers</strong> – Payables, Receivables, Fixed Assets, Cash Management, Projects and Treasury.</li>
+<li><strong>Subledger Accounting (SLA)</strong> – the rules engine that turns business events into journals.</li>
+<li><strong>General Ledger</strong> – chart of accounts, multiple books, close, allocations, revaluation and intercompany.</li>
+<li><strong>Reporting and analytics</strong> – Financial Reporting Studio, Smart View, OTBI and Account Reconciliation.</li>
+</ol>
+<p>Each layer adds classification, currency conversion and period attribution, so the figure that reaches the financial statements is fully traceable to its source.</p>
+
+<h2>Subledger Accounting: the core of the design</h2>
+<p>SLA creates a journal for every transaction through configurable rules rather than hard-coded mappings. That matters in financial services because the same event often has to be accounted for under more than one standard at once, such as IFRS 9, IFRS 17 and US GAAP, across primary, secondary and reporting ledgers.</p>
+<p>The processing flow runs in six steps: business event, event classification, journal rule lookup, account derivation, currency conversion, and transfer and posting to the ledger. The configuration objects that drive it are accounting event classes and types, journal entry rule sets, segment-by-segment account derivation rules, accounting methods that assign rule sets to event types, and mapping sets for value-based overrides.</p>
+
+<h2>General Ledger design</h2>
+<ul class="points">
+<li><strong>Chart of accounts</strong> – segment-based (up to 30 segments) with value sets, hierarchies, cross-validation and dynamic combination rules.</li>
+<li><strong>Multi-book ledgers</strong> – a primary ledger for statutory GAAP, a secondary ledger for management or IFRS reporting, reporting currencies for translation and ledger sets for a consolidated view.</li>
+<li><strong>Period close</strong> – automated checklists, subledger close sequencing, revaluation and translation, and a close status dashboard.</li>
+<li><strong>Allocations</strong> – formula-based rules on fixed, variable or statistical bases, recurring journals, accruals and automated eliminations.</li>
+<li><strong>Budgetary control</strong> – online funds checking by segment, tolerances, and commitment tracking.</li>
+</ul>
+
+<h2>Reporting, reconciliation and consolidation</h2>
+<p>The close moves from subledger close through ledger journals, revaluation and translation, account reconciliation and consolidation to the financial statements. Financial Reporting Studio and OTBI cover report design and ad-hoc analysis on live ledger data, and Smart View brings the same data into Excel.</p>
+<p>Account Reconciliation Cloud (ARCS) automates balance and transaction matching for bank and intercompany items, with risk-based certification and audit evidence packages. For group reporting, Financial Consolidation and Close (FCCS) handles multi-entity consolidation with ownership calculations, an intercompany hub, currency translation, minority interest and goodwill adjustments.</p>
+
+<h2>Risk, compliance and controls</h2>
+<p>Controls are built into the platform rather than added afterwards:</p>
+<ul class="points">
+<li>A complete who, what and when for every transaction, with drill-down from ledger balance to journal, SLA event and source.</li>
+<li>Segregation of duties enforced at entry, role-based data security, period locks that prevent backdated postings, and approval thresholds for journals.</li>
+<li>Continuous control monitoring through Oracle Financial Controls Monitor, with exception alerts and KRI dashboards.</li>
+<li>Identity governance integration for preventive and detective SoD controls, access reviews and HR-driven provisioning.</li>
+<li>Support for regulatory frameworks such as DFAST, CCAR, IFRS 17 and Basel III reporting.</li>
+</ul>
+
+<h2>Integration and data flows</h2>
+<p>Core banking and treasury feed journals in real time through OIC adapters. EPM planning exchanges budgets and actuals in both directions. File-based data import handles mass journal loads and chart of accounts maintenance, tax engines such as Vertex and ONESOURCE plug in through REST hooks, and outbound events support publish-subscribe integration and regulatory feeds, including XBRL tagging.</p>
+
+<h2>What the architecture delivers</h2>
+<ul class="points">
+<li><strong>Continuous accounting</strong> – automatic journal posting from SLA removes manual reclassification and shortens the close.</li>
+<li><strong>Multi-GAAP from one transaction</strong> – IFRS, US GAAP and local statutory reporting without dual entry.</li>
+<li><strong>Embedded controls</strong> – SoD, approvals and monitoring are part of the platform.</li>
+<li><strong>Scalability</strong> – from a single entity to global consolidation.</li>
+</ul>
+
+  <div class="download">
+    <div>
+      <strong>Want the complete version with diagrams and tables?</strong>
+      <p>9 pages from our consulting practice.</p>
+    </div>
+    <a class="btn" href="/Vantage_Oracle_Fusion_ERP_Financial_Services.pdf">Download the PDF</a>
+  </div>
+
+  <section class="cta">
+    <h2>Working on a project like this?</h2>
+    <p>Vantage Finance &amp; Tech helps companies across Italy and Europe with Oracle Fusion Cloud ERP Finance, SAP FI and S/4HANA Finance, and PMO support, from design through configuration and go-live.</p>
+    <a class="btn" href="/#contact">Get in touch</a>
+  </section>
+
+  <section class="related">
+    <h2>Related guides</h2>
+    <ul>
+      <li><a href="/guides/oracle-fusion-erp-retail/">Oracle Fusion ERP Accounting Architecture for Retail</a></li>
+      <li><a href="/guides/oracle-erp-epm-automotive/">Oracle ERP and EPM Integrated Architecture for Automotive</a></li>
+      <li><a href="/guides/e-invoicing-sap-s4hana-oracle-fusion/">E-Invoicing Implementation in SAP S/4HANA and Oracle Fusion ERP</a></li>
+    </ul>
+    <p><a href="/guides/">All guides →</a></p>
+  </section>
+</main>
+
+<footer>© 2026 Vantage Finance &amp; Tech · VAT 13449530016 · Rivalta di Torino (TO), Italy</footer>
+
+</body>
+</html>

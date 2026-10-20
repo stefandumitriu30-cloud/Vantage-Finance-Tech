@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oracle Fusion ERP Accounting Architecture for Manufacturing | Vantage Finance &amp; Tech</title>
+<meta name="description" content="Oracle Fusion ERP accounting blueprint for manufacturers: enterprise structure, chart of accounts, subledger flows, cost accounting, supply chain financial orchestration and fixed assets. Free PDF.">
+<link rel="canonical" href="https://vantagefinanceandtech.com/guides/oracle-fusion-erp-manufacturing/">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Vantage Finance &amp; Tech">
+<meta property="og:title" content="Oracle Fusion ERP Accounting Architecture for Manufacturing">
+<meta property="og:description" content="Oracle Fusion ERP accounting blueprint for manufacturers: enterprise structure, chart of accounts, subledger flows, cost accounting, supply chain financial orchestration and fixed assets. Free PDF.">
+<meta property="og:url" content="https://vantagefinanceandtech.com/guides/oracle-fusion-erp-manufacturing/">
+<meta property="og:image" content="https://vantagefinanceandtech.com/logo-vantage.png">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/guides/guide.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "Oracle Fusion ERP Accounting Architecture for Manufacturing",
+      "description": "Oracle Fusion ERP accounting blueprint for manufacturers: enterprise structure, chart of accounts, subledger flows, cost accounting, supply chain financial orchestration and fixed assets. Free PDF.",
+      "inLanguage": "en",
+      "url": "https://vantagefinanceandtech.com/guides/oracle-fusion-erp-manufacturing/",
+      "mainEntityOfPage": "https://vantagefinanceandtech.com/guides/oracle-fusion-erp-manufacturing/",
+      "image": "https://vantagefinanceandtech.com/logo-vantage.png",
+      "datePublished": "2026-10-20",
+      "dateModified": "2026-10-20",
+      "author": {
+        "@type": "Person",
+        "name": "Stefan Dumitriu",
+        "url": "https://vantagefinanceandtech.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Vantage Finance & Tech",
+        "url": "https://vantagefinanceandtech.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://vantagefinanceandtech.com/logo-vantage.png"
+        }
+      },
+      "about": [
+        "Oracle Fusion Cloud ERP",
+        "Manufacturing accounting",
+        "Cost Management",
+        "Supply Chain Financial Orchestration"
+      ],
+      "associatedMedia": {
+        "@type": "MediaObject",
+        "contentUrl": "https://vantagefinanceandtech.com/Oracle%20Fusion%20ERP%20Manufacturing%20Architecture.pdf",
+        "encodingFormat": "application/pdf"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://vantagefinanceandtech.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://vantagefinanceandtech.com/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Oracle ERP for Manufacturing"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site">
+  <div class="inner">
+    <a class="brand" href="/"><img src="/guides/logo-header.png" alt="Vantage Finance &amp; Tech" height="44"></a>
+    <nav><a href="/guides/">Guides</a><a href="/#contact">Contact</a></nav>
+  </div>
+</header>
+
+<main>
+  <div class="crumbs"><a href="/">Home</a> › <a href="/guides/">Guides</a> › Oracle ERP for Manufacturing</div>
+
+  <h1>Oracle Fusion ERP Accounting Architecture for Manufacturing</h1>
+  <p class="lead">A blueprint for the finance side of a manufacturing enterprise on Oracle Fusion ERP: from enterprise structure and chart of accounts to cost accounting, intercompany trade and capital assets.</p>
+
+  <div class="download">
+    <div>
+      <strong>Download the full guide (PDF, 13 pages)</strong>
+      <p>Oracle ERP for Manufacturing · free</p>
+    </div>
+    <a class="btn" href="/Oracle%20Fusion%20ERP%20Manufacturing%20Architecture.pdf">Download the PDF</a>
+  </div>
+
+<h2>Two foundations: global scale and operational integration</h2>
+<p>Manufacturing finance on Oracle Fusion ERP rests on two principles. <strong>Global scalability</strong> means multi-entity, multi-GAAP and multi-currency support, with centralised ledgers and secondary ledgers for local statutory compliance across sites. <strong>Operational integration</strong> means data flows from shop-floor execution into the financial subledgers, with real-time cost capture and variance analysis.</p>
+
+<h2>Enterprise structure</h2>
+<ul class="points">
+<li><strong>Legal entities</strong> – the corporate structure for tax and statutory reporting across jurisdictions.</li>
+<li><strong>Primary ledgers</strong> – a shared chart of accounts, calendar and currency to standardise reporting.</li>
+<li><strong>Cost organizations</strong> – inventory organizations grouped into cost books for consistent material and labour costing.</li>
+</ul>
+
+<h2>Chart of accounts</h2>
+<div class="table-wrap">
+<table>
+<tr><th>Segment</th><th>Purpose</th></tr>
+<tr><td>Company</td><td>The legal entity, used as the balancing segment</td></tr>
+<tr><td>Cost centre</td><td>Spend by manufacturing department, plant floor or logistics hub</td></tr>
+<tr><td>Natural account</td><td>GAAP/IFRS classification for consolidated reporting</td></tr>
+<tr><td>Product / line</td><td>Profitability by product family or SKU group</td></tr>
+<tr><td>Future</td><td>Reserved for later business dimensions</td></tr>
+</table>
+</div>
+
+<h2>From manufacturing events to the ledger</h2>
+<div class="table-wrap">
+<table>
+<tr><th>Subledger</th><th>Event</th><th>Ledger impact</th><th>Accounting logic</th></tr>
+<tr><td>Inventory</td><td>Raw material receipt</td><td>Inventory asset (debit)</td><td>Accrual at receipt</td></tr>
+<tr><td>Manufacturing</td><td>Resource charging</td><td>WIP labour (debit)</td><td>Standard or actual rates</td></tr>
+<tr><td>Costing</td><td>Product completion</td><td>Finished goods (debit)</td><td>Work order close and variance</td></tr>
+<tr><td>Order Management</td><td>Sales shipment</td><td>Cost of goods sold (debit)</td><td>Revenue Management sync</td></tr>
+</table>
+</div>
+
+<h2>Cost accounting</h2>
+<p>Oracle Cost Management maps physical inventory events to financial distributions. It supports standard, actual and average costing, calculates variances automatically, and absorbs overhead and landed costs. Automating work order close reveals material usage and labour efficiency variances as soon as production completes, rather than at month end.</p>
+
+<h2>Supply chain financial orchestration</h2>
+<ul class="points">
+<li><strong>Internal trade</strong> – automated internal sales and purchases between business units, with transfer pricing rules for fair margin distribution.</li>
+<li><strong>Drop shipments</strong> – financial flows for goods shipped directly from supplier to customer, with correct accounting.</li>
+<li><strong>Global procurement</strong> – centralised buying across regions with automated intercompany billing and tax determination.</li>
+</ul>
+
+<h2>Capital investment and fixed assets</h2>
+<p>Capital projects move from construction work in progress to depreciable assets through direct integration with Project Portfolio Management, with capitalisation rules triggered by project completion. The asset lifecycle covers purchase and installation, capitalisation and start of depreciation, revaluation and maintenance cost tracking, and finally sale, scrapping or write-off.</p>
+
+<h2>Where it is heading</h2>
+<p>Embedded machine learning can flag cost anomalies and margin erosion before the period closes, and full drill-down from a ledger balance to the individual work order gives auditors complete transparency.</p>
+
+  <div class="download">
+    <div>
+      <strong>Want the complete version with diagrams and tables?</strong>
+      <p>13 pages from our consulting practice.</p>
+    </div>
+    <a class="btn" href="/Oracle%20Fusion%20ERP%20Manufacturing%20Architecture.pdf">Download the PDF</a>
+  </div>
+
+  <section class="cta">
+    <h2>Working on a project like this?</h2>
+    <p>Vantage Finance &amp; Tech helps companies across Italy and Europe with Oracle Fusion Cloud ERP Finance, SAP FI and S/4HANA Finance, and PMO support, from design through configuration and go-live.</p>
+    <a class="btn" href="/#contact">Get in touch</a>
+  </section>
+
+  <section class="related">
+    <h2>Related guides</h2>
+    <ul>
+      <li><a href="/guides/oracle-erp-epm-automotive/">Oracle ERP and EPM Integrated Architecture for Automotive</a></li>
+      <li><a href="/guides/sap-s4hana-controlling/">SAP S/4HANA Controlling Model for Multinational Manufacturing</a></li>
+      <li><a href="/guides/oracle-fusion-erp-utilities/">Oracle Fusion ERP Architecture for Utilities</a></li>
+    </ul>
+    <p><a href="/guides/">All guides →</a></p>
+  </section>
+</main>
+
+<footer>© 2026 Vantage Finance &amp; Tech · VAT 13449530016 · Rivalta di Torino (TO), Italy</footer>
+
+</body>
+</html>

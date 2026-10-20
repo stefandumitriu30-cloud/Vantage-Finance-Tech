@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SAP VIM: architettura funzionale di Vendor Invoice Management | Vantage Finance &amp; Tech</title>
+<meta name="description" content="Guida all&#x27;architettura funzionale di SAP VIM (OpenText): canali di acquisizione, OCR, Document Processing, eccezioni, Chart of Authority, fattura elettronica SDI, transazioni e tabelle principali. PDF gratuito.">
+<link rel="canonical" href="https://vantagefinanceandtech.com/guides/sap-vim-architettura-funzionale/">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Vantage Finance &amp; Tech">
+<meta property="og:title" content="SAP VIM: architettura funzionale di Vendor Invoice Management">
+<meta property="og:description" content="Guida all&#x27;architettura funzionale di SAP VIM (OpenText): canali di acquisizione, OCR, Document Processing, eccezioni, Chart of Authority, fattura elettronica SDI, transazioni e tabelle principali. PDF gratuito.">
+<meta property="og:url" content="https://vantagefinanceandtech.com/guides/sap-vim-architettura-funzionale/">
+<meta property="og:image" content="https://vantagefinanceandtech.com/logo-vantage.png">
+<meta property="og:locale" content="it_IT">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/guides/guide.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "SAP VIM: architettura funzionale di Vendor Invoice Management",
+      "description": "Guida all'architettura funzionale di SAP VIM (OpenText): canali di acquisizione, OCR, Document Processing, eccezioni, Chart of Authority, fattura elettronica SDI, transazioni e tabelle principali. PDF gratuito.",
+      "inLanguage": "it-IT",
+      "url": "https://vantagefinanceandtech.com/guides/sap-vim-architettura-funzionale/",
+      "mainEntityOfPage": "https://vantagefinanceandtech.com/guides/sap-vim-architettura-funzionale/",
+      "image": "https://vantagefinanceandtech.com/logo-vantage.png",
+      "datePublished": "2026-10-20",
+      "dateModified": "2026-10-20",
+      "author": {
+        "@type": "Person",
+        "name": "Stefan Dumitriu",
+        "url": "https://vantagefinanceandtech.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Vantage Finance & Tech",
+        "url": "https://vantagefinanceandtech.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://vantagefinanceandtech.com/logo-vantage.png"
+        }
+      },
+      "about": [
+        "SAP VIM",
+        "OpenText Vendor Invoice Management",
+        "Ciclo passivo",
+        "SAP S/4HANA"
+      ],
+      "associatedMedia": {
+        "@type": "MediaObject",
+        "contentUrl": "https://vantagefinanceandtech.com/Architettura_Funzionale_SAP_VIM.pdf",
+        "encodingFormat": "application/pdf"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://vantagefinanceandtech.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guide",
+          "item": "https://vantagefinanceandtech.com/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "SAP VIM: architettura funzionale"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site">
+  <div class="inner">
+    <a class="brand" href="/"><img src="/guides/logo-header.png" alt="Vantage Finance &amp; Tech" height="44"></a>
+    <nav><a href="/guides/">Guide</a><a href="/#contact">Contatti</a></nav>
+  </div>
+</header>
+
+<main>
+  <div class="crumbs"><a href="/">Home</a> › <a href="/guides/">Guide</a> › SAP VIM: architettura funzionale</div>
+
+  <h1>SAP VIM: architettura funzionale di Vendor Invoice Management</h1>
+  <p class="lead">Come SAP Vendor Invoice Management by OpenText porta una fattura fornitore dalla ricezione alla registrazione in SAP: livelli funzionali, ruoli, eccezioni, integrazione con lo SDI, transazioni e tabelle.</p>
+
+  <div class="download">
+    <div>
+      <strong>Scarica la guida completa (PDF, 16 pagine)</strong>
+      <p>SAP VIM: architettura funzionale · in italiano · gratuita</p>
+    </div>
+    <a class="btn" href="/Architettura_Funzionale_SAP_VIM.pdf">Scarica il PDF</a>
+  </div>
+
+<h2>Cos'è SAP VIM</h2>
+<p>SAP VIM (Vendor Invoice Management by OpenText) è la soluzione che automatizza il ciclo passivo all'interno di SAP ECC e SAP S/4HANA: acquisizione della fattura, riconoscimento dei dati, validazione, gestione delle eccezioni, approvazione e registrazione contabile.</p>
+<p>Il punto da capire subito è che VIM <strong>non è un sistema esterno</strong>. Gira dentro SAP nel namespace <code>/OPT/</code>, usa il workflow standard di SAP e scrive direttamente sui documenti MM e FI. Per questo non serve alcuna riconciliazione tra sistemi: la fattura registrata da VIM è un normale documento SAP, con l'immagine sempre consultabile.</p>
+
+<h2>L'architettura in cinque livelli</h2>
+<p>La soluzione si legge dall'alto verso il basso, seguendo il percorso della fattura:</p>
+<ol class="steps">
+<li><strong>Canali di acquisizione</strong> – carta e scanner, e-mail, PEC e fattura elettronica dallo SDI, EDI/IDoc, portale fornitori e Ariba Network.</li>
+<li><strong>Capture e OCR</strong> – OpenText Intelligent Capture classifica il documento, estrae i dati di testata e di riga, propone fornitore e ordine d'acquisto e li sottopone a validazione.</li>
+<li><strong>VIM Core – Document Processing</strong> – il documento DP guida il processo attraverso process type, business rules, gestione delle eccezioni e Chart of Authority.</li>
+<li><strong>SAP S/4HANA / ECC</strong> – registrazione in MM-LIV per le fatture con ordine (3-way match) o in FI-AP per quelle senza ordine, con archiviazione via ArchiveLink.</li>
+<li><strong>Reporting e analytics</strong> – VIM Analytics, dashboard KPI, aging, produttività e audit trail.</li>
+</ol>
+
+<h2>Il Document Processing, cuore della soluzione</h2>
+<p>Ogni fattura in ingresso genera un documento DP che attraversa cinque passaggi: creazione, determinazione del process type, controlli tramite business rules, gestione delle eventuali eccezioni e registrazione in SAP.</p>
+<h3>Process type</h3>
+<p>Stabilisce quale flusso segue la fattura, in base a canale di ingresso, società e tipo di documento (con ordine, senza ordine, nota di credito).</p>
+<h3>Business rules</h3>
+<p>Controlli automatici su duplicati, dati fiscali e partita IVA, coerenza degli importi e validità dell'ordine. Una fattura che li supera tutti può arrivare in registrazione senza alcun intervento umano.</p>
+<h3>Ruoli</h3>
+<p>Ogni passaggio è assegnato a un ruolo VIM che lavora la propria coda: Indexer/Validator, AP Processor, Approver/Coder, Buyer/Requester, AP Manager e VIM Administrator.</p>
+
+<h2>Eccezioni e approvazioni</h2>
+<p>L'obiettivo di VIM è che solo le fatture problematiche richiedano una persona. Le eccezioni più comuni sono le differenze di prezzo o quantità rispetto all'ordine, l'entrata merci non ancora registrata, le fatture duplicate o da fornitori non censiti, i dati fiscali incompleti e l'ordine mancante.</p>
+<p>Per le fatture senza ordine, il <strong>Chart of Authority</strong> determina automaticamente gli approvatori in base a importo, società e categoria di spesa. Imputazione contabile e approvazione avvengono anche da web o Fiori, con escalation e sostituti automatici quando qualcuno non agisce nei tempi previsti.</p>
+
+<h2>Integrazione con SAP: fatture con e senza ordine</h2>
+<p>Le <strong>fatture con ordine</strong> vengono registrate in MM-LIV (MIRO o BAPI) con il confronto tra ordine, entrata merci e fattura; i blocchi di pagamento generati dalle tolleranze vengono gestiti come eccezioni VIM. Le <strong>fatture senza ordine</strong> vengono registrate in FI-AP (FB60 o BAPI), con centro di costo e conto indicati durante l'approvazione.</p>
+<p>La qualità della registrazione dipende comunque dal customizing FI/MM sottostante: anagrafica fornitore, tipi documento, condizioni di pagamento, codici IVA, tolleranze e controllo dei duplicati lato MM vanno validati con il team contabile già nella fase di Explore.</p>
+
+<h2>Fattura elettronica italiana: dallo SDI a VIM</h2>
+<p>In Italia la fattura passiva arriva in formato XML FatturaPA attraverso il Sistema di Interscambio. Il file viene ricevuto tramite codice destinatario, intermediario accreditato o PEC, poi letto da SAP Document and Reporting Compliance (eDocument) o da un add-on di localizzazione, che crea il documento DP con i dati già strutturati.</p>
+<p>Il vantaggio è netto: <strong>niente OCR</strong>, estrazione completa dei dati, meno errori e una quota molto più alta di fatture registrate senza intervento manuale. La rappresentazione grafica della fattura resta archiviata via ArchiveLink, mentre notifiche SDI e conservazione a norma passano dal servizio di conservazione.</p>
+
+<h2>Transazioni principali</h2>
+<div class="table-wrap">
+<table>
+<tr><th>Transazione</th><th>A cosa serve</th></tr>
+<tr><td>/OPT/VIM_WP</td><td>VIM Workplace, la coda di lavoro unificata per tutti i ruoli</td></tr>
+<tr><td>/OPT/VIM_ANALYTICS</td><td>Stato e storia di tutte le fatture in processo</td></tr>
+<tr><td>/OPT/SPRO</td><td>Configurazione VIM: process type, regole, ruoli, Chart of Authority</td></tr>
+<tr><td>MIRO / MIR4</td><td>Registrazione e visualizzazione delle fatture logistiche</td></tr>
+<tr><td>FB60 / FB03</td><td>Registrazione e visualizzazione delle fatture FI</td></tr>
+<tr><td>MRBR</td><td>Rilascio delle fatture bloccate per pagamento</td></tr>
+<tr><td>SWI1 / SWIA</td><td>Monitor e riavvio dei work item di workflow</td></tr>
+<tr><td>WE02 / WE20</td><td>Monitor IDoc e profili partner per EDI e fattura elettronica</td></tr>
+</table>
+</div>
+<p class="note">Il PDF contiene l'elenco completo, insieme alle tabelle VIM e SAP correlate (testata e righe del documento DP, log di processo, RBKP/RSEG, BKPF/BSEG) e ai prerequisiti tecnici di configurazione. I codici <code>/OPT/*</code> possono variare in base alla versione VIM installata.</p>
+
+<h2>Cosa misurare: i KPI del ciclo passivo</h2>
+<p>VIM Analytics dà ad AP Manager e CFO quattro indicatori chiave: <strong>touchless rate</strong> (percentuale di fatture registrate senza intervento manuale), <strong>cycle time</strong> dalla ricezione alla registrazione o al pagamento, <strong>aging</strong> delle fatture in coda per eccezione e responsabile, e <strong>produttività</strong> per operatore, ruolo e società. I dati possono alimentare anche SAP Analytics Cloud o altri strumenti di BI.</p>
+
+  <div class="download">
+    <div>
+      <strong>Vuoi la versione completa con schemi e tabelle?</strong>
+      <p>16 pagine su architettura, configurazione, transazioni e tabelle.</p>
+    </div>
+    <a class="btn" href="/Architettura_Funzionale_SAP_VIM.pdf">Scarica il PDF</a>
+  </div>
+
+  <section class="cta">
+    <h2>Stai implementando o ottimizzando SAP VIM?</h2>
+    <p>Vantage Finance &amp; Tech supporta aziende italiane ed europee su SAP FI, S/4HANA Finance e automazione del ciclo passivo, dalla progettazione dei flussi alla configurazione e al go-live.</p>
+    <a class="btn" href="/#contact">Contattaci</a>
+  </section>
+
+  <section class="related">
+    <h2>Guide correlate</h2>
+    <ul>
+      <li><a href="/guides/e-invoicing-sap-s4hana-oracle-fusion/">E-Invoicing Implementation in SAP S/4HANA and Oracle Fusion ERP</a></li>
+      <li><a href="/guides/sap-s4hana-localization-europe/">SAP S/4HANA Localization Guide: Italy, Spain, France, Germany, UK</a></li>
+      <li><a href="/guides/sap-s4hana-implementation-roadmap/">SAP S/4HANA Implementation Roadmap with Agentic AI</a></li>
+    </ul>
+    <p><a href="/guides/">Tutte le guide →</a></p>
+  </section>
+
+  <section class="alt-lang" lang="en">
+    <h2>In English</h2>
+    <p>This guide (in Italian) describes the functional architecture of SAP Vendor Invoice Management by OpenText: the five layers from capture channels and OCR through Document Processing, SAP MM/FI posting and analytics; VIM roles and exception handling; approval workflows driven by the Chart of Authority; Italian e-invoicing through SDI; and the main transactions, tables and configuration prerequisites. <a href="/Architettura_Funzionale_SAP_VIM.pdf">Download the PDF</a>.</p>
+  </section>
+</main>
+
+<footer>© 2026 Vantage Finance &amp; Tech · P. IVA 13449530016 · Rivalta di Torino (TO)</footer>
+
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oracle Fusion ERP Accounting Architecture for Utilities (Energy &amp; Water) | Vantage Finance &amp; Tech</title>
+<meta name="description" content="Oracle Fusion ERP architecture for energy and water utilities: dual ledgers for IFRS and FERC, chart of accounts, CWIP to fixed assets, Financial Accounting Hub for CIS billing, integration and roadmap. Free PDF.">
+<link rel="canonical" href="https://vantagefinanceandtech.com/guides/oracle-fusion-erp-utilities/">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Vantage Finance &amp; Tech">
+<meta property="og:title" content="Oracle Fusion ERP Accounting Architecture for Utilities (Energy &amp; Water)">
+<meta property="og:description" content="Oracle Fusion ERP architecture for energy and water utilities: dual ledgers for IFRS and FERC, chart of accounts, CWIP to fixed assets, Financial Accounting Hub for CIS billing, integration and roadmap. Free PDF.">
+<meta property="og:url" content="https://vantagefinanceandtech.com/guides/oracle-fusion-erp-utilities/">
+<meta property="og:image" content="https://vantagefinanceandtech.com/logo-vantage.png">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/guides/guide.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "Oracle Fusion ERP Architecture for Utilities",
+      "description": "Oracle Fusion ERP architecture for energy and water utilities: dual ledgers for IFRS and FERC, chart of accounts, CWIP to fixed assets, Financial Accounting Hub for CIS billing, integration and roadmap. Free PDF.",
+      "inLanguage": "en",
+      "url": "https://vantagefinanceandtech.com/guides/oracle-fusion-erp-utilities/",
+      "mainEntityOfPage": "https://vantagefinanceandtech.com/guides/oracle-fusion-erp-utilities/",
+      "image": "https://vantagefinanceandtech.com/logo-vantage.png",
+      "datePublished": "2026-10-20",
+      "dateModified": "2026-10-20",
+      "author": {
+        "@type": "Person",
+        "name": "Stefan Dumitriu",
+        "url": "https://vantagefinanceandtech.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Vantage Finance & Tech",
+        "url": "https://vantagefinanceandtech.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://vantagefinanceandtech.com/logo-vantage.png"
+        }
+      },
+      "about": [
+        "Oracle Fusion Cloud ERP",
+        "Utilities accounting",
+        "FERC",
+        "Financial Accounting Hub",
+        "CWIP"
+      ],
+      "associatedMedia": {
+        "@type": "MediaObject",
+        "contentUrl": "https://vantagefinanceandtech.com/Oracle%20Fusion%20ERP%20Utilities%20Architecture.pdf",
+        "encodingFormat": "application/pdf"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://vantagefinanceandtech.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://vantagefinanceandtech.com/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Oracle ERP for Utilities"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site">
+  <div class="inner">
+    <a class="brand" href="/"><img src="/guides/logo-header.png" alt="Vantage Finance &amp; Tech" height="44"></a>
+    <nav><a href="/guides/">Guides</a><a href="/#contact">Contact</a></nav>
+  </div>
+</header>
+
+<main>
+  <div class="crumbs"><a href="/">Home</a> › <a href="/guides/">Guides</a> › Oracle ERP for Utilities</div>
+
+  <h1>Oracle Fusion ERP Architecture for Utilities</h1>
+  <p class="lead">A finance architecture for energy and water utilities on Oracle Fusion ERP: separating corporate and regulatory reporting, handling capital projects at scale, and turning high-volume billing data into clean accounting.</p>
+
+  <div class="download">
+    <div>
+      <strong>Download the full guide (PDF, 13 pages)</strong>
+      <p>Oracle ERP for Utilities · free</p>
+    </div>
+    <a class="btn" href="/Oracle%20Fusion%20ERP%20Utilities%20Architecture.pdf">Download the PDF</a>
+  </div>
+
+<h2>Why utilities need a different finance design</h2>
+<p>Two characteristics make utility accounting unusually demanding. First, utilities are <strong>asset intensive</strong>: networks and plants have lifecycles measured in decades, construction work in progress (CWIP) runs at large scale, and depreciation schedules are high volume. Second, they process <strong>very large transaction volumes</strong> from customer information systems (CIS), which have to be condensed into accounting journals without bloating the general ledger.</p>
+
+<h2>Dual ledgers: corporate and regulatory</h2>
+<p>Oracle Fusion's multi-ledger architecture lets a utility keep corporate and regulatory views of the same transactions:</p>
+<ul class="points">
+<li><strong>Primary ledger</strong> for corporate reporting under IFRS or US GAAP.</li>
+<li><strong>Secondary ledger</strong> for regulatory reporting (such as FERC in the US) and tax books.</li>
+<li><strong>Legal entities</strong> mapped to each operating utility company for statutory separation.</li>
+</ul>
+
+<h2>Chart of accounts design</h2>
+<div class="table-wrap">
+<table>
+<tr><th>Segment</th><th>Purpose</th></tr>
+<tr><td>Entity / company</td><td>The legal utility company, with its own balance sheet</td></tr>
+<tr><td>Cost centre / department</td><td>Separates generation, transmission and distribution</td></tr>
+<tr><td>Natural account</td><td>Aligned to the FERC Uniform System of Accounts for regulatory filing</td></tr>
+<tr><td>Intercompany</td><td>Automated eliminations in multi-utility groups</td></tr>
+<tr><td>Geography</td><td>Revenue and maintenance spend by service territory</td></tr>
+</table>
+</div>
+<p>Aligning the natural account segment with the regulator's chart is the decision that makes regulatory reporting largely automatic later, because every balance in a filing can be traced straight back to source transactions.</p>
+
+<h2>Core subledgers</h2>
+<ul class="points">
+<li><strong>Fixed Assets</strong> – acquisition to retirement, including the units-of-production depreciation common in heavy infrastructure.</li>
+<li><strong>Project Portfolio Management (PPM)</strong> – tracks large capital work in progress and capitalises project costs directly into Fixed Assets.</li>
+<li><strong>Procurement</strong> – spare parts and external maintenance services, with automated matching.</li>
+</ul>
+
+<h2>Financial Accounting Hub: from billing events to journals</h2>
+<p>For utilities, the Financial Accounting Hub (FAH) is the critical bridge between operational billing events and the general ledger. It ingests daily transaction files from the CIS, applies utility-specific accounting rules, and keeps full drill-back from the ledger balance to the original billing record. This is what lets the ledger stay summarised while the detail remains auditable.</p>
+
+<h2>Integration matrix</h2>
+<div class="table-wrap">
+<table>
+<tr><th>Source system</th><th>Receiving module</th><th>Method</th><th>Purpose</th></tr>
+<tr><td>Customer information (CIS)</td><td>Financial Accounting Hub</td><td>REST API / batch</td><td>Billing revenue transformation</td></tr>
+<tr><td>Work &amp; asset management</td><td>Procurement / Payables</td><td>Web services</td><td>Maintenance spend control</td></tr>
+<tr><td>Meter data management</td><td>Receivables</td><td>Oracle Integration Cloud</td><td>Receivables posting</td></tr>
+<tr><td>Project management</td><td>PPM Cloud</td><td>Native</td><td>Capital expenditure tracking</td></tr>
+</table>
+</div>
+
+<h2>A 15-month roadmap</h2>
+<ol class="steps">
+<li><strong>Design (months 1–3)</strong> – chart of accounts and enterprise structure.</li>
+<li><strong>Build (months 4–8)</strong> – core financials and Subledger Accounting configuration.</li>
+<li><strong>Integrate (months 9–12)</strong> – Financial Accounting Hub setup and CIS connectivity.</li>
+<li><strong>Deploy (months 13–15)</strong> – user acceptance testing, training and go-live.</li>
+</ol>
+
+  <div class="download">
+    <div>
+      <strong>Want the complete version with diagrams and tables?</strong>
+      <p>13 pages from our consulting practice.</p>
+    </div>
+    <a class="btn" href="/Oracle%20Fusion%20ERP%20Utilities%20Architecture.pdf">Download the PDF</a>
+  </div>
+
+  <section class="cta">
+    <h2>Working on a project like this?</h2>
+    <p>Vantage Finance &amp; Tech helps companies across Italy and Europe with Oracle Fusion Cloud ERP Finance, SAP FI and S/4HANA Finance, and PMO support, from design through configuration and go-live.</p>
+    <a class="btn" href="/#contact">Get in touch</a>
+  </section>
+
+  <section class="related">
+    <h2>Related guides</h2>
+    <ul>
+      <li><a href="/guides/oracle-fusion-erp-manufacturing/">Oracle Fusion ERP Accounting Architecture for Manufacturing</a></li>
+      <li><a href="/guides/oracle-fusion-erp-financial-services/">Oracle Fusion Cloud Accounting Architecture for Financial Services</a></li>
+      <li><a href="/guides/sap-s4hana-implementation-roadmap/">SAP S/4HANA Implementation Roadmap with Agentic AI</a></li>
+    </ul>
+    <p><a href="/guides/">All guides →</a></p>
+  </section>
+</main>
+
+<footer>© 2026 Vantage Finance &amp; Tech · VAT 13449530016 · Rivalta di Torino (TO), Italy</footer>
+
+</body>
+</html>

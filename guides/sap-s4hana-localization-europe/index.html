@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SAP S/4HANA Localization: Italy, Spain, France, Germany and UK Configuration Guide | Vantage Finance &amp; Tech</title>
+<meta name="description" content="SAP S/4HANA localization and configuration requirements for Italy, Spain, France, Germany and the United Kingdom: tax procedures, VAT rates, e-invoicing (SDI, SII, Chorus Pro, XRechnung, MTD), statutory reports and SPRO activities. Free PDF.">
+<link rel="canonical" href="https://vantagefinanceandtech.com/guides/sap-s4hana-localization-europe/">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Vantage Finance &amp; Tech">
+<meta property="og:title" content="SAP S/4HANA Localization: Italy, Spain, France, Germany and UK Configuration Guide">
+<meta property="og:description" content="SAP S/4HANA localization and configuration requirements for Italy, Spain, France, Germany and the United Kingdom: tax procedures, VAT rates, e-invoicing (SDI, SII, Chorus Pro, XRechnung, MTD), statutory reports and SPRO activities. Free PDF.">
+<meta property="og:url" content="https://vantagefinanceandtech.com/guides/sap-s4hana-localization-europe/">
+<meta property="og:image" content="https://vantagefinanceandtech.com/logo-vantage.png">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/guides/guide.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "SAP S/4HANA Localization Guide: Italy, Spain, France, Germany, UK",
+      "description": "SAP S/4HANA localization and configuration requirements for Italy, Spain, France, Germany and the United Kingdom: tax procedures, VAT rates, e-invoicing (SDI, SII, Chorus Pro, XRechnung, MTD), statutory reports and SPRO activities. Free PDF.",
+      "inLanguage": "en",
+      "url": "https://vantagefinanceandtech.com/guides/sap-s4hana-localization-europe/",
+      "mainEntityOfPage": "https://vantagefinanceandtech.com/guides/sap-s4hana-localization-europe/",
+      "image": "https://vantagefinanceandtech.com/logo-vantage.png",
+      "datePublished": "2026-10-20",
+      "dateModified": "2026-10-20",
+      "author": {
+        "@type": "Person",
+        "name": "Stefan Dumitriu",
+        "url": "https://vantagefinanceandtech.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Vantage Finance & Tech",
+        "url": "https://vantagefinanceandtech.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://vantagefinanceandtech.com/logo-vantage.png"
+        }
+      },
+      "about": [
+        "SAP S/4HANA",
+        "SAP localization",
+        "VAT",
+        "E-invoicing",
+        "SAP Document and Reporting Compliance"
+      ],
+      "associatedMedia": {
+        "@type": "MediaObject",
+        "contentUrl": "https://vantagefinanceandtech.com/Vantage_SAP_S4HANA_Localization_Guide.pdf",
+        "encodingFormat": "application/pdf"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://vantagefinanceandtech.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://vantagefinanceandtech.com/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "SAP S/4HANA localization"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site">
+  <div class="inner">
+    <a class="brand" href="/"><img src="/guides/logo-header.png" alt="Vantage Finance &amp; Tech" height="44"></a>
+    <nav><a href="/guides/">Guides</a><a href="/#contact">Contact</a></nav>
+  </div>
+</header>
+
+<main>
+  <div class="crumbs"><a href="/">Home</a> › <a href="/guides/">Guides</a> › SAP S/4HANA localization</div>
+
+  <h1>SAP S/4HANA Localization Guide: Italy, Spain, France, Germany, UK</h1>
+  <p class="lead">What it takes to make SAP S/4HANA legally compliant in five European countries: the shared building blocks, the country-specific tax, e-invoicing and reporting requirements, and the configuration activities for each.</p>
+
+  <div class="download">
+    <div>
+      <strong>Download the full guide (PDF, 16 pages)</strong>
+      <p>SAP S/4HANA localization · free</p>
+    </div>
+    <a class="btn" href="/Vantage_SAP_S4HANA_Localization_Guide.pdf">Download the PDF</a>
+  </div>
+
+<h2>Shared building blocks</h2>
+<p>SAP S/4HANA ships with a common international core, and each country's obligations are covered by a country version activated per company code. Before configuring any single country, a set of foundations has to be in place:</p>
+<ul class="points">
+<li>Company code country key, which drives the default tax procedure, address layout and payment formats.</li>
+<li>An operating chart of accounts plus, where required, a country chart of accounts.</li>
+<li>One tax calculation procedure per country (TAXIT, TAXES, TAXFR, TAXDE, TAXGB).</li>
+<li>Country-specific business partner fields for tax IDs and banking.</li>
+<li>Number ranges that meet legal sequential numbering requirements.</li>
+<li>VAT returns through Advanced Compliance Reporting, e-invoicing through Document and Reporting Compliance, Intrastat and EC Sales Lists, extended withholding tax, and country financial statement versions.</li>
+<li>Country forms, SEPA payment formats and legal archiving.</li>
+</ul>
+
+<h2>The five countries at a glance</h2>
+<div class="table-wrap">
+<table>
+<tr><th>Country</th><th>Tax procedure</th><th>Standard VAT</th><th>Defining requirement</th></tr>
+<tr><td>Italy</td><td>TAXIT</td><td>22%</td><td>Mandatory e-invoicing through SDI (FatturaPA), VAT registers, withholding tax</td></tr>
+<tr><td>Spain</td><td>TAXES</td><td>21%</td><td>SII near-real-time VAT reporting within four business days</td></tr>
+<tr><td>France</td><td>TAXFR</td><td>20%</td><td>FEC audit file, Chorus Pro for B2G, phased B2B e-invoicing via PDP</td></tr>
+<tr><td>Germany</td><td>TAXDE</td><td>19%</td><td>GoBD record integrity, DATEV export, XRechnung/ZUGFeRD</td></tr>
+<tr><td>United Kingdom</td><td>TAXGB</td><td>20%</td><td>Making Tax Digital for VAT via the HMRC API</td></tr>
+</table>
+</div>
+
+<h2>Italy</h2>
+<p>Italy is one of the most demanding SAP localizations. All B2B, B2C and B2G invoices must be issued as FatturaPA XML and pass through the Sistema di Interscambio, which DRC handles including SDI status notifications. Configuration covers business places, VAT registers and periodic VAT settlement, withholding tax (ritenuta d'acconto), the SDI channel (PEC or an accredited intermediary), legal numbering and the Bilancio CEE financial statement version. Because SDI specifications change often, the guide recommends a recurring SAP Note review and regression test cycle.</p>
+
+<h2>Spain</h2>
+<p>Spain's SII requires large taxpayers to report invoice data to the tax agency within four business days. Configuration covers the SII activation date, message types and certificates, VAT book mapping, withholding tax, the Modelo 303, 349 and 390 returns, and Facturae for public-sector invoicing through FACe. Monitoring of rejected and partially accepted records belongs in the support model, not just the initial build.</p>
+
+<h2>France</h2>
+<p>France combines VAT compliance with the FEC, a standardised export of all accounting entries produced on request for tax audits, and the phased rollout of B2B e-invoicing and e-reporting through certified platforms (Factur-X, UBL and CII formats). Public-sector invoices already go through Chorus Pro. Because the mandate timeline has shifted several times, the guide recommends treating it as a separate project track with its own go-live date.</p>
+
+<h2>Germany</h2>
+<p>Germany centres on GoBD: accounting records and system changes must be unalterable, traceable and retrievable for the retention period. Configuration covers change logging, archiving, gap-free number ranges, DATEV export for tax advisors, XRechnung and ZUGFeRD e-invoicing as the B2B mandate phases in, the HGB financial statement version and the VAT pre-return and EC Sales List. The guide advises running a mock tax-audit data export during testing.</p>
+
+<h2>United Kingdom</h2>
+<p>After Brexit, the UK's main digital obligation is Making Tax Digital: VAT records kept digitally and the nine-box return submitted through software connected to HMRC's API. Configuration also covers postponed VAT accounting for imports, BACS, Faster Payments and CHAPS formats, and EORI numbers. EU cross-border settings should not be reused unchanged for UK company codes.</p>
+
+<h2>Recommendations</h2>
+<ul class="points">
+<li>Run localization as a parallel workstream with its own fit-gap, build and test cycle per country.</li>
+<li>Involve local tax experts during design, since thresholds and formats change independently of SAP releases.</li>
+<li>Test every e-invoicing and reporting integration end to end against government sandboxes.</li>
+<li>Enforce country-mandatory business partner fields at entry rather than fixing them later.</li>
+<li>Monitor SAP Notes and legal changes continuously, and build dashboards so finance can react within statutory windows.</li>
+</ul>
+<p class="note">The PDF includes a cross-country configuration checklist covering all five jurisdictions. It is a planning aid, not legal or tax advice; always verify current rules with SAP Notes and the local tax authority.</p>
+
+  <div class="download">
+    <div>
+      <strong>Want the complete version with diagrams and tables?</strong>
+      <p>16 pages from our consulting practice.</p>
+    </div>
+    <a class="btn" href="/Vantage_SAP_S4HANA_Localization_Guide.pdf">Download the PDF</a>
+  </div>
+
+  <section class="cta">
+    <h2>Working on a project like this?</h2>
+    <p>Vantage Finance &amp; Tech helps companies across Italy and Europe with Oracle Fusion Cloud ERP Finance, SAP FI and S/4HANA Finance, and PMO support, from design through configuration and go-live.</p>
+    <a class="btn" href="/#contact">Get in touch</a>
+  </section>
+
+  <section class="related">
+    <h2>Related guides</h2>
+    <ul>
+      <li><a href="/guides/e-invoicing-sap-s4hana-oracle-fusion/">E-Invoicing Implementation in SAP S/4HANA and Oracle Fusion ERP</a></li>
+      <li><a href="/guides/sap-s4hana-controlling/">SAP S/4HANA Controlling Model for Multinational Manufacturing</a></li>
+      <li><a href="/guides/sap-vim-architettura-funzionale/">SAP VIM: architettura funzionale di Vendor Invoice Management</a></li>
+    </ul>
+    <p><a href="/guides/">All guides →</a></p>
+  </section>
+</main>
+
+<footer>© 2026 Vantage Finance &amp; Tech · VAT 13449530016 · Rivalta di Torino (TO), Italy</footer>
+
+</body>
+</html>
