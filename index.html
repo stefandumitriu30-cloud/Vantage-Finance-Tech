@@ -525,8 +525,7 @@
   try { sessionStorage.setItem('vft-intro', '1'); } catch (e) {}
 
   var mobile = window.matchMedia('(max-width: 700px)').matches;
-  video.poster = mobile ? '/media/intro-mobile.jpg' : '/media/intro-desktop.jpg';
-  video.src = mobile ? '/media/intro-mobile.mp4' : '/media/intro-desktop.mp4';
+  video.src = mobile ? '/media/intro-particles-mobile.mp4' : '/media/intro-particles-desktop.mp4';
   root.classList.add('intro-open');
 
   var closed = false;
@@ -543,7 +542,7 @@
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
   var p = video.play();
   if (p && p.catch) p.catch(function () { setTimeout(close, 1500); });
-  setTimeout(close, 8000); /* sicurezza: mai più di 8 secondi */
+  setTimeout(close, 11000); /* sicurezza: mai più di 11 secondi */
 })();
 </script>
 
