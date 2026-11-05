@@ -334,6 +334,12 @@
     .nav-clocks .tb-clock .city { font-size: 5.5px; letter-spacing:.1px; }
     .nav-clocks .tb-clock .time { font-size: 8.5px; font-weight:700; }
     /* Clocks su mobile: 2 colonne × 2 righe (Roma/Londra | NewYork/Riyadh) */
+    /* Evita lo scroll orizzontale su telefono */
+    nav { grid-template-columns: auto minmax(0, 1fr) auto; column-gap: 6px; }
+    .nav-clocks { justify-self: center; min-width: 0; }
+    .lang-switcher { gap: 4px; }
+    .lang-btn { padding: 3px 8px; font-size: 0.75rem; }
+    .contact-text { min-width: 0; overflow-wrap: anywhere; }
   }
 
   /* SAP pill — special */
