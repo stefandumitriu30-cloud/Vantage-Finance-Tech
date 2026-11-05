@@ -1,0 +1,26 @@
+﻿Phase,Activity,ES - Executive sponsor,SC - Steering committee,PM - Programme manager / PMO,BPO - Business process owners,SA - Solution architect,FL - Functional leads,KU - Key users,DL - Data migration lead,TL - Technical lead,CL - Change and training lead,TM - Test manager
+Discover and Prepare,Approve business case and budget,A,R,C,C,C,,,,,,
+Discover and Prepare,Project charter and governance model,A,C,R,C,C,I,,,,C,
+Discover and Prepare,Integrated project plan and RAID log,I,I,A/R,C,C,C,,C,C,C,C
+Discover and Prepare,System landscape provisioning,,,I,,A,,,,R,,
+Explore,Fit-to-standard workshops,,,I,A,C,R,C,,,I,
+Explore,Delta requirements and backlog prioritisation,,,C,A,C,R,C,,C,,
+Explore,Solution design sign-off,,I,I,A,R,R,C,,C,,
+Explore,Data migration strategy,,,C,A,C,C,,R,C,,
+Explore,Integration architecture,,,I,,A,C,,,R,,
+Explore,Test strategy,,,A,C,C,C,I,,,,R
+Realize,Configuration and build,,,I,C,A,R,C,,R,,
+Realize,Custom developments and interfaces,,,I,C,A,C,,,R,,I
+Realize,Data cleansing,,,I,A,,,R,R,,,
+Realize,Mock data loads and reconciliation,,,I,C,,C,C,A,R,,
+Realize,Unit and integration testing (SIT),,,I,I,C,R,C,,R,,A
+Realize,Training material,,,,C,,R,R,,,A,
+Deploy,User acceptance testing and sign-off,,I,I,A,,C,R,,,,R
+Deploy,End-user training,,,,C,,C,R,,,A,
+Deploy,Cutover plan and rehearsals,,I,A,C,C,R,C,R,R,,C
+Deploy,Go/no-go decision,A,R,R,C,C,,,C,,C,C
+Run,Hypercare and incident management,,I,A,C,C,R,R,,R,,
+Run,Hypercare exit and handover to support / CoE,I,A,R,C,C,C,,,C,,
+
+Legend,"R = Responsible (does the work), A = Accountable (one per activity, approves), C = Consulted, I = Informed"
+Source,Vantage Finance & Tech - https://vantagefinanceandtech.com/guides/sap-s4hana-raci-matrix/

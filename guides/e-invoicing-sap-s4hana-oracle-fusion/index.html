@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>E-Invoicing in SAP S/4HANA (DRC) vs Oracle Fusion ERP: Implementation Guide | Vantage Finance &amp; Tech</title>
-<meta name="description" content="Comparative e-invoicing implementation guide: SAP Document and Reporting Compliance vs Oracle Fusion Tax and CMK, configuration steps, master data, transactions and tables, integration, testing and cutover. Free PDF.">
+<title>Electronic Invoicing in SAP S/4HANA DRC and Oracle ERP: Implementation Guide | Vantage Finance &amp; Tech</title>
+<meta name="description" content="Electronic invoicing in SAP S/4HANA DRC (Document and Reporting Compliance) and Oracle ERP (Fusion Tax and CMK) compared: configuration steps, master data, transactions and tables, integration, testing and cutover. Free PDF.">
 <link rel="canonical" href="https://vantagefinanceandtech.com/guides/e-invoicing-sap-s4hana-oracle-fusion/">
 <link rel="icon" href="/favicon.ico">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Vantage Finance &amp; Tech">
-<meta property="og:title" content="E-Invoicing in SAP S/4HANA (DRC) vs Oracle Fusion ERP: Implementation Guide">
-<meta property="og:description" content="Comparative e-invoicing implementation guide: SAP Document and Reporting Compliance vs Oracle Fusion Tax and CMK, configuration steps, master data, transactions and tables, integration, testing and cutover. Free PDF.">
+<meta property="og:title" content="Electronic Invoicing in SAP S/4HANA DRC and Oracle ERP: Implementation Guide">
+<meta property="og:description" content="Electronic invoicing in SAP S/4HANA DRC (Document and Reporting Compliance) and Oracle ERP (Fusion Tax and CMK) compared: configuration steps, master data, transactions and tables, integration, testing and cutover. Free PDF.">
 <meta property="og:url" content="https://vantagefinanceandtech.com/guides/e-invoicing-sap-s4hana-oracle-fusion/">
 <meta property="og:image" content="https://vantagefinanceandtech.com/logo-vantage.png">
 <meta property="og:locale" content="en_GB">
@@ -24,14 +24,14 @@
   "@graph": [
     {
       "@type": "TechArticle",
-      "headline": "E-Invoicing Implementation in SAP S/4HANA and Oracle Fusion ERP",
-      "description": "Comparative e-invoicing implementation guide: SAP Document and Reporting Compliance vs Oracle Fusion Tax and CMK, configuration steps, master data, transactions and tables, integration, testing and cutover. Free PDF.",
+      "headline": "E-Invoicing Implementation in SAP S/4HANA (DRC) and Oracle Fusion ERP",
+      "description": "Electronic invoicing in SAP S/4HANA DRC (Document and Reporting Compliance) and Oracle ERP (Fusion Tax and CMK) compared: configuration steps, master data, transactions and tables, integration, testing and cutover. Free PDF.",
       "inLanguage": "en",
       "url": "https://vantagefinanceandtech.com/guides/e-invoicing-sap-s4hana-oracle-fusion/",
       "mainEntityOfPage": "https://vantagefinanceandtech.com/guides/e-invoicing-sap-s4hana-oracle-fusion/",
       "image": "https://vantagefinanceandtech.com/logo-vantage.png",
       "datePublished": "2026-10-20",
-      "dateModified": "2026-10-20",
+      "dateModified": "2026-11-05",
       "author": {
         "@type": "Person",
         "@id": "https://vantagefinanceandtech.com/#founder",
@@ -100,7 +100,7 @@
 <main>
   <div class="crumbs"><a href="/">Home</a> › <a href="/guides/">Guides</a> › E-invoicing in SAP and Oracle</div>
 
-  <h1>E-Invoicing Implementation in SAP S/4HANA and Oracle Fusion ERP</h1>
+  <h1>E-Invoicing Implementation in SAP S/4HANA (DRC) and Oracle Fusion ERP</h1>
   <p class="lead">A vendor-neutral comparison of how e-invoicing is implemented in SAP S/4HANA and Oracle Fusion ERP: the regulatory context, the components in each platform, the configuration steps, and how to test and run it.</p>
 
   <div class="download">
@@ -115,12 +115,12 @@
 <p>E-invoicing has become a legal obligation in a growing number of countries. Tax authorities increasingly require invoices to be issued in structured formats such as XML or UBL and, in many cases, cleared or reported in real time, an approach known as continuous transaction controls. The guide cites examples including Italy's SDI, Poland's KSeF, Germany's phased B2B mandate, the EU's VAT in the Digital Age package, and long-established models in Saudi Arabia, India and Brazil.</p>
 <p>Two model families recur. In the <strong>clearance model</strong>, the tax authority validates the invoice before or as it reaches the buyer (Italy, India, Saudi Arabia). In the <strong>reporting model</strong>, partners exchange invoices directly, often through Peppol, and report the data separately. A multinational rollout usually needs to support both at once.</p>
 
-<h2>E-invoicing in SAP S/4HANA</h2>
+<h2>E-invoicing in SAP S/4HANA: Document and Reporting Compliance (DRC)</h2>
 <p>SAP's strategic solution is <strong>SAP Document and Reporting Compliance (DRC)</strong>, the successor to Document Compliance and the eDocument Framework. Its building blocks are the eDocument Cockpit for monitoring and reprocessing, the eDocument Framework that maps billing data to the target schema, scope items and communication arrangements (in the public cloud edition), and SAP Integration Suite for country-specific integration flows.</p>
 <p>A typical implementation activates the country scope item or business function, deploys the integration flow with separate test and production endpoints, configures the communication arrangement, maintains value mappings, completes tax master data and certificates, sets up output determination, and tests end to end before cutover.</p>
 
-<h2>E-invoicing in Oracle Fusion ERP</h2>
-<p>Oracle relies on the <strong>Oracle Fusion Tax</strong> engine and country localizations, with the <strong>Collaboration Messaging Framework (CMK)</strong> handling transmission. Increasingly, Oracle works with embedded compliance partners such as Thomson Reuters ONESOURCE Pagero and Avalara, which reduces the need for separate middleware.</p>
+<h2>Electronic invoicing in Oracle ERP (Oracle Fusion Cloud)</h2>
+<p>For electronic invoices in Oracle ERP, Oracle relies on the <strong>Oracle Fusion Tax</strong> engine and country localizations, with the <strong>Collaboration Messaging Framework (CMK)</strong> handling transmission. Increasingly, Oracle works with embedded compliance partners such as Thomson Reuters ONESOURCE Pagero and Avalara, which reduces the need for separate middleware.</p>
 <p>Implementation covers tax regimes, rates and rules, customer and supplier tax registrations, the customer invoice processing opt-in, CMK trading partner and message setup, partner onboarding and domain value mapping, and end-to-end validation in a test environment.</p>
 
 <h2>Side-by-side comparison</h2>
@@ -168,6 +168,7 @@
     <h2>Related guides</h2>
     <ul>
       <li><a href="/guides/sap-s4hana-localization-europe/">SAP S/4HANA Localization Guide: Italy, Spain, France, Germany, UK</a></li>
+      <li><a href="/guides/sap-s4hana-implementation-roadmap/">SAP S/4HANA Implementation Roadmap: Phases, Timeline and Deliverables</a></li>
       <li><a href="/guides/sap-vim-architettura-funzionale/">SAP VIM: architettura funzionale di Vendor Invoice Management</a></li>
       <li><a href="/guides/oracle-fusion-erp-retail/">Oracle Fusion ERP Accounting Architecture for Retail</a></li>
     </ul>
