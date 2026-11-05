@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IFRS 18 in SAP S/4HANA: Income Statement by Function with FS Versions and Drilldown Reporting | Vantage Finance &amp; Tech</title>
+<meta name="description" content="How to prepare the IFRS 18 income statement in SAP S/4HANA: Operating, Investing and Financing categories, financial statement versions (OB58), reporting by functional area with G/L drilldown (FGI*), authorizations, export and troubleshooting. Free PDF.">
+<link rel="canonical" href="https://vantagefinanceandtech.com/guides/ifrs-18-sap-s4hana/">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Vantage Finance &amp; Tech">
+<meta property="og:title" content="IFRS 18 in SAP S/4HANA: Income Statement by Function with FS Versions and Drilldown Reporting">
+<meta property="og:description" content="How to prepare the IFRS 18 income statement in SAP S/4HANA: Operating, Investing and Financing categories, financial statement versions (OB58), reporting by functional area with G/L drilldown (FGI*), authorizations, export and troubleshooting. Free PDF.">
+<meta property="og:url" content="https://vantagefinanceandtech.com/guides/ifrs-18-sap-s4hana/">
+<meta property="og:image" content="https://vantagefinanceandtech.com/logo-vantage.png">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/guides/guide.css">
+<script src="/consent.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "IFRS 18 in SAP S/4HANA: Income Statement by Function with FS Versions and Drilldown Reporting",
+      "description": "How to prepare the IFRS 18 income statement in SAP S/4HANA: Operating, Investing and Financing categories, financial statement versions (OB58), reporting by functional area with G/L drilldown (FGI*), authorizations, export and troubleshooting. Free PDF.",
+      "inLanguage": "en",
+      "url": "https://vantagefinanceandtech.com/guides/ifrs-18-sap-s4hana/",
+      "mainEntityOfPage": "https://vantagefinanceandtech.com/guides/ifrs-18-sap-s4hana/",
+      "image": "https://vantagefinanceandtech.com/logo-vantage.png",
+      "datePublished": "2026-11-05",
+      "dateModified": "2026-11-05",
+      "author": {
+        "@type": "Person",
+        "@id": "https://vantagefinanceandtech.com/#founder",
+        "name": "Stefan Dumitriu",
+        "url": "https://vantagefinanceandtech.com/",
+        "sameAs": [
+          "https://www.linkedin.com/in/stefan-dumitriu-836b9a86/"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://vantagefinanceandtech.com/#organization",
+        "name": "Vantage Finance & Tech",
+        "url": "https://vantagefinanceandtech.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://vantagefinanceandtech.com/logo-vantage.png"
+        }
+      },
+      "about": [
+        "IFRS 18",
+        "SAP S/4HANA",
+        "Financial statement version",
+        "Functional area",
+        "Drilldown reporting"
+      ],
+      "associatedMedia": {
+        "@type": "MediaObject",
+        "contentUrl": "https://vantagefinanceandtech.com/Vantage_IFRS18_SAP_S4HANA_Guide.pdf",
+        "encodingFormat": "application/pdf"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://vantagefinanceandtech.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://vantagefinanceandtech.com/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "IFRS 18 in SAP S/4HANA"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site">
+  <div class="inner">
+    <a class="brand" href="/"><img src="/guides/logo-header.png" alt="Vantage Finance &amp; Tech" height="44"></a>
+    <nav><a href="/guides/">Guides</a><a href="/#contact">Contact</a></nav>
+  </div>
+</header>
+
+<main>
+  <div class="crumbs"><a href="/">Home</a> › <a href="/guides/">Guides</a> › IFRS 18 in SAP S/4HANA</div>
+
+  <h1>IFRS 18 in SAP S/4HANA: Income Statement by Function with FS Versions and Drilldown Reporting</h1>
+  <p class="lead">IFRS 18 replaces IAS 1 from 1 January 2027 and changes the structure of the income statement. This guide shows how to deliver it in SAP S/4HANA with a financial statement version and G/L drilldown reporting by functional area, based on a real implementation.</p>
+
+  <div class="download">
+    <div>
+      <strong>Download the full guide (PDF, 8 pages)</strong>
+      <p>IFRS 18 in SAP S/4HANA · free</p>
+    </div>
+    <a class="btn" href="/Vantage_IFRS18_SAP_S4HANA_Guide.pdf">Download the PDF</a>
+  </div>
+
+<h2>IFRS 18 at a glance</h2>
+<p>IFRS 18 <i>Presentation and Disclosure in Financial Statements</i> replaces IAS 1. The IASB issued it on 9 April 2024 and the European Union endorsed it with Commission Regulation (EU) 2026/338. It applies to annual reporting periods beginning on or after 1 January 2027, with earlier application permitted.</p>
+<p>It applies retrospectively: the 2026 comparative must also be presented under IFRS 18. In practice, the 2026 figures are needed in two views, IAS 1 and IFRS 18, so the system must support both during the transition.</p>
+<div class="table-wrap">
+<table>
+<tr><th>Topic</th><th>What changes</th></tr>
+<tr><td>Income statement categories</td><td>Income and expenses are classified as Operating, Investing and Financing, plus Income taxes and Discontinued operations.</td></tr>
+<tr><td>Required subtotals</td><td>Operating profit, and Profit before financing and income taxes.</td></tr>
+<tr><td>Management-defined performance measures</td><td>Measures such as EBITDA must be disclosed, explained and reconciled to the IFRS subtotals.</td></tr>
+<tr><td>Aggregation and disaggregation</td><td>Stricter rules. Entities presenting expenses by function must disclose some by-nature information in the notes (depreciation, employee benefits, impairments).</td></tr>
+<tr><td>Cash flow statement</td><td>The indirect method starts from Operating profit; interest and dividends have a set classification.</td></tr>
+</table>
+</div>
+
+<h2>Impact on SAP S/4HANA</h2>
+<ul class="points">
+<li>Every income and expense item must map unambiguously to an IFRS 18 category. That means clean G/L accounts and correctly derived functional areas.</li>
+<li>The financial statement version (OB58) needs the new categories and subtotals, while the IAS 1 view stays available in parallel during the transition.</li>
+<li>Reporting must be adapted and the 2026 comparative restated.</li>
+<li>If the income statement is presented by function, the functional area becomes a first-class reporting dimension, and its derivation (cost centers, OKB9, substitutions) must be reliable.</li>
+</ul>
+
+<h2>Solution design</h2>
+<p>The target is an income statement in the IFRS 18 layout, by function, where every line can be broken down by functional area and G/L account. The solution uses four standard building blocks:</p>
+<div class="table-wrap">
+<table>
+<tr><th>Component</th><th>Transaction</th><th>Role</th></tr>
+<tr><td>Financial statement version</td><td>OB58</td><td>IFRS 18 hierarchy, with functional areas assigned to income statement items</td></tr>
+<tr><td>Drilldown form</td><td>FGI4</td><td>Column layout (balances, debit, credit, cumulative), copied from a standard form</td></tr>
+<tr><td>Drilldown report</td><td>FGI1</td><td>FS version as hierarchy, with drilldown by functional area and G/L account</td></tr>
+<tr><td>Execution</td><td>FGI0</td><td>Execution, navigation and export</td></tr>
+</table>
+</div>
+<h3>Why not F.01</h3>
+<p>F.01 reads the financial statement version but has no functional area column, and one cannot be added: the functional area only decides which item an amount lands in. To see the structure and the functional area as a characteristic, you need G/L drilldown reporting (FGI*).</p>
+<h3>SAP constraints to know before you start</h3>
+<ul class="points">
+<li>In OB58 an item can have either accounts or functional areas, not both. Assigned intervals cannot overlap and each functional area can sit in only one item, so a full functional area × nature matrix cannot be built in the FS version alone.</li>
+<li>In the FAGLFLEXT report type the Functional Area characteristic is not enabled for hierarchies or sets: GS01 sets are accepted neither in the report nor in the form rows.</li>
+<li>In the report, the FS version hierarchy comes through the Financial Statement Item characteristic (or FS Item/Account), not through FS Version.</li>
+<li>FS versions, sets, drilldown forms and reports, and roles are client-specific.</li>
+</ul>
+
+<h2>Financial statement version (OB58)</h2>
+<ol class="steps">
+<li>In OB58, create the IFRS 18 version by copying the current one, so balance sheet assignments are inherited.</li>
+<li>In the general specifications, activate <b>Functional area permitted</b>. Without this flag, functional area assignments are ignored.</li>
+<li>Check that the version uses the same chart of accounts as the company codes (OBY6).</li>
+<li>Create the items and subtotals of the IFRS 18 layout.</li>
+<li>On balance sheet items, assign account intervals; on cost-of-sales income statement items, assign functional areas.</li>
+<li>Check that no P&amp;L account is left in the “Not assigned” item, then save in a transport request.</li>
+</ol>
+<h3>Example IFRS 18 layout by function</h3>
+<pre style="background:#f4f7fd;padding:12px;border-radius:8px;overflow-x:auto;font-size:13px;line-height:1.45">Income statement
+└─ Profit for the year
+   ├─ Profit before taxes
+   │  ├─ Profit before financing and income taxes
+   │  │  ├─ Operating profit
+   │  │  │  ├─ Gross profit
+   │  │  │  │  ├─ Revenue
+   │  │  │  │  └─ Cost of revenue
+   │  │  │  ├─ Administrative expenses
+   │  │  │  ├─ Selling and distribution
+   │  │  │  ├─ Other operating expenses
+   │  │  │  └─ Other operating income
+   │  │  └─ Investing category
+   │  └─ Financing category (finance costs)
+   └─ Income tax expense</pre>
+<p>Each line is fed by one or more functional areas. Keep one logic in the primary statement: an item with a by-nature name but functional areas assigned makes totals hard to read. The by-nature breakdown under each function cannot be built in the FS version alone; in the report it comes from drilling down by G/L account.</p>
+<h3>Exporting and checking the structure</h3>
+<p>To share the structure, expand all items in OB58 and save the list as a spreadsheet. To analyse it, read the FS version tables in SE16N:</p>
+<div class="table-wrap">
+<table>
+<tr><th>Table</th><th>Content</th></tr>
+<tr><td>FAGL_011PC</td><td>Items and hierarchy (parent, child, level)</td></tr>
+<tr><td>FAGL_011QT</td><td>Item texts</td></tr>
+<tr><td>FAGL_011ZC</td><td>Account intervals assigned to items</td></tr>
+<tr><td>FAGL_011FC</td><td>Functional areas assigned to items</td></tr>
+<tr><td>SKA1 / SKAT</td><td>P&amp;L accounts of the chart of accounts, to check that all of them are assigned</td></tr>
+</table>
+</div>
+
+<h2>Execution, navigation and checks (FGI0)</h2>
+<ol class="steps">
+<li>In FGI0, open the folder for table FAGLFLEXT and run the report for company code, year and periods 1–16.</li>
+<li>In the navigation panel, double-click Financial Statement Item and expand the income statement.</li>
+<li>Select an item and double-click Functional Area for the breakdown by function, or G/L Account for the account detail.</li>
+<li>To show functional areas in columns, swap rows and columns; then save the layout.</li>
+</ol>
+<h3>Checks on the result</h3>
+<ul class="points">
+<li><b>Not assigned under the structure</b>: P&amp;L accounts not assigned in the FS version, or functional areas missing from it.</li>
+<li><b>Not assigned under Functional Area</b>: postings without a functional area, so check derivation (cost centers, OKB9, substitutions).</li>
+<li><b>Reconciliation</b>: the income statement total must equal the net result in F.01 for the same version and period.</li>
+<li><b>Zero balance columns</b> with debit totals filled: check which column represents the period and the year and periods selected.</li>
+</ul>
+
+<h2>Design decisions to take early</h2>
+<ul class="points">
+<li>Which functional areas feed the Investing and Financing categories, and whether new ones are needed (for example for income from investments or interest on financing).</li>
+<li>How to classify capital projects and other functional areas that do not fit the operating lines.</li>
+<li>Whether selling and administrative expenses can be separated with existing functional areas, or need a split by account.</li>
+<li>How to deliver the “nature under function” detail: account drilldown in SAP, or Group Reporting, SAP Analytics Cloud or a spreadsheet with an account-to-nature mapping.</li>
+<li>How to handle the share of results of joint ventures and associates, usually a consolidation entry rather than a company code posting.</li>
+<li>How to keep the IAS 1 version in parallel for the 2026 comparative, and when to retire it.</li>
+<li>Clean-up of test objects and the transport path of the final FS version, form and report.</li>
+</ul>
+
+<p>The PDF also covers the drilldown form and report step by step, authorizations, export to Excel, a troubleshooting table and the list of transactions and tables.</p>
+
+  <div class="download">
+    <div>
+      <strong>Want the complete version with all steps and tables?</strong>
+      <p>8 pages from our consulting practice.</p>
+    </div>
+    <a class="btn" href="/Vantage_IFRS18_SAP_S4HANA_Guide.pdf">Download the PDF</a>
+  </div>
+
+  <section class="cta">
+    <h2>Working on a project like this?</h2>
+    <p>Vantage Finance &amp; Tech helps companies across Italy and Europe with SAP S/4HANA Finance, Oracle Fusion Cloud ERP Finance, treasury, IFRS 18 and PMO support, from design through configuration and go-live.</p>
+    <a class="btn" href="/#contact">Get in touch</a>
+  </section>
+
+  <section class="related">
+    <h2>Related guides</h2>
+    <ul>
+      <li><a href="/guides/sap-s4hana-localization-europe/">SAP S/4HANA Localization Guide: Italy, Spain, France, Germany, UK</a></li>
+      <li><a href="/guides/sap-s4hana-controlling/">SAP S/4HANA Controlling (CO) Model for Multinational Manufacturing</a></li>
+      <li><a href="/guides/sap-s4hana-cash-pooling/">Cash Pooling in SAP S/4HANA: Cash Concentration, Bank Account Management and In-House Banking</a></li>
+      <li><a href="/guides/sap-s4hana-implementation-roadmap/">SAP S/4HANA Implementation Roadmap: Phases, Timeline and Deliverables</a></li>
+    </ul>
+    <p><a href="/guides/">All guides →</a></p>
+  </section>
+</main>
+
+<footer>© 2026 Vantage Finance &amp; Tech · VAT 13449530016 · Rivalta di Torino (TO), Italy · <a href="/cookie-policy/">Cookie policy</a> · <a href="#" onclick="return vftCookieSettings()">Cookie settings</a></footer>
+
+</body>
+</html>

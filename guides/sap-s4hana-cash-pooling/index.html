@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cash Pooling in SAP S/4HANA: Cash Concentration, Bank Account Management and In-House Banking | Vantage Finance &amp; Tech</title>
+<meta name="description" content="Cash pooling in SAP S/4HANA: zero, target and threshold balancing, Cash Concentration with Bank Account Management, In-House Cash and In-House Banking, configuration, Fiori apps, daily operating guide, intercompany postings, interest and common errors. Free PDF.">
+<link rel="canonical" href="https://vantagefinanceandtech.com/guides/sap-s4hana-cash-pooling/">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Vantage Finance &amp; Tech">
+<meta property="og:title" content="Cash Pooling in SAP S/4HANA: Cash Concentration, Bank Account Management and In-House Banking">
+<meta property="og:description" content="Cash pooling in SAP S/4HANA: zero, target and threshold balancing, Cash Concentration with Bank Account Management, In-House Cash and In-House Banking, configuration, Fiori apps, daily operating guide, intercompany postings, interest and common errors. Free PDF.">
+<meta property="og:url" content="https://vantagefinanceandtech.com/guides/sap-s4hana-cash-pooling/">
+<meta property="og:image" content="https://vantagefinanceandtech.com/logo-vantage.png">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/guides/guide.css">
+<script src="/consent.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "Cash Pooling in SAP S/4HANA: Cash Concentration, Bank Account Management and In-House Banking",
+      "description": "Cash pooling in SAP S/4HANA: zero, target and threshold balancing, Cash Concentration with Bank Account Management, In-House Cash and In-House Banking, configuration, Fiori apps, daily operating guide, intercompany postings, interest and common errors. Free PDF.",
+      "inLanguage": "en",
+      "url": "https://vantagefinanceandtech.com/guides/sap-s4hana-cash-pooling/",
+      "mainEntityOfPage": "https://vantagefinanceandtech.com/guides/sap-s4hana-cash-pooling/",
+      "image": "https://vantagefinanceandtech.com/logo-vantage.png",
+      "datePublished": "2026-11-05",
+      "dateModified": "2026-11-05",
+      "author": {
+        "@type": "Person",
+        "@id": "https://vantagefinanceandtech.com/#founder",
+        "name": "Stefan Dumitriu",
+        "url": "https://vantagefinanceandtech.com/",
+        "sameAs": [
+          "https://www.linkedin.com/in/stefan-dumitriu-836b9a86/"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://vantagefinanceandtech.com/#organization",
+        "name": "Vantage Finance & Tech",
+        "url": "https://vantagefinanceandtech.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://vantagefinanceandtech.com/logo-vantage.png"
+        }
+      },
+      "about": [
+        "Cash pooling",
+        "SAP S/4HANA Cash Management",
+        "Bank Account Management",
+        "In-House Cash",
+        "In-House Banking"
+      ],
+      "associatedMedia": {
+        "@type": "MediaObject",
+        "contentUrl": "https://vantagefinanceandtech.com/Vantage_SAP_S4HANA_Cash_Pooling_Guide.pdf",
+        "encodingFormat": "application/pdf"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://vantagefinanceandtech.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://vantagefinanceandtech.com/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "SAP S/4HANA Cash Pooling"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site">
+  <div class="inner">
+    <a class="brand" href="/"><img src="/guides/logo-header.png" alt="Vantage Finance &amp; Tech" height="44"></a>
+    <nav><a href="/guides/">Guides</a><a href="/#contact">Contact</a></nav>
+  </div>
+</header>
+
+<main>
+  <div class="crumbs"><a href="/">Home</a> › <a href="/guides/">Guides</a> › SAP S/4HANA Cash Pooling</div>
+
+  <h1>Cash Pooling in SAP S/4HANA: Cash Concentration, Bank Account Management and In-House Banking</h1>
+  <p class="lead">How to run physical and internal cash pooling in SAP S/4HANA: which solution fits which model, how to set up Bank Account Management and cash pools, the daily concentration cycle, and how sweeps turn into intercompany receivables, payables and interest.</p>
+
+  <div class="download">
+    <div>
+      <strong>Download the full guide (PDF, 9 pages)</strong>
+      <p>SAP S/4HANA Cash Pooling · free</p>
+    </div>
+    <a class="btn" href="/Vantage_SAP_S4HANA_Cash_Pooling_Guide.pdf">Download the PDF</a>
+  </div>
+
+<h2>Cash pooling in brief</h2>
+<p>Cash pooling centralises the liquidity of group companies on a header account or entity (the pool leader), so internal surpluses offset internal deficits and external borrowing goes down.</p>
+<div class="table-wrap">
+<table>
+<tr><th>Type</th><th>How it works</th><th>Real transfers</th><th>Typical use</th></tr>
+<tr><td>Zero balancing</td><td>Each sub-account is swept to zero against the header account at end of day</td><td>Yes</td><td>Strongly centralised groups, single currency</td></tr>
+<tr><td>Target balancing</td><td>Each sub-account is brought back to a target balance</td><td>Yes</td><td>Entities that keep local operating cash</td></tr>
+<tr><td>Threshold balancing</td><td>Transfers only above or below minimum and maximum thresholds</td><td>Yes, fewer</td><td>Fewer transfers and bank fees</td></tr>
+<tr><td>Notional</td><td>Balances are summed only to calculate interest</td><td>No</td><td>Multi-currency, countries with transfer constraints</td></tr>
+<tr><td>Internal (in-house bank)</td><td>Entities hold current accounts at the group's in-house bank</td><td>Book entries, settled externally</td><td>Groups using In-House Cash or In-House Banking</td></tr>
+</table>
+</div>
+<p>Flows can be concentration (sub-account to header), distribution (header to sub-account to cover overdrafts) or both. The <b>header account</b> belongs to the parent or treasury company; <b>sub-accounts</b> belong to participating companies; the <b>service provider</b> is whoever executes the sweep: the bank automatically, or the company through system-generated transfers.</p>
+<h3>Benefits</h3>
+<ul class="points">
+<li>Lower external debt and finance costs thanks to internal netting.</li>
+<li>Better return on excess cash, invested centrally.</li>
+<li>Daily visibility of the group cash position.</li>
+<li>Fewer bank accounts and fees, especially with payments and collections on behalf of other entities (POBO / COBO).</li>
+</ul>
+<h3>Risks, tax and legal points</h3>
+<ul class="points">
+<li>Transfer pricing: intercompany rates on pool balances must be at arm's length and documented.</li>
+<li>Interest deductibility limits apply (in Italy, article 96 of the income tax code: 30% of tax EBITDA).</li>
+<li>Company law: shareholder financing can be subordinated in some cases (in Italy, articles 2467 and 2497-quinquies of the civil code), so a formal cash pooling agreement is needed.</li>
+<li>Counterparty and insolvency risk: if a participant fails, the pool leader is left with a receivable.</li>
+<li>Currency and regulatory constraints on cross-border or notional pooling.</li>
+</ul>
+<p class="note">These notes are a general overview, not tax or legal advice. Check the specific situation of your group with your advisers.</p>
+
+<h2>The SAP S/4HANA solutions</h2>
+<p>The choice depends on the model: physical pooling between external bank accounts points to Cash Concentration; an internal bank with intercompany accounts points to In-House Cash or In-House Banking.</p>
+<div class="table-wrap">
+<table>
+<tr><th>Solution</th><th>What it does</th><th>Notes</th></tr>
+<tr><td>Cash Concentration (S/4HANA Cash Management)</td><td>Cash pools defined as master data in Bank Account Management; proposal and generation of transfers between header and sub-accounts</td><td>Reference solution in S/4HANA, with dedicated Fiori apps since 1809</td></tr>
+<tr><td>Classic cash concentration (FF73 / FF74)</td><td>Pool defined as a grouping, proposal based on the cash position (FF7A)</td><td>Still available, superseded by the BAM approach</td></tr>
+<tr><td>SAP In-House Cash (IHC)</td><td>In-house bank with current accounts for subsidiaries, intercompany payments, POBO / COBO, internal cash pooling</td><td>Mature, suited to complex multi-bank-area scenarios</td></tr>
+<tr><td>SAP In-House Banking (IHB)</td><td>New in-house bank with Fiori apps, master data workflow, group limits, several transfers to accounting a day</td><td>Part of Advanced Payment Management; first in the cloud, then on-premise</td></tr>
+</table>
+</div>
+<p>Both IHC and IHB support internal pooling between accounts of the same in-house bank, but not between different in-house banks. IHB adds group limits and pays house banks without F111; IHC also updates Cash Management with in-house account balances.</p>
+
+<h2>Master data: Bank Account Management and the cash pool</h2>
+<p>In S/4HANA a cash pool is master data, not customizing: its structure is defined on the Cash Pool tab of the Manage Bank Accounts app.</p>
+<h3>Prerequisites</h3>
+<ol class="steps">
+<li>Banks (FI01 or Manage Banks).</li>
+<li>House banks and account IDs (FI12_HBANK or Manage Banks).</li>
+<li>Bank accounts in Bank Account Management, linked to house bank account, company code, currency and G/L account.</li>
+<li>A bank account hierarchy (Manage Bank Account Hierarchies), grouping accounts by country, bank or company.</li>
+<li>Business partners for intercompany counterparties, if pool receivables and payables are posted.</li>
+</ol>
+<h3>Cash pool attributes</h3>
+<div class="table-wrap">
+<table>
+<tr><th>Attribute</th><th>Meaning</th></tr>
+<tr><td>ID and name</td><td>Unique identifier of the pool</td></tr>
+<tr><td>Header account</td><td>Concentration account; an account can be header of one pool only</td></tr>
+<tr><td>Sub-accounts</td><td>Participating accounts; a header can be a sub-account of another pool, which allows multi-level pools</td></tr>
+<tr><td>Service provider</td><td>Enterprise: SAP proposes and executes the sweep. Bank: the bank executes it and SAP receives it with the bank statement</td></tr>
+<tr><td>Usage</td><td>Concentration, distribution, both, or statistical only</td></tr>
+<tr><td>Target, minimum and maximum balance</td><td>Per sub-account parameters that drive the proposed amount</td></tr>
+<tr><td>Minimum transfer and rounding</td><td>Avoid transfers of irrelevant amounts</td></tr>
+<tr><td>Currency</td><td>Accounts in a physical pool must share the same currency</td></tr>
+</table>
+</div>
+<p>Key rule: a bank account can appear in at most two pools, once as header and once, in another pool, as sub-account.</p>
+
+<h2>Operating guide</h2>
+<h3>A. One-off setup</h3>
+<ol class="steps">
+<li>In Manage Bank Accounts, check that header and sub-accounts are active, with the right house bank account, G/L account and currency.</li>
+<li>In Manage Bank Account Hierarchies, create a node for the pool with the participating accounts below it.</li>
+<li>In Manage Cash Pools, create the pool: ID, description, currency, service provider, header account, and for each sub-account direction, target, minimum and maximum balance and minimum transfer.</li>
+<li>Save and check that the pool appears on the Cash Pool tab of each account.</li>
+<li>Run a full simulation of the daily cycle in the quality system before go-live.</li>
+</ol>
+<h3>B. Daily cycle (Enterprise service provider)</h3>
+<ol class="steps">
+<li>Import the morning bank statements and check in Bank Statement Monitor that all pool accounts are up to date.</li>
+<li>Check the cash position for the pool accounts and the flows expected during the day.</li>
+<li>In Manage Cash Concentration, select pool and value date and simulate: the system proposes, per sub-account, the amount to reach the target, respecting minimums and rounding.</li>
+<li>Review the proposal: change amounts or exclude an account (for example a large incoming payment not yet in the system).</li>
+<li>Confirm: the system generates the transfer payment requests between header and sub-accounts.</li>
+<li>Run the payments with F111 or a scheduled job, send the file to the bank and approve it in Approve Bank Payments when BCM is active.</li>
+<li>Monitor the status in Manage Cash Concentration and Track Bank Transfers.</li>
+<li>The next day, the bank statement clears the bank clearing accounts; check open items with FEBAN.</li>
+<li>At month end, use the Cash Pool Transfer Report as the basis for intercompany interest.</li>
+</ol>
+<p>The daily cycle typically takes the cash manager 15 to 30 minutes.</p>
+<h3>C. Bank service provider</h3>
+<p>The bank sweeps automatically at end of day. The sweep arrives with the bank statement under dedicated transaction codes and is posted by the OT83 rules; the cash manager checks amounts and counterparties in the Cash Pool Transfer Report and in the cash position.</p>
+<h3>D. Classic concentration</h3>
+<p>Run FF73 with grouping, date, target account and minimum amount; review and save the proposal, which creates concentration memo records; generate payment requests with FF74 and pay them with F111.</p>
+
+<h2>Postings, intercompany and interest</h2>
+<p>Every physical sweep between different companies creates an intercompany receivable or payable: the participant has a receivable from the pool leader when it hands over cash, and a payable when it receives it.</p>
+<h3>Zero balancing example</h3>
+<p>Company IT01 has EUR 100,000 on its sub-account; treasury company TR01 is the pool leader.</p>
+<div class="table-wrap">
+<table>
+<tr><th>Step</th><th>Company</th><th>Debit</th><th>Credit</th><th>EUR</th></tr>
+<tr><td>Payment (F111)</td><td>IT01</td><td>Receivable from pool leader</td><td>Outgoing bank clearing</td><td>100,000</td></tr>
+<tr><td>Payment (F111)</td><td>TR01</td><td>Incoming bank clearing</td><td>Payable to IT01</td><td>100,000</td></tr>
+<tr><td>Bank statement</td><td>IT01</td><td>Outgoing bank clearing</td><td>Bank account</td><td>100,000</td></tr>
+<tr><td>Bank statement</td><td>TR01</td><td>Bank account</td><td>Incoming bank clearing</td><td>100,000</td></tr>
+</table>
+</div>
+<p>Cross-company postings need clearing accounts between companies (OBYA). Alternatively, post only from the bank statement, which is typical with a Bank service provider.</p>
+<h3>Intercompany interest</h3>
+<ul class="points">
+<li>Calculate interest monthly or quarterly on the daily balances of the pool accounts, at market rates (for example €STR plus a spread).</li>
+<li>Tools: G/L balance interest calculation, Treasury and Risk Management contracts, or interest conditions in In-House Cash / In-House Banking.</li>
+<li>Post the result with an intercompany invoice or note, backed by transfer pricing documentation.</li>
+</ul>
+<h3>Reconciliation</h3>
+<ul class="points">
+<li>Align intercompany balances at month end with the intercompany reconciliation apps.</li>
+<li>Check that bank clearing accounts are zero after the bank statement.</li>
+</ul>
+
+<p>The PDF also covers configuration step by step, the full list of Fiori apps and transactions, best practices and a table of common errors and fixes.</p>
+
+  <div class="download">
+    <div>
+      <strong>Want the complete version with all steps and tables?</strong>
+      <p>9 pages from our consulting practice.</p>
+    </div>
+    <a class="btn" href="/Vantage_SAP_S4HANA_Cash_Pooling_Guide.pdf">Download the PDF</a>
+  </div>
+
+  <section class="cta">
+    <h2>Working on a project like this?</h2>
+    <p>Vantage Finance &amp; Tech helps companies across Italy and Europe with SAP S/4HANA Finance, Oracle Fusion Cloud ERP Finance, treasury, IFRS 18 and PMO support, from design through configuration and go-live.</p>
+    <a class="btn" href="/#contact">Get in touch</a>
+  </section>
+
+  <section class="related">
+    <h2>Related guides</h2>
+    <ul>
+      <li><a href="/guides/ifrs-18-sap-s4hana/">IFRS 18 in SAP S/4HANA: Income Statement by Function with FS Versions and Drilldown Reporting</a></li>
+      <li><a href="/guides/sap-s4hana-localization-europe/">SAP S/4HANA Localization Guide: Italy, Spain, France, Germany, UK</a></li>
+      <li><a href="/guides/sap-s4hana-implementation-roadmap/">SAP S/4HANA Implementation Roadmap: Phases, Timeline and Deliverables</a></li>
+      <li><a href="/guides/oracle-fusion-erp-financial-services/">Oracle Fusion Cloud Accounting Architecture for Financial Services</a></li>
+    </ul>
+    <p><a href="/guides/">All guides →</a></p>
+  </section>
+</main>
+
+<footer>© 2026 Vantage Finance &amp; Tech · VAT 13449530016 · Rivalta di Torino (TO), Italy · <a href="/cookie-policy/">Cookie policy</a> · <a href="#" onclick="return vftCookieSettings()">Cookie settings</a></footer>
+
+</body>
+</html>
