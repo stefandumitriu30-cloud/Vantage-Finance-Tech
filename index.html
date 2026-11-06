@@ -500,7 +500,7 @@
     padding: 24px; cursor: pointer; transition: opacity 0.6s ease;
   }
   #intro-splash.intro-hide { opacity: 0; pointer-events: none; }
-  #intro-video { width: 100%; max-width: 1100px; height: auto; display: block; }
+  #intro-video { width: 100%; max-width: 1100px; height: auto; aspect-ratio: 1440 / 360; display: block; background: #ffffff; transform: translateZ(0); }
   #intro-skip {
     position: absolute; right: 20px; bottom: 20px;
     background: transparent; border: 1.5px solid var(--gray-mid); color: var(--text-mid);
@@ -509,7 +509,7 @@
   #intro-skip:hover, #intro-skip:focus-visible { border-color: var(--blue); color: var(--blue); outline: none; }
   html.intro-open, html.intro-open body { overflow: hidden; }
   @media (max-width: 700px) {
-    #intro-video { max-width: 520px; }
+    #intro-video { max-width: 520px; aspect-ratio: 1240 / 600; }
   }
 </style>
 <script type="application/ld+json">
@@ -597,7 +597,9 @@
   try { sessionStorage.setItem('vft-intro', '1'); } catch (e) {}
 
   var mobile = window.matchMedia('(max-width: 700px)').matches;
-  video.src = mobile ? '/media/intro-particles-mobile.mp4?v=2' : '/media/intro-particles-desktop.mp4?v=2';
+  var name = mobile ? 'mobile' : 'desktop';
+  video.poster = '/media/intro-particles-' + name + '-poster.jpg?v=3';
+  video.src = '/media/intro-particles-' + name + '.mp4?v=3';
   root.classList.add('intro-open');
 
   var closed = false;
@@ -612,9 +614,22 @@
   video.addEventListener('error', close);
   splash.addEventListener('click', close);
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
-  var p = video.play();
-  if (p && p.catch) p.catch(function () { setTimeout(close, 1500); });
-  setTimeout(close, 6000); /* sicurezza: mai più di 6 secondi */
+
+  /* Parte solo quando il video è bufferizzato e la pagina è stata letta,
+     così la riproduzione non scatta. Se non è pronto in 2,5 s si salta. */
+  var started = false, buffered = false, parsed = document.readyState !== 'loading';
+  function start() {
+    if (started || closed || !buffered || !parsed) return;
+    started = true;
+    clearTimeout(waitTimer);
+    var p = video.play();
+    if (p && p.catch) p.catch(function () { setTimeout(close, 1200); });
+    setTimeout(close, 5500); /* sicurezza: il video dura 3,8 s */
+  }
+  video.addEventListener('canplaythrough', function () { buffered = true; start(); });
+  if (!parsed) document.addEventListener('DOMContentLoaded', function () { parsed = true; start(); });
+  var waitTimer = setTimeout(close, 2500);
+  video.load();
 })();
 </script>
 
