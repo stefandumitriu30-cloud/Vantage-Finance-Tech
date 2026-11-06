@@ -599,7 +599,7 @@
   try { sessionStorage.setItem('vft-intro', '1'); } catch (e) {}
 
   var mobile = window.matchMedia('(max-width: 700px)').matches;
-  video.src = mobile ? '/media/intro-particles-mobile.mp4' : '/media/intro-particles-desktop.mp4';
+  video.src = mobile ? '/media/intro-particles-mobile.mp4?v=2' : '/media/intro-particles-desktop.mp4?v=2';
   root.classList.add('intro-open');
 
   var closed = false;
@@ -610,13 +610,13 @@
     root.classList.remove('intro-open');
     setTimeout(function () { if (splash.parentNode) splash.parentNode.removeChild(splash); }, 700);
   }
-  video.addEventListener('ended', function () { setTimeout(close, 600); });
+  video.addEventListener('ended', function () { setTimeout(close, 350); });
   video.addEventListener('error', close);
   splash.addEventListener('click', close);
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
   var p = video.play();
   if (p && p.catch) p.catch(function () { setTimeout(close, 1500); });
-  setTimeout(close, 11000); /* sicurezza: mai più di 11 secondi */
+  setTimeout(close, 6000); /* sicurezza: mai più di 6 secondi */
 })();
 </script>
 
