@@ -468,6 +468,26 @@
   .insights { background: var(--gray-light); }
   .insights .service-card { background: var(--white); }
   .insights .service-card p + p { margin-top: 0.75rem; }
+  .hero-actions { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; margin-top: 2.25rem; }
+  .hero-actions .hero-cta { margin-top: 0; }
+  .hero-cta.ghost { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.8); box-shadow: none; }
+  .hero-cta.ghost:hover { background: rgba(255,255,255,0.12); }
+  .featured { background: var(--white); padding-bottom: 1rem; }
+  .featured-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+  @media (max-width: 1000px) { .featured-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .featured-grid { grid-template-columns: 1fr; } }
+  a.featured-card { display: flex; flex-direction: column; background: var(--gray-light); border: 1px solid var(--gray-mid); border-left: 4px solid var(--blue); border-radius: var(--radius); padding: 1.25rem 1.25rem 1.1rem; text-decoration: none; color: var(--text-dark); transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+  a.featured-card:hover { transform: translateY(-3px); box-shadow: 0 10px 26px rgba(45,91,227,0.12); border-left-color: var(--cyan); }
+  .featured-card .tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cyan); margin-bottom: 0.4rem; }
+  .featured-card strong { font-size: 1rem; line-height: 1.35; margin-bottom: 0.45rem; }
+  .featured-card .desc { font-size: 0.86rem; color: var(--text-gray); line-height: 1.55; flex: 1; }
+  .featured-card .more { margin-top: 0.8rem; font-size: 0.86rem; font-weight: 600; color: var(--blue); }
+  .featured-all { margin-top: 1.25rem; text-align: center; font-weight: 600; }
+  .featured-all a { color: var(--blue); text-decoration: none; }
+  .featured-all a:hover { text-decoration: underline; }
+  .services .card-links { margin-top: 0.9rem; }
+  .services .card-links a { color: var(--blue); font-weight: 600; text-decoration: none; font-size: 0.86rem; display: inline-block; margin: 0.25rem 0.9rem 0 0; }
+  .services .card-links a:hover { text-decoration: underline; }
   .insights .card-links a { color: var(--blue); font-weight: 600; text-decoration: none; font-size: 0.86rem; display: inline-block; margin: 0.25rem 0.9rem 0 0; }
   .insights .card-links a:hover { text-decoration: underline; }
   .faq { background: var(--white); }
@@ -645,6 +665,45 @@
       <a class="badge" href="#service-data"><span class="en">Integration &amp; Finance Data</span><span class="it">Integrazione &amp; Dati Finance</span></a>
       <a class="badge" href="#service-pmo"><span class="en">PMO &amp; Project Management</span><span class="it">PMO &amp; Project Management</span></a>
     </div>
+    <div class="hero-actions">
+      <a class="hero-cta" href="#contact"><span class="en">Get in Touch</span><span class="it">Contattaci</span></a>
+      <a class="hero-cta ghost" href="#featured-guides"><span class="en">Read our free guides</span><span class="it">Leggi le guide gratuite</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED GUIDES -->
+<section class="featured" id="featured-guides">
+  <div class="section-inner">
+    <p class="section-label"><span class="en">Free guides</span><span class="it">Guide gratuite</span></p>
+    <h2 class="section-title"><span class="en">Start with our most-read guides</span><span class="it">Inizia dalle guide più lette</span></h2>
+    <div class="featured-grid">
+      <a class="featured-card" href="/guides/sap-s4hana-implementation-roadmap/">
+        <span class="tag">SAP S/4HANA</span>
+        <strong><span class="en">Implementation roadmap</span><span class="it">Roadmap di implementazione</span></strong>
+        <span class="desc"><span class="en">The six SAP Activate phases, a 15-month timeline, deliverables and quality gates.</span><span class="it">Le sei fasi SAP Activate, una timeline di 15 mesi, deliverable e quality gate.</span></span>
+        <span class="more"><span class="en">Read the guide →</span><span class="it">Leggi la guida →</span></span>
+      </a>
+      <a class="featured-card" href="/guides/sap-s4hana-raci-matrix/">
+        <span class="tag">SAP S/4HANA</span>
+        <strong><span class="en">RACI matrix (free template)</span><span class="it">Matrice RACI (template gratuito)</span></strong>
+        <span class="desc"><span class="en">22 activities, 11 roles, one accountable owner per activity. Download as CSV.</span><span class="it">22 attività, 11 ruoli, un solo responsabile per attività. Scaricabile in CSV.</span></span>
+        <span class="more"><span class="en">Read the guide →</span><span class="it">Leggi la guida →</span></span>
+      </a>
+      <a class="featured-card" href="/guides/sap-vim-vendor-invoice-management/">
+        <span class="tag">SAP VIM</span>
+        <strong><span class="en">Vendor Invoice Management architecture</span><span class="it">Architettura di Vendor Invoice Management</span></strong>
+        <span class="desc"><span class="en">From capture and OCR to Document Processing, approvals and posting in SAP.</span><span class="it">Dall’acquisizione e OCR al Document Processing, alle approvazioni e alla registrazione in SAP.</span></span>
+        <span class="more"><span class="en">Read the guide →</span><span class="it">Leggi la guida →</span></span>
+      </a>
+      <a class="featured-card" href="/guides/e-invoicing-sap-s4hana-oracle-fusion/">
+        <span class="tag">E-invoicing</span>
+        <strong><span class="en">SAP DRC and Oracle ERP compared</span><span class="it">SAP DRC e Oracle ERP a confronto</span></strong>
+        <span class="desc"><span class="en">Configuration, master data, integration, testing and cutover for e-invoicing mandates.</span><span class="it">Configurazione, anagrafiche, integrazione, test e cutover per gli obblighi di fatturazione elettronica.</span></span>
+        <span class="more"><span class="en">Read the guide →</span><span class="it">Leggi la guida →</span></span>
+      </a>
+    </div>
+    <p class="featured-all"><a href="/guides/"><span class="en">All 16 guides on Oracle ERP, SAP S/4HANA and PMO →</span><span class="it">Tutte le 16 guide su Oracle ERP, SAP S/4HANA e PMO →</span></a></p>
   </div>
 </section>
 
@@ -685,6 +744,7 @@
         <h3>Oracle Cloud ERP Finance</h3>
         <p class="en-block">Deep-dive architectural support and implementation of Oracle Fusion Financials, Procure-to-Pay and Oracle Analytics Cloud, ensuring your cloud transition is more than just a migration — it's an optimization.</p>
         <p class="it-block">Supporto architetturale approfondito e implementazione di Oracle Fusion Financials, Procure-to-Pay e Oracle Analytics Cloud, per garantire che la transizione al cloud sia più di una semplice migrazione — una vera ottimizzazione.</p>
+        <p class="card-links"><a href="/guides/oracle-fusion-erp-manufacturing/"><span class="en">Oracle ERP for manufacturing</span><span class="it">Oracle ERP per la manifattura</span></a><a href="/guides/oracle-fusion-erp-financial-services/"><span class="en">Oracle ERP for financial services</span><span class="it">Oracle ERP per i servizi finanziari</span></a></p>
       </div>
       <div class="service-card">
         <div class="service-icon" id="service-sap">
@@ -693,6 +753,7 @@
         <h3>SAP S/4HANA Finance (FI&#8209;CO)</h3>
         <p class="en-block">End-to-end SAP S/4HANA and ECC FI-CO: Universal Journal, parallel ledgers (local GAAP / IFRS), document splitting, New Asset Accounting, General Ledger, Accounts Payable and Receivable, Business Partner, Cost and Profit Centre Accounting, SAP Fiori and embedded analytics.</p>
         <p class="it-block">SAP S/4HANA ed ECC FI-CO end-to-end: Universal Journal, ledger paralleli (local GAAP / IFRS), document splitting, New Asset Accounting, Contabilità Generale, Fornitori e Clienti, Business Partner, contabilità per centri di costo e di profitto, SAP Fiori ed embedded analytics.</p>
+        <p class="card-links"><a href="/guides/sap-s4hana-implementation-roadmap/"><span class="en">S/4HANA roadmap</span><span class="it">Roadmap S/4HANA</span></a><a href="/guides/sap-s4hana-controlling/"><span class="en">S/4HANA CO guide</span><span class="it">Guida S/4HANA CO</span></a><a href="/guides/sap-vim-vendor-invoice-management/"><span class="en">SAP VIM</span><span class="it">SAP VIM</span></a></p>
       </div>
       <div class="service-card">
         <div class="service-icon" id="service-treasury">
@@ -701,6 +762,7 @@
         <h3><span class="en">Treasury, Banking &amp; Cash Management</span><span class="it">Tesoreria, Banche &amp; Cash Management</span></h3>
         <p class="en-block">Bank Accounting and electronic bank statements, Bank Account Management, payment programs, cash pooling with Cash Concentration and In-House Cash / In-House Banking, intercompany settlement.</p>
         <p class="it-block">Contabilità bancaria ed estratti conto elettronici, Bank Account Management, programmi di pagamento, cash pooling con Cash Concentration e In-House Cash / In-House Banking, regolamento intercompany.</p>
+        <p class="card-links"><a href="/guides/sap-s4hana-cash-pooling/"><span class="en">Cash pooling in S/4HANA</span><span class="it">Cash pooling in S/4HANA</span></a></p>
       </div>
       <div class="service-card">
         <div class="service-icon" id="service-reporting">
@@ -709,6 +771,7 @@
         <h3><span class="en">Financial Reporting &amp; Compliance</span><span class="it">Reporting Finanziario &amp; Compliance</span></h3>
         <p class="en-block">IFRS 18 readiness with new financial statement versions and functional-area reporting, IFRS and local GAAP, Italian VAT compliance, e-invoicing automation, validations and approval workflows.</p>
         <p class="it-block">Adeguamento all'IFRS 18 con nuove strutture di bilancio e reporting per functional area, IFRS e local GAAP, compliance IVA italiana, automazione della fatturazione elettronica, validazioni e workflow di approvazione.</p>
+        <p class="card-links"><a href="/guides/ifrs-18-sap-s4hana/"><span class="en">IFRS 18 in SAP S/4HANA</span><span class="it">IFRS 18 in SAP S/4HANA</span></a><a href="/guides/e-invoicing-sap-s4hana-oracle-fusion/"><span class="en">E-invoicing guide</span><span class="it">Guida alla fatturazione elettronica</span></a></p>
       </div>
       <div class="service-card">
         <div class="service-icon" id="service-data">
@@ -717,6 +780,7 @@
         <h3><span class="en">Integration &amp; Finance Data</span><span class="it">Integrazione &amp; Dati Finance</span></h3>
         <p class="en-block">Intercompany processes, FI-MM and FI-SD integration, Central Finance, MDG master data cleanup and data migration of opening balances and open items, with functional specifications for custom developments.</p>
         <p class="it-block">Processi intercompany, integrazione FI-MM e FI-SD, Central Finance, pulizia dei dati anagrafici con MDG e migrazione di saldi iniziali e partite aperte, con specifiche funzionali per gli sviluppi custom.</p>
+        <p class="card-links"><a href="/guides/sap-s4hana-phase-zero-deliverables/"><span class="en">Phase zero deliverables</span><span class="it">Deliverable della fase zero</span></a><a href="/guides/sap-s4hana-localization-europe/"><span class="en">S/4HANA localization</span><span class="it">Localizzazione S/4HANA</span></a></p>
       </div>
       <div class="service-card">
         <div class="service-icon" id="service-pmo">
@@ -725,6 +789,7 @@
         <h3><span class="en">PMO &amp; Project Management Support</span><span class="it">PMO &amp; Supporto al Project Management</span></h3>
         <p class="en-block">Strategic oversight that transforms the Project Management Office from a reporting hub into a value-driven engine: integrated planning, critical paths, SIT / UAT, CAB and cutover, Agile / SCRUM delivery.</p>
         <p class="it-block">Supervisione strategica che trasforma il Project Management Office da un centro di reporting a un motore orientato al valore: pianificazione integrata, percorsi critici, SIT / UAT, CAB e cutover, delivery Agile / SCRUM.</p>
+        <p class="card-links"><a href="/guides/sap-s4hana-raci-matrix/"><span class="en">S/4HANA RACI matrix</span><span class="it">Matrice RACI S/4HANA</span></a><a href="/guides/modern-pmo-erp-cloud-agentic-ai/"><span class="en">Modern PMO guide</span><span class="it">Guida al PMO moderno</span></a></p>
       </div>
     </div>
   </div>
