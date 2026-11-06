@@ -139,6 +139,33 @@
     }
   }
 
+  // Contact and download tracking. Sends events only when Analytics is
+  // loaded, i.e. only for visitors who accepted cookies.
+  function track(name, params) {
+    if (!loaded || typeof window.gtag !== 'function') return;
+    params.page_path = location.pathname;
+    params.transport_type = 'beacon';
+    window.gtag('event', name, params);
+  }
+
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    var label = (a.innerText || a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 100);
+    if (href.indexOf('mailto:') === 0) {
+      track('contact_email', { link_url: href.slice(7), link_text: label });
+    } else if (href.indexOf('tel:') === 0) {
+      track('contact_phone', { link_url: href.slice(4), link_text: label });
+    } else if (/linkedin\.com/i.test(href)) {
+      track('contact_linkedin', { link_url: href, link_text: label });
+    } else if (/\.pdf(\?|#|$)/i.test(href)) {
+      track('guide_download', { file_name: decodeURIComponent(href.split('/').pop().split(/[?#]/)[0]), link_text: label });
+    } else if (/(^|\/)#contact$/.test(href)) {
+      track('contact_cta', { link_text: label });
+    }
+  }, true);
+
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
