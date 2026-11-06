@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SAP VIM (Vendor Invoice Management by OpenText): Functional Architecture Guide | Vantage Finance &amp; Tech</title>
+<meta name="description" content="SAP VIM explained: how OpenText Vendor Invoice Management works inside SAP S/4HANA and ECC. Capture and OCR, Document Processing, process types, business rules, roles, exceptions, Chart of Authority, PO and non-PO posting, e-invoicing, transactions and KPIs.">
+<link rel="canonical" href="https://vantagefinanceandtech.com/guides/sap-vim-vendor-invoice-management/">
+<link rel="alternate" hreflang="en" href="https://vantagefinanceandtech.com/guides/sap-vim-vendor-invoice-management/">
+<link rel="alternate" hreflang="it" href="https://vantagefinanceandtech.com/guides/sap-vim-architettura-funzionale/">
+<link rel="alternate" hreflang="x-default" href="https://vantagefinanceandtech.com/guides/sap-vim-vendor-invoice-management/">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Vantage Finance &amp; Tech">
+<meta property="og:title" content="SAP VIM (Vendor Invoice Management by OpenText): Functional Architecture Guide">
+<meta property="og:description" content="How SAP VIM takes a supplier invoice from receipt to posting in SAP: capture and OCR, Document Processing, roles, exceptions, approvals, e-invoicing, transactions and KPIs.">
+<meta property="og:url" content="https://vantagefinanceandtech.com/guides/sap-vim-vendor-invoice-management/">
+<meta property="og:image" content="https://vantagefinanceandtech.com/logo-vantage.png">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="it_IT">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/guides/guide.css">
+<script src="/consent.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "SAP VIM: Functional Architecture of Vendor Invoice Management by OpenText",
+      "description": "SAP VIM explained: how OpenText Vendor Invoice Management works inside SAP S/4HANA and ECC. Capture and OCR, Document Processing, process types, business rules, roles, exceptions, Chart of Authority, PO and non-PO posting, e-invoicing, transactions and KPIs.",
+      "inLanguage": "en",
+      "url": "https://vantagefinanceandtech.com/guides/sap-vim-vendor-invoice-management/",
+      "mainEntityOfPage": "https://vantagefinanceandtech.com/guides/sap-vim-vendor-invoice-management/",
+      "image": "https://vantagefinanceandtech.com/logo-vantage.png",
+      "datePublished": "2026-11-06",
+      "dateModified": "2026-11-06",
+      "author": {
+        "@type": "Person",
+        "@id": "https://vantagefinanceandtech.com/#founder",
+        "name": "Stefan Dumitriu",
+        "url": "https://vantagefinanceandtech.com/",
+        "sameAs": [
+          "https://www.linkedin.com/in/stefan-dumitriu-836b9a86/"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://vantagefinanceandtech.com/#organization",
+        "name": "Vantage Finance & Tech",
+        "url": "https://vantagefinanceandtech.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://vantagefinanceandtech.com/logo-vantage.png"
+        }
+      },
+      "about": [
+        "SAP VIM",
+        "OpenText Vendor Invoice Management",
+        "Accounts payable automation",
+        "SAP S/4HANA"
+      ],
+      "workTranslation": {
+        "@type": "TechArticle",
+        "url": "https://vantagefinanceandtech.com/guides/sap-vim-architettura-funzionale/",
+        "inLanguage": "it-IT"
+      },
+      "associatedMedia": {
+        "@type": "MediaObject",
+        "contentUrl": "https://vantagefinanceandtech.com/Architettura_Funzionale_SAP_VIM.pdf",
+        "encodingFormat": "application/pdf",
+        "inLanguage": "it-IT"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://vantagefinanceandtech.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://vantagefinanceandtech.com/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "SAP VIM: Vendor Invoice Management"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site">
+  <div class="inner">
+    <a class="brand" href="/"><img src="/guides/logo-header.png" alt="Vantage Finance &amp; Tech" height="44"></a>
+    <nav><a href="/guides/">Guides</a><a href="/#contact">Contact</a></nav>
+  </div>
+</header>
+
+<main>
+  <div class="crumbs"><a href="/">Home</a> › <a href="/guides/">Guides</a> › SAP VIM: Vendor Invoice Management</div>
+
+  <h1>SAP VIM: Functional Architecture of Vendor Invoice Management</h1>
+  <p class="lead">How SAP Vendor Invoice Management by OpenText takes a supplier invoice from receipt to posting in SAP S/4HANA or ECC: the functional layers, Document Processing, roles, exceptions and approvals, e-invoicing, and the main transactions and tables.</p>
+
+  <div class="download">
+    <div>
+      <strong>Download the full guide (PDF, 16 pages)</strong>
+      <p>SAP VIM functional architecture · in Italian · free</p>
+    </div>
+    <a class="btn" href="/Architettura_Funzionale_SAP_VIM.pdf">Download the PDF</a>
+  </div>
+
+  <nav class="toc" aria-label="Contents">
+    <strong>On this page</strong>
+    <ol>
+      <li><a href="#what">What SAP VIM is</a></li>
+      <li><a href="#layers">The five-layer architecture</a></li>
+      <li><a href="#dp">Document Processing</a></li>
+      <li><a href="#exceptions">Exceptions and approvals</a></li>
+      <li><a href="#posting">PO and non-PO invoices</a></li>
+      <li><a href="#einvoicing">E-invoicing into VIM</a></li>
+      <li><a href="#transactions">Main transactions</a></li>
+      <li><a href="#kpis">KPIs to measure</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ol>
+  </nav>
+
+<h2 id="what">What is SAP VIM?</h2>
+<p>SAP VIM (Vendor Invoice Management by OpenText) automates the accounts payable invoice cycle inside SAP ECC and SAP S/4HANA: invoice capture, data recognition, validation, exception handling, approval and posting.</p>
+<p>The key point to grasp early is that VIM is <strong>not an external system</strong>. It runs inside SAP in the <code>/OPT/</code> namespace, uses standard SAP workflow and writes directly to MM and FI documents. No reconciliation between systems is needed: an invoice posted by VIM is a normal SAP document, with the invoice image always available.</p>
+
+<h2 id="layers">SAP VIM architecture in five layers</h2>
+<p>The solution reads from top to bottom, following the path of the invoice:</p>
+<ol class="steps">
+<li><strong>Capture channels</strong> – paper and scanning, email, structured e-invoices from tax authority platforms (such as Italy's SDI), EDI/IDoc, supplier portals and Ariba Network.</li>
+<li><strong>Capture and OCR</strong> – OpenText Intelligent Capture classifies the document, extracts header and line-item data, proposes the vendor and purchase order and passes them to validation.</li>
+<li><strong>VIM core – Document Processing</strong> – the DP document drives the process through process types, business rules, exception handling and the Chart of Authority.</li>
+<li><strong>SAP S/4HANA / ECC</strong> – posting in MM-LIV for PO invoices (three-way match) or in FI-AP for non-PO invoices, with archiving through ArchiveLink.</li>
+<li><strong>Reporting and analytics</strong> – VIM Analytics, KPI dashboards, aging, productivity and audit trail.</li>
+</ol>
+
+<h2 id="dp">Document Processing: the core of VIM</h2>
+<p>Every incoming invoice creates a DP document that passes through five steps: creation, process type determination, checks through business rules, handling of any exceptions, and posting in SAP.</p>
+<h3>Process types</h3>
+<p>The process type decides which flow the invoice follows, based on the input channel, company code and document type (PO invoice, non-PO invoice, credit memo).</p>
+<h3>Business rules</h3>
+<p>Automatic checks for duplicates, tax data and VAT number, amount consistency and purchase order validity. An invoice that passes all of them can reach posting with no human touch.</p>
+<h3>VIM roles</h3>
+<p>Each step is assigned to a VIM role that works its own queue: Indexer/Validator, AP Processor, Approver/Coder, Buyer/Requester, AP Manager and VIM Administrator.</p>
+
+<h2 id="exceptions">Exceptions and approval workflow</h2>
+<p>The goal of VIM is that only problem invoices need a person. The most common exceptions are price or quantity differences against the purchase order, goods receipt not yet posted, duplicate invoices or invoices from unknown vendors, incomplete tax data and a missing PO.</p>
+<p>For non-PO invoices, the <strong>Chart of Authority</strong> determines approvers automatically by amount, company code and spend category. Coding and approval can also be done on the web or in Fiori, with automatic escalation and substitutes when someone does not act in time.</p>
+
+<h2 id="posting">Integration with SAP: PO and non-PO invoices</h2>
+<p><strong>PO invoices</strong> are posted in MM-LIV (MIRO or BAPI) with the match between purchase order, goods receipt and invoice; payment blocks raised by tolerances are handled as VIM exceptions. <strong>Non-PO invoices</strong> are posted in FI-AP (FB60 or BAPI), with the cost center and G/L account entered during approval.</p>
+<p>Posting quality still depends on the underlying FI/MM customizing: vendor master data, document types, payment terms, tax codes, tolerances and MM duplicate checks should be validated with the accounting team as early as the Explore phase of the <a href="/guides/sap-s4hana-implementation-roadmap/">S/4HANA implementation roadmap</a>.</p>
+
+<h2 id="einvoicing">E-invoicing into VIM: the Italian SDI example</h2>
+<p>Where e-invoicing is mandatory, incoming invoices arrive as structured files rather than paper or PDF. In Italy, supplier invoices arrive as FatturaPA XML through the Sistema di Interscambio (SDI). The file is received through a recipient code, an accredited intermediary or certified email (PEC), then read by SAP Document and Reporting Compliance (eDocument) or a localization add-on, which creates the DP document with the data already structured.</p>
+<p>The gain is clear: <strong>no OCR</strong>, complete data extraction, fewer errors and a much higher share of invoices posted with no manual touch. The visual rendering of the invoice stays archived through ArchiveLink, while SDI notifications and legal archiving go through the archiving service. The same pattern applies to other clearance and Peppol-based mandates; see our <a href="/guides/e-invoicing-sap-s4hana-oracle-fusion/">e-invoicing implementation guide</a> and the <a href="/guides/sap-s4hana-localization-europe/">S/4HANA localization guide</a>.</p>
+
+<h2 id="transactions">SAP VIM transactions</h2>
+<div class="table-wrap">
+<table>
+<tr><th>Transaction</th><th>What it is for</th></tr>
+<tr><td>/OPT/VIM_WP</td><td>VIM Workplace, the unified work queue for all roles</td></tr>
+<tr><td>/OPT/VIM_ANALYTICS</td><td>Status and history of every invoice in process</td></tr>
+<tr><td>/OPT/SPRO</td><td>VIM configuration: process types, rules, roles, Chart of Authority</td></tr>
+<tr><td>MIRO / MIR4</td><td>Post and display logistics invoices</td></tr>
+<tr><td>FB60 / FB03</td><td>Post and display FI invoices</td></tr>
+<tr><td>MRBR</td><td>Release invoices blocked for payment</td></tr>
+<tr><td>SWI1 / SWIA</td><td>Monitor and restart workflow work items</td></tr>
+<tr><td>WE02 / WE20</td><td>IDoc monitor and partner profiles for EDI and e-invoicing</td></tr>
+</table>
+</div>
+<p class="note">The PDF has the full list, together with the related VIM and SAP tables (DP document header and items, process log, RBKP/RSEG, BKPF/BSEG) and the technical configuration prerequisites. <code>/OPT/*</code> codes can vary with the installed VIM version.</p>
+
+<h2 id="kpis">What to measure: accounts payable KPIs</h2>
+<p>VIM Analytics gives AP managers and CFOs four key indicators: <strong>touchless rate</strong> (share of invoices posted with no manual intervention), <strong>cycle time</strong> from receipt to posting or payment, <strong>aging</strong> of invoices in queue by exception and owner, and <strong>productivity</strong> by user, role and company code. The data can also feed SAP Analytics Cloud or other BI tools.</p>
+
+<section class="faq">
+<h2 id="faq">SAP VIM: FAQ</h2>
+<h3>Is SAP VIM an SAP or an OpenText product?</h3>
+<p>It is developed by OpenText and sold by SAP as an SAP solution extension, so it is licensed and supported through SAP while running inside the SAP system.</p>
+<h3>Does SAP VIM work with SAP S/4HANA?</h3>
+<p>Yes. VIM runs on both SAP ECC and SAP S/4HANA, and posts to the same MM-LIV and FI-AP documents. On S/4HANA, approvals and coding are typically done through Fiori apps.</p>
+<h3>What is the difference between PO and non-PO invoices in VIM?</h3>
+<p>PO invoices are matched against the purchase order and goods receipt and posted in MM-LIV; non-PO invoices have no order to match, so they are coded and approved through the Chart of Authority and posted in FI-AP.</p>
+<h3>Do I still need OCR with e-invoicing?</h3>
+<p>Not for structured e-invoices: the XML already carries the data. OCR remains useful for paper and PDF invoices from suppliers outside the mandate.</p>
+</section>
+
+  <div class="download">
+    <div>
+      <strong>Want the complete version with diagrams and tables?</strong>
+      <p>16 pages on architecture, configuration, transactions and tables (in Italian).</p>
+    </div>
+    <a class="btn" href="/Architettura_Funzionale_SAP_VIM.pdf">Download the PDF</a>
+  </div>
+
+  <section class="cta">
+    <h2>Implementing or optimizing SAP VIM?</h2>
+    <p>Vantage Finance &amp; Tech helps companies across Italy and Europe with SAP FI, S/4HANA Finance and accounts payable automation, from process design through configuration and go-live.</p>
+    <a class="btn" href="/#contact">Get in touch</a>
+  </section>
+
+  <section class="related">
+    <h2>Related guides</h2>
+    <ul>
+      <li><a href="/guides/e-invoicing-sap-s4hana-oracle-fusion/">E-Invoicing Implementation in SAP S/4HANA (DRC) and Oracle Fusion ERP</a></li>
+      <li><a href="/guides/sap-s4hana-localization-europe/">SAP S/4HANA Localization Guide: Italy, Spain, France, Germany, UK</a></li>
+      <li><a href="/guides/sap-s4hana-implementation-roadmap/">SAP S/4HANA Implementation Roadmap: Phases, Timeline and Deliverables</a></li>
+    </ul>
+    <p><a href="/guides/">All guides →</a></p>
+  </section>
+
+  <section class="alt-lang" lang="it">
+    <h2>In italiano</h2>
+    <p>Questa guida è disponibile anche in italiano: <a href="/guides/sap-vim-architettura-funzionale/" hreflang="it">SAP VIM: architettura funzionale di Vendor Invoice Management</a>.</p>
+  </section>
+</main>
+
+<footer>© 2026 Vantage Finance &amp; Tech · VAT 13449530016 · Rivalta di Torino (TO), Italy · <a href="/cookie-policy/">Cookie policy</a> · <a href="#" onclick="return vftCookieSettings()">Cookie settings</a></footer>
+
+</body>
+</html>
