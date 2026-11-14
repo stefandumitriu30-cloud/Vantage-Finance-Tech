@@ -40,7 +40,7 @@
         "@type": "Person",
         "@id": "https://vantagefinanceandtech.com/#founder",
         "name": "Stefan Dumitriu",
-        "url": "https://vantagefinanceandtech.com/",
+        "url": "https://vantagefinanceandtech.com/about/",
         "sameAs": [
           "https://www.linkedin.com/in/stefan-dumitriu-836b9a86/"
         ]
@@ -103,7 +103,7 @@
 <header class="site">
   <div class="inner">
     <a class="brand" href="/"><img src="/guides/logo-header.png" alt="Vantage Finance &amp; Tech" height="44"></a>
-    <nav><a href="/guides/">Guides</a><a href="/#contact">Contact</a></nav>
+    <nav><a href="/guides/">Guides</a><a href="/about/">About</a><a href="/#contact">Contact</a></nav>
   </div>
 </header>
 
@@ -162,6 +162,8 @@
 <h2 id="exceptions">Exceptions and approval workflow</h2>
 <p>The goal of VIM is that only problem invoices need a person. The most common exceptions are price or quantity differences against the purchase order, goods receipt not yet posted, duplicate invoices or invoices from unknown vendors, incomplete tax data and a missing PO.</p>
 <p>For non-PO invoices, the <strong>Chart of Authority</strong> determines approvers automatically by amount, company code and spend category. Coding and approval can also be done on the web or in Fiori, with automatic escalation and substitutes when someone does not act in time.</p>
+
+<aside class="cta-inline"><p><strong>Working on this in your own SAP S/4HANA or Oracle Cloud ERP system?</strong> We support finance teams from design to go-live.</p><a href="/#contact">Talk to us &rarr;</a></aside>
 
 <h2 id="posting">Integration with SAP: PO and non-PO invoices</h2>
 <p><strong>PO invoices</strong> are posted in MM-LIV (MIRO or BAPI) with the match between purchase order, goods receipt and invoice; payment blocks raised by tolerances are handled as VIM exceptions. <strong>Non-PO invoices</strong> are posted in FI-AP (FB60 or BAPI), with the cost center and G/L account entered during approval.</p>

@@ -111,3 +111,6 @@ table.raci tr.phase td { background: var(--navy); color: #fff; text-align: left;
 
 .faq h3 { margin-top: 22px; }
 .faq p { margin-top: 4px; }
+.cta-inline { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 18px; background: var(--blue-soft); border-left: 4px solid var(--blue); border-radius: 8px; padding: 14px 18px; margin: 32px 0; }
+.cta-inline p { margin: 0; flex: 1 1 320px; color: var(--navy); }
+.cta-inline a { font-weight: 600; white-space: nowrap; }
