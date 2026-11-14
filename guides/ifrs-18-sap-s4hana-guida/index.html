@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IFRS 18 in SAP S/4HANA: conto economico per destinazione, FS version e reporting drilldown | Vantage Finance &amp; Tech</title>
+<meta name="description" content="Come preparare il conto economico IFRS 18 in SAP S/4HANA: categorie operativa, investimento e finanziamento, financial statement version (OB58), reporting per functional area con G/L drilldown (FGI*), controlli e decisioni di disegno.">
+<link rel="canonical" href="https://vantagefinanceandtech.com/guides/ifrs-18-sap-s4hana-guida/">
+<link rel="alternate" hreflang="en" href="https://vantagefinanceandtech.com/guides/ifrs-18-sap-s4hana/">
+<link rel="alternate" hreflang="it" href="https://vantagefinanceandtech.com/guides/ifrs-18-sap-s4hana-guida/">
+<link rel="alternate" hreflang="x-default" href="https://vantagefinanceandtech.com/guides/ifrs-18-sap-s4hana/">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Vantage Finance &amp; Tech">
+<meta property="og:title" content="IFRS 18 in SAP S/4HANA: conto economico per destinazione">
+<meta property="og:description" content="Come preparare il conto economico IFRS 18 in SAP S/4HANA: categorie operativa, investimento e finanziamento, financial statement version (OB58), reporting per functional area con G/L drilldown (FGI*), controlli e decisioni di disegno.">
+<meta property="og:url" content="https://vantagefinanceandtech.com/guides/ifrs-18-sap-s4hana-guida/">
+<meta property="og:image" content="https://vantagefinanceandtech.com/logo-vantage.png">
+<meta property="og:locale" content="it_IT">
+<meta property="og:locale:alternate" content="en_GB">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/guides/guide.css">
+<script src="/consent.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "IFRS 18 in SAP S/4HANA: conto economico per destinazione con financial statement version e reporting drilldown",
+      "description": "Come preparare il conto economico IFRS 18 in SAP S/4HANA: categorie operativa, investimento e finanziamento, financial statement version (OB58), reporting per functional area con G/L drilldown (FGI*), controlli e decisioni di disegno.",
+      "inLanguage": "it",
+      "url": "https://vantagefinanceandtech.com/guides/ifrs-18-sap-s4hana-guida/",
+      "mainEntityOfPage": "https://vantagefinanceandtech.com/guides/ifrs-18-sap-s4hana-guida/",
+      "image": "https://vantagefinanceandtech.com/logo-vantage.png",
+      "datePublished": "2026-11-14",
+      "dateModified": "2026-11-14",
+      "author": {
+        "@type": "Person",
+        "@id": "https://vantagefinanceandtech.com/#founder",
+        "name": "Stefan Dumitriu",
+        "url": "https://vantagefinanceandtech.com/it/chi-sono/",
+        "sameAs": [
+          "https://www.linkedin.com/in/stefan-dumitriu-836b9a86/"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://vantagefinanceandtech.com/#organization",
+        "name": "Vantage Finance & Tech",
+        "url": "https://vantagefinanceandtech.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://vantagefinanceandtech.com/logo-vantage.png"
+        }
+      },
+      "about": [
+        "IFRS 18",
+        "SAP S/4HANA",
+        "Financial statement version",
+        "Functional area",
+        "Conto economico per destinazione"
+      ],
+      "associatedMedia": {
+        "@type": "MediaObject",
+        "contentUrl": "https://vantagefinanceandtech.com/Vantage_IFRS18_SAP_S4HANA_Guide.pdf",
+        "encodingFormat": "application/pdf"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://vantagefinanceandtech.com/it/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guide",
+          "item": "https://vantagefinanceandtech.com/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "IFRS 18 in SAP S/4HANA"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site">
+  <div class="inner">
+    <a class="brand" href="/it/"><img src="/guides/logo-header.png" alt="Vantage Finance &amp; Tech" height="44"></a>
+    <nav><a href="/guides/">Guide</a><a href="/it/chi-sono/">Chi sono</a><a href="/it/#contact">Contatti</a></nav>
+  </div>
+</header>
+
+<main>
+  <div class="crumbs"><a href="/it/">Home</a> › <a href="/guides/">Guide</a> › IFRS 18 in SAP S/4HANA</div>
+
+<h1>IFRS 18 in SAP S/4HANA: conto economico per destinazione con financial statement version e reporting drilldown</h1>
+  <p class="lead">Dal 1° gennaio 2027 l'IFRS 18 sostituisce lo IAS 1 e cambia la struttura del conto economico. Questa guida mostra come realizzarlo in SAP S/4HANA con una financial statement version e il reporting G/L drilldown per functional area, sulla base di un'implementazione reale.</p>
+
+  <div class="download">
+    <div>
+      <strong>Scarica la guida completa (PDF in inglese, 8 pagine)</strong>
+      <p>IFRS 18 in SAP S/4HANA · gratuita</p>
+    </div>
+    <a class="btn" href="/Vantage_IFRS18_SAP_S4HANA_Guide.pdf">Scarica il PDF</a>
+  </div>
+
+<h2>L'IFRS 18 in sintesi</h2>
+<p>L'IFRS 18 <i>Presentation and Disclosure in Financial Statements</i> sostituisce lo IAS 1. Lo IASB l'ha pubblicato il 9 aprile 2024 e l'Unione Europea l'ha omologato con il Regolamento (UE) 2026/338. Si applica agli esercizi che iniziano dal 1° gennaio 2027, con applicazione anticipata consentita.</p>
+<p>L'applicazione è retroattiva: anche il comparativo 2026 va presentato secondo l'IFRS 18. In pratica i dati 2026 servono in due viste, IAS 1 e IFRS 18, e il sistema deve supportarle entrambe durante la transizione.</p>
+<div class="table-wrap">
+<table>
+<tr><th>Tema</th><th>Cosa cambia</th></tr>
+<tr><td>Categorie del conto economico</td><td>Proventi e oneri sono classificati in Operating (operativa), Investing (investimento) e Financing (finanziamento), oltre a Imposte sul reddito e Attività operative cessate.</td></tr>
+<tr><td>Subtotali obbligatori</td><td>Risultato operativo, e Risultato prima degli oneri finanziari e delle imposte.</td></tr>
+<tr><td>Misure di performance definite dal management (MPM)</td><td>Misure come l'EBITDA vanno indicate, spiegate e riconciliate con i subtotali IFRS.</td></tr>
+<tr><td>Aggregazione e disaggregazione</td><td>Regole più severe. Chi presenta i costi per destinazione deve dare in nota alcune informazioni per natura (ammortamenti, benefici ai dipendenti, svalutazioni).</td></tr>
+<tr><td>Rendiconto finanziario</td><td>Il metodo indiretto parte dal risultato operativo; interessi e dividendi hanno una classificazione definita.</td></tr>
+</table>
+</div>
+
+<h2>Impatto su SAP S/4HANA</h2>
+<ul class="points">
+<li>Ogni voce di ricavo e costo deve corrispondere in modo univoco a una categoria IFRS 18: servono conti di contabilità generale puliti e functional area derivate correttamente.</li>
+<li>La financial statement version (OB58) deve contenere le nuove categorie e i subtotali, mentre la vista IAS 1 resta disponibile in parallelo durante la transizione.</li>
+<li>Il reporting va adeguato e il comparativo 2026 riesposto.</li>
+<li>Se il conto economico è presentato per destinazione, la functional area diventa una dimensione di reporting primaria e la sua derivazione (centri di costo, OKB9, sostituzioni) deve essere affidabile.</li>
+</ul>
+
+<h2>Disegno della soluzione</h2>
+<p>L'obiettivo è un conto economico nel formato IFRS 18, per destinazione, in cui ogni riga si possa scomporre per functional area e conto. La soluzione usa quattro componenti standard:</p>
+<div class="table-wrap">
+<table>
+<tr><th>Componente</th><th>Transazione</th><th>Ruolo</th></tr>
+<tr><td>Financial statement version</td><td>OB58</td><td>Gerarchia IFRS 18, con le functional area assegnate alle voci di conto economico</td></tr>
+<tr><td>Drilldown form</td><td>FGI4</td><td>Layout delle colonne (saldi, dare, avere, progressivi), copiato da un form standard</td></tr>
+<tr><td>Drilldown report</td><td>FGI1</td><td>FS version come gerarchia, con drilldown per functional area e conto</td></tr>
+<tr><td>Esecuzione</td><td>FGI0</td><td>Esecuzione, navigazione ed export</td></tr>
+</table>
+</div>
+<h3>Perché non F.01</h3>
+<p>La F.01 legge la financial statement version ma non ha una colonna per la functional area, e non si può aggiungere: la functional area decide solo in quale voce finisce un importo. Per vedere insieme la struttura e la functional area come caratteristica serve il reporting G/L drilldown (FGI*).</p>
+<h3>Vincoli SAP da conoscere prima di iniziare</h3>
+<ul class="points">
+<li>In OB58 una voce può avere conti oppure functional area, non entrambi. Gli intervalli assegnati non possono sovrapporsi e ogni functional area può stare in una sola voce: una matrice completa functional area × natura non si costruisce con la sola FS version.</li>
+<li>Nel report type FAGLFLEXT la caratteristica Functional Area non è abilitata per gerarchie o set: i set GS01 non sono accettati né nel report né nelle righe del form.</li>
+<li>Nel report la gerarchia della FS version arriva tramite la caratteristica Financial Statement Item (o FS Item/Account), non tramite FS Version.</li>
+<li>FS version, set, drilldown form e report e ruoli sono specifici per mandante.</li>
+</ul>
+
+<aside class="cta-inline"><p><strong>Devi affrontarlo nel tuo SAP S/4HANA o Oracle Cloud ERP?</strong> Affianchiamo i team finance dal disegno al go-live.</p><a href="/it/#contact">Parliamone &rarr;</a></aside>
+
+<h2>Financial statement version (OB58)</h2>
+<ol class="steps">
+<li>In OB58 crea la versione IFRS 18 copiando quella attuale, così da ereditare le assegnazioni dello stato patrimoniale.</li>
+<li>Nelle specifiche generali attiva <b>Functional area permitted</b>. Senza questo flag le assegnazioni per functional area vengono ignorate.</li>
+<li>Verifica che la versione usi lo stesso piano dei conti delle società (OBY6).</li>
+<li>Crea le voci e i subtotali del layout IFRS 18.</li>
+<li>Sulle voci di stato patrimoniale assegna intervalli di conti; sulle voci di conto economico per destinazione assegna le functional area.</li>
+<li>Verifica che nessun conto economico resti nella voce “Not assigned”, poi salva in una richiesta di trasporto.</li>
+</ol>
+<h3>Esempio di layout IFRS 18 per destinazione</h3>
+<pre style="background:#f4f7fd;padding:12px;border-radius:8px;overflow-x:auto;font-size:13px;line-height:1.45">Conto economico
+└─ Utile dell'esercizio
+   ├─ Risultato prima delle imposte
+   │  ├─ Risultato prima degli oneri finanziari e delle imposte
+   │  │  ├─ Risultato operativo
+   │  │  │  ├─ Margine lordo
+   │  │  │  │  ├─ Ricavi
+   │  │  │  │  └─ Costo del venduto
+   │  │  │  ├─ Spese amministrative
+   │  │  │  ├─ Spese di vendita e distribuzione
+   │  │  │  ├─ Altri costi operativi
+   │  │  │  └─ Altri proventi operativi
+   │  │  └─ Categoria investimento
+   │  └─ Categoria finanziamento (oneri finanziari)
+   └─ Imposte sul reddito</pre>
+<p>Ogni riga è alimentata da una o più functional area. Mantieni una sola logica nel prospetto principale: una voce con un nome per natura ma con functional area assegnate rende i totali difficili da leggere. Il dettaglio per natura sotto ogni destinazione non si costruisce con la sola FS version: nel report si ottiene con il drilldown per conto.</p>
+<h3>Esportare e controllare la struttura</h3>
+<p>Per condividere la struttura, espandi tutte le voci in OB58 e salva l'elenco come foglio di calcolo. Per analizzarla, leggi le tabelle della FS version in SE16N:</p>
+<div class="table-wrap">
+<table>
+<tr><th>Tabella</th><th>Contenuto</th></tr>
+<tr><td>FAGL_011PC</td><td>Voci e gerarchia (padre, figlio, livello)</td></tr>
+<tr><td>FAGL_011QT</td><td>Testi delle voci</td></tr>
+<tr><td>FAGL_011ZC</td><td>Intervalli di conti assegnati alle voci</td></tr>
+<tr><td>FAGL_011FC</td><td>Functional area assegnate alle voci</td></tr>
+<tr><td>SKA1 / SKAT</td><td>Conti economici del piano dei conti, per verificare che siano tutti assegnati</td></tr>
+</table>
+</div>
+
+<h2>Esecuzione, navigazione e controlli (FGI0)</h2>
+<ol class="steps">
+<li>In FGI0 apri la cartella della tabella FAGLFLEXT ed esegui il report per società, anno e periodi 1–16.</li>
+<li>Nel pannello di navigazione fai doppio clic su Financial Statement Item ed espandi il conto economico.</li>
+<li>Seleziona una voce e fai doppio clic su Functional Area per il dettaglio per destinazione, oppure su G/L Account per il dettaglio per conto.</li>
+<li>Per avere le functional area in colonna, scambia righe e colonne; poi salva il layout.</li>
+</ol>
+<h3>Controlli sul risultato</h3>
+<ul class="points">
+<li><b>Not assigned sotto la struttura</b>: conti economici non assegnati nella FS version, oppure functional area mancanti.</li>
+<li><b>Not assigned sotto Functional Area</b>: registrazioni senza functional area, quindi va verificata la derivazione (centri di costo, OKB9, sostituzioni).</li>
+<li><b>Riconciliazione</b>: il totale del conto economico deve coincidere con il risultato netto della F.01 per la stessa versione e lo stesso periodo.</li>
+<li><b>Colonne dei saldi a zero</b> con i totali dare valorizzati: verifica quale colonna rappresenta il periodo, l'anno e i periodi selezionati.</li>
+</ul>
+
+<h2>Decisioni di disegno da prendere presto</h2>
+<ul class="points">
+<li>Quali functional area alimentano le categorie Investing e Financing, e se ne servono di nuove (per esempio per proventi da partecipazioni o interessi su finanziamenti).</li>
+<li>Come classificare i progetti di investimento e le altre functional area che non rientrano nelle righe operative.</li>
+<li>Se spese di vendita e amministrative si possono separare con le functional area esistenti o richiedono una suddivisione per conto.</li>
+<li>Come fornire il dettaglio “natura sotto destinazione”: drilldown per conto in SAP, oppure Group Reporting, SAP Analytics Cloud o un foglio di calcolo con mappatura conto-natura.</li>
+<li>Come gestire la quota di risultato di joint venture e collegate, di solito una scrittura di consolidato più che una registrazione di società.</li>
+<li>Come mantenere in parallelo la versione IAS 1 per il comparativo 2026, e quando dismetterla.</li>
+<li>La pulizia degli oggetti di test e il percorso di trasporto della FS version, del form e del report definitivi.</li>
+</ul>
+
+<p>Il PDF copre anche il drilldown form e il report passo per passo, le autorizzazioni, l'export in Excel, una tabella di troubleshooting e l'elenco di transazioni e tabelle.</p>
+
+  <div class="download">
+    <div>
+      <strong>Vuoi la versione completa con tutti i passaggi e le tabelle?</strong>
+      <p>8 pagine dalla nostra pratica di consulenza (in inglese).</p>
+    </div>
+    <a class="btn" href="/Vantage_IFRS18_SAP_S4HANA_Guide.pdf">Scarica il PDF</a>
+  </div>
+
+  <section class="related">
+    <h2>Guide correlate</h2>
+    <ul>
+      <li><a href="/guides/tendenze-erp-cfo-2027-2030/">ERP 2027-2030: la guida del CFO alle tendenze che contano</a></li>
+      <li><a href="/guides/sap-ecc-fine-manutenzione-2027/">Fine manutenzione SAP ECC 2027: opzioni, costi e tempi</a></li>
+      <li><a href="/guides/fatturazione-elettronica-sap-s4hana-oracle-fusion/">Fatturazione elettronica in Oracle ERP e SAP S/4HANA DRC</a></li>
+      <li><a href="/guides/sap-s4hana-cash-pooling/">Cash pooling in SAP S/4HANA (in inglese)</a></li>
+    </ul>
+    <p><a href="/guides/">Tutte le guide →</a></p>
+  </section>
+
+  <section class="cta">
+    <h2>Stai lavorando a un progetto simile?</h2>
+    <p>Vantage Finance &amp; Tech affianca aziende in Italia e in Europa su SAP S/4HANA Finance, Oracle Fusion Cloud ERP Finance, tesoreria, IFRS 18 e PMO, dal disegno alla configurazione e al go-live. Abbiamo implementato l'IFRS 18 in SAP S/4HANA per un gruppo internazionale: <a href="/it/chi-sono/#progetti">vedi il caso</a>.</p>
+    <a class="btn" href="/it/#contact">Contattaci</a>
+  </section>
+
+  <section class="alt-lang" lang="en">
+    <h2>In English</h2>
+    <p>This guide is also available in English: <a href="/guides/ifrs-18-sap-s4hana/" hreflang="en">IFRS 18 in SAP S/4HANA: Income Statement by Function</a>.</p>
+  </section>
+</main>
+
+<footer>© 2026 Vantage Finance &amp; Tech · P. IVA 13449530016 · Rivalta di Torino (TO) · <a href="/cookie-policy/#it">Informativa cookie</a> · <a href="#" onclick="return vftCookieSettings()">Impostazioni cookie</a></footer>
+
+</body>
+</html>

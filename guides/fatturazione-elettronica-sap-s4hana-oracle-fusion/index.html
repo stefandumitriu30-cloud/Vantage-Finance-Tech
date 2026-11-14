@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fatturazione elettronica in Oracle ERP e SAP S/4HANA DRC: guida all&#x27;implementazione | Vantage Finance &amp; Tech</title>
+<meta name="description" content="Fatturazione elettronica in Oracle ERP (Fusion Tax e CMK) e SAP S/4HANA DRC (Document and Reporting Compliance) a confronto: configurazione, anagrafiche, transazioni e tabelle, integrazione, test e cutover.">
+<link rel="canonical" href="https://vantagefinanceandtech.com/guides/fatturazione-elettronica-sap-s4hana-oracle-fusion/">
+<link rel="alternate" hreflang="en" href="https://vantagefinanceandtech.com/guides/e-invoicing-sap-s4hana-oracle-fusion/">
+<link rel="alternate" hreflang="it" href="https://vantagefinanceandtech.com/guides/fatturazione-elettronica-sap-s4hana-oracle-fusion/">
+<link rel="alternate" hreflang="x-default" href="https://vantagefinanceandtech.com/guides/e-invoicing-sap-s4hana-oracle-fusion/">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Vantage Finance &amp; Tech">
+<meta property="og:title" content="Fatturazione elettronica in Oracle ERP e SAP S/4HANA DRC">
+<meta property="og:description" content="Fatturazione elettronica in Oracle ERP (Fusion Tax e CMK) e SAP S/4HANA DRC (Document and Reporting Compliance) a confronto: configurazione, anagrafiche, transazioni e tabelle, integrazione, test e cutover.">
+<meta property="og:url" content="https://vantagefinanceandtech.com/guides/fatturazione-elettronica-sap-s4hana-oracle-fusion/">
+<meta property="og:image" content="https://vantagefinanceandtech.com/logo-vantage.png">
+<meta property="og:locale" content="it_IT">
+<meta property="og:locale:alternate" content="en_GB">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/guides/guide.css">
+<script src="/consent.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "Fatturazione elettronica in Oracle ERP e SAP S/4HANA DRC: guida all'implementazione",
+      "description": "Fatturazione elettronica in Oracle ERP (Fusion Tax e CMK) e SAP S/4HANA DRC (Document and Reporting Compliance) a confronto: configurazione, anagrafiche, transazioni e tabelle, integrazione, test e cutover.",
+      "inLanguage": "it",
+      "url": "https://vantagefinanceandtech.com/guides/fatturazione-elettronica-sap-s4hana-oracle-fusion/",
+      "mainEntityOfPage": "https://vantagefinanceandtech.com/guides/fatturazione-elettronica-sap-s4hana-oracle-fusion/",
+      "image": "https://vantagefinanceandtech.com/logo-vantage.png",
+      "datePublished": "2026-11-14",
+      "dateModified": "2026-11-14",
+      "author": {
+        "@type": "Person",
+        "@id": "https://vantagefinanceandtech.com/#founder",
+        "name": "Stefan Dumitriu",
+        "url": "https://vantagefinanceandtech.com/it/chi-sono/",
+        "sameAs": [
+          "https://www.linkedin.com/in/stefan-dumitriu-836b9a86/"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://vantagefinanceandtech.com/#organization",
+        "name": "Vantage Finance & Tech",
+        "url": "https://vantagefinanceandtech.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://vantagefinanceandtech.com/logo-vantage.png"
+        }
+      },
+      "about": [
+        "Fatturazione elettronica",
+        "SAP Document and Reporting Compliance",
+        "Oracle Fusion Tax",
+        "SdI",
+        "Peppol"
+      ],
+      "associatedMedia": {
+        "@type": "MediaObject",
+        "contentUrl": "https://vantagefinanceandtech.com/Vantage_E-Invoicing_Implementation_Guide.pdf",
+        "encodingFormat": "application/pdf"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://vantagefinanceandtech.com/it/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guide",
+          "item": "https://vantagefinanceandtech.com/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Fatturazione elettronica in Oracle e SAP"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site">
+  <div class="inner">
+    <a class="brand" href="/it/"><img src="/guides/logo-header.png" alt="Vantage Finance &amp; Tech" height="44"></a>
+    <nav><a href="/guides/">Guide</a><a href="/it/chi-sono/">Chi sono</a><a href="/it/#contact">Contatti</a></nav>
+  </div>
+</header>
+
+<main>
+  <div class="crumbs"><a href="/it/">Home</a> › <a href="/guides/">Guide</a> › Fatturazione elettronica in Oracle e SAP</div>
+
+<h1>Fatturazione elettronica in Oracle ERP e SAP S/4HANA DRC: guida all'implementazione</h1>
+  <p class="lead">Un confronto neutrale su come si implementa la fatturazione elettronica in SAP S/4HANA e in Oracle Fusion ERP: contesto normativo, componenti di ciascuna piattaforma, passi di configurazione, test e gestione operativa.</p>
+
+  <div class="download">
+    <div>
+      <strong>Scarica la guida completa (PDF in inglese, 9 pagine)</strong>
+      <p>Fatturazione elettronica in SAP e Oracle · gratuita</p>
+    </div>
+    <a class="btn" href="/Vantage_E-Invoicing_Implementation_Guide.pdf">Scarica il PDF</a>
+  </div>
+
+<h2>Perché la fatturazione elettronica è ormai un progetto ERP</h2>
+<p>La fatturazione elettronica è diventata un obbligo di legge in un numero crescente di paesi. Le autorità fiscali chiedono sempre più spesso fatture in formati strutturati come XML o UBL e, in molti casi, la loro validazione o comunicazione in tempo reale: è il modello dei cosiddetti controlli continui sulle transazioni. Tra gli esempi ci sono lo SdI italiano, il KSeF polacco, l'obbligo B2B tedesco introdotto per fasi, il pacchetto europeo ViDA (VAT in the Digital Age) e modelli consolidati in Arabia Saudita, India e Brasile.</p>
+<p>Ricorrono due famiglie di modelli. Nel <strong>modello clearance</strong> l'autorità fiscale valida la fattura prima o mentre arriva all'acquirente (Italia, India, Arabia Saudita). Nel <strong>modello reporting</strong> le controparti si scambiano le fatture direttamente, spesso via Peppol, e comunicano i dati a parte. Un roll-out multinazionale di solito deve supportare entrambi. Per la scadenza europea del 2030 vedi la guida <a href="/guides/vida-fatturazione-elettronica-2030/">ViDA e fatturazione elettronica intra-UE</a>.</p>
+
+<h2>Fatturazione elettronica in SAP S/4HANA: Document and Reporting Compliance (DRC)</h2>
+<p>La soluzione strategica di SAP è <strong>SAP Document and Reporting Compliance (DRC)</strong>, che sostituisce Document Compliance e l'eDocument Framework. I suoi componenti sono l'eDocument Cockpit per monitoraggio e rielaborazione, l'eDocument Framework che mappa i dati di fatturazione sullo schema richiesto, gli scope item e i communication arrangement (nella public cloud) e SAP Integration Suite per i flussi di integrazione specifici di ciascun paese.</p>
+<p>Un'implementazione tipica attiva lo scope item o la business function del paese, installa il flusso di integrazione con endpoint di test e produzione separati, configura il communication arrangement, mantiene le value mapping, completa anagrafiche fiscali e certificati, imposta l'output determination e testa tutto end-to-end prima del cutover.</p>
+
+<h2>Fatturazione elettronica in Oracle ERP (Oracle Fusion Cloud)</h2>
+<p>Per le fatture elettroniche in Oracle ERP, Oracle si appoggia al motore <strong>Oracle Fusion Tax</strong> e alle localizzazioni dei singoli paesi, mentre la trasmissione passa dal <strong>Collaboration Messaging Framework (CMK)</strong>. Sempre più spesso Oracle lavora con partner di compliance integrati come Thomson Reuters ONESOURCE Pagero e Avalara, riducendo il bisogno di un middleware separato.</p>
+<p>L'implementazione copre regimi, aliquote e regole fiscali, le registrazioni fiscali di clienti e fornitori, l'adesione alla gestione elettronica delle fatture clienti, la configurazione di trading partner e messaggi in CMK, l'onboarding dei partner con la domain value mapping e la validazione end-to-end in un ambiente di test.</p>
+
+<aside class="cta-inline"><p><strong>Devi affrontarlo nel tuo SAP S/4HANA o Oracle Cloud ERP?</strong> Affianchiamo i team finance dal disegno al go-live.</p><a href="/it/#contact">Parliamone &rarr;</a></aside>
+
+<h2>Confronto diretto</h2>
+<div class="table-wrap">
+<table>
+<tr><th>Dimensione</th><th>SAP S/4HANA</th><th>Oracle Fusion ERP</th></tr>
+<tr><td>Soluzione principale</td><td>Document and Reporting Compliance</td><td>Fusion Tax + CMK, più partner integrati</td></tr>
+<tr><td>Monitoraggio</td><td>eDocument Cockpit</td><td>Fusion Tax, monitor dei messaggi CMK e portale del partner</td></tr>
+<tr><td>Integrazione</td><td>SAP Integration Suite con flussi per paese già pronti</td><td>Interfaccia CMK in uscita o connettività del partner integrato</td></tr>
+<tr><td>Attivazione</td><td>Scope item (cloud) o business function (on-premise)</td><td>Configurazione fiscale più adesione a livello di cliente/fornitore</td></tr>
+<tr><td>Value mapping</td><td>Tabelle di mappatura per paese nell'eDocument Framework</td><td>Domain value mapping, spesso lato partner</td></tr>
+</table>
+</div>
+
+<h2>Anagrafiche: la prima causa di scarti</h2>
+<p>Su entrambe le piattaforme, anagrafiche di cattiva qualità sono il motivo più frequente di scarto delle fatture elettroniche. Prima del go-live verifica: ragione sociale e partita IVA esattamente come registrate presso l'autorità, codici fiscali di clienti e fornitori, mappatura coerente dei codici IVA (ordinaria, ridotta, esente, reverse charge), codici di unità di misura e termini di pagamento, coordinate bancarie dove richieste e certificati digitali. Certificati scaduti e mappature IVA incoerenti sono gli errori più frequenti.</p>
+
+<h2>Transazioni, tabelle e attività di configurazione</h2>
+<p>Il PDF elenca transazioni e tabelle SAP coinvolte (come <code>EDOC_COCKPIT</code>, il nodo di customizing dell'eDocument, le value mapping, l'output control e le tabelle di testata e log dell'eDocument) e le attività equivalenti in Oracle Fusion (regimi e regole fiscali, profili fiscali, configurazione CMK, domain value mapping e lookup degli stati di consegna).</p>
+
+<h2>Test, cutover e gestione operativa</h2>
+<ul class="points">
+<li>Testa ogni value mapping su tutti gli scenari fiscali e valida i file rispetto allo schema ufficiale.</li>
+<li>Testa end-to-end nella sandbox del provider, anche con dati volutamente errati.</li>
+<li>Vai in produzione paese per paese, allineato alla data di ciascun obbligo, invece che in un unico big bang.</li>
+<li>Congela anagrafiche fiscali e certificati subito prima del cutover e tieni pronta una procedura manuale di emergenza approvata.</li>
+<li>Dopo il go-live assegna responsabilità chiare per la revisione quotidiana degli scarti, il rinnovo dei certificati e il monitoraggio dei nuovi obblighi.</li>
+</ul>
+
+<p>In Italia il ciclo passivo elettronico passa dallo SdI: per come le fatture arrivano in SAP e vengono gestite con OpenText VIM vedi <a href="/guides/sap-vim-architettura-funzionale/">SAP VIM: architettura funzionale</a>.</p>
+
+  <div class="download">
+    <div>
+      <strong>Vuoi la versione completa con diagrammi e tabelle?</strong>
+      <p>9 pagine dalla nostra pratica di consulenza (in inglese).</p>
+    </div>
+    <a class="btn" href="/Vantage_E-Invoicing_Implementation_Guide.pdf">Scarica il PDF</a>
+  </div>
+
+  <section class="related">
+    <h2>Guide correlate</h2>
+    <ul>
+      <li><a href="/guides/vida-fatturazione-elettronica-2030/">ViDA 2030: fatturazione elettronica e reporting digitale intra-UE</a></li>
+      <li><a href="/guides/sap-vim-architettura-funzionale/">SAP VIM: architettura funzionale di Vendor Invoice Management</a></li>
+      <li><a href="/guides/tendenze-erp-cfo-2027-2030/">ERP 2027-2030: la guida del CFO alle tendenze che contano</a></li>
+      <li><a href="/guides/sap-s4hana-localization-europe/">SAP S/4HANA Localization Guide (in inglese)</a></li>
+    </ul>
+    <p><a href="/guides/">Tutte le guide →</a></p>
+  </section>
+
+  <section class="cta">
+    <h2>Stai lavorando a un progetto simile?</h2>
+    <p>Vantage Finance &amp; Tech affianca aziende in Italia e in Europa su Oracle Fusion Cloud ERP Finance, SAP FI e S/4HANA Finance e supporto PMO, dal disegno alla configurazione e al go-live. Tra i casi: <a href="/it/chi-sono/#progetti">automazione del ciclo passivo in Oracle Fusion</a>.</p>
+    <a class="btn" href="/it/#contact">Contattaci</a>
+  </section>
+
+  <section class="alt-lang" lang="en">
+    <h2>In English</h2>
+    <p>This guide is also available in English: <a href="/guides/e-invoicing-sap-s4hana-oracle-fusion/" hreflang="en">Oracle ERP Electronic Invoicing and SAP S/4HANA DRC: Implementation Guide</a>.</p>
+  </section>
+</main>
+
+<footer>© 2026 Vantage Finance &amp; Tech · P. IVA 13449530016 · Rivalta di Torino (TO) · <a href="/cookie-policy/#it">Informativa cookie</a> · <a href="#" onclick="return vftCookieSettings()">Impostazioni cookie</a></footer>
+
+</body>
+</html>
