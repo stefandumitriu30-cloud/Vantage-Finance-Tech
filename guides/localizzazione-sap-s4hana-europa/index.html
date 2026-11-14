@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Localizzazione SAP S/4HANA: Italia, Spagna, Francia, Germania e Regno Unito | Vantage Finance &amp; Tech</title>
+<meta name="description" content="Localizzazione e configurazione di SAP S/4HANA per Italia, Spagna, Francia, Germania e Regno Unito: procedure fiscali, aliquote IVA, fatturazione elettronica (SdI, SII, Chorus Pro, XRechnung, MTD), Testo Unico IVA, ViDA e reporting obbligatorio.">
+<link rel="canonical" href="https://vantagefinanceandtech.com/guides/localizzazione-sap-s4hana-europa/">
+<link rel="alternate" hreflang="en" href="https://vantagefinanceandtech.com/guides/sap-s4hana-localization-europe/">
+<link rel="alternate" hreflang="it" href="https://vantagefinanceandtech.com/guides/localizzazione-sap-s4hana-europa/">
+<link rel="alternate" hreflang="x-default" href="https://vantagefinanceandtech.com/guides/sap-s4hana-localization-europe/">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Vantage Finance &amp; Tech">
+<meta property="og:title" content="Localizzazione SAP S/4HANA: Italia, Spagna, Francia, Germania e Regno Unito">
+<meta property="og:description" content="Localizzazione e configurazione di SAP S/4HANA per Italia, Spagna, Francia, Germania e Regno Unito: procedure fiscali, aliquote IVA, fatturazione elettronica (SdI, SII, Chorus Pro, XRechnung, MTD), Testo Unico IVA, ViDA e reporting obbligatorio.">
+<meta property="og:url" content="https://vantagefinanceandtech.com/guides/localizzazione-sap-s4hana-europa/">
+<meta property="og:image" content="https://vantagefinanceandtech.com/logo-vantage.png">
+<meta property="og:locale" content="it_IT">
+<meta property="og:locale:alternate" content="en_GB">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/guides/guide.css">
+<script src="/consent.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "Localizzazione SAP S/4HANA: Italia, Spagna, Francia, Germania e Regno Unito",
+      "description": "Localizzazione e configurazione di SAP S/4HANA per Italia, Spagna, Francia, Germania e Regno Unito: procedure fiscali, aliquote IVA, fatturazione elettronica (SdI, SII, Chorus Pro, XRechnung, MTD), Testo Unico IVA, ViDA e reporting obbligatorio.",
+      "inLanguage": "it",
+      "url": "https://vantagefinanceandtech.com/guides/localizzazione-sap-s4hana-europa/",
+      "mainEntityOfPage": "https://vantagefinanceandtech.com/guides/localizzazione-sap-s4hana-europa/",
+      "image": "https://vantagefinanceandtech.com/logo-vantage.png",
+      "datePublished": "2026-11-14",
+      "dateModified": "2026-11-14",
+      "author": {
+        "@type": "Person",
+        "@id": "https://vantagefinanceandtech.com/#founder",
+        "name": "Stefan Dumitriu",
+        "url": "https://vantagefinanceandtech.com/it/chi-sono/",
+        "sameAs": [
+          "https://www.linkedin.com/in/stefan-dumitriu-836b9a86/"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://vantagefinanceandtech.com/#organization",
+        "name": "Vantage Finance & Tech",
+        "url": "https://vantagefinanceandtech.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://vantagefinanceandtech.com/logo-vantage.png"
+        }
+      },
+      "about": [
+        "SAP S/4HANA",
+        "Localizzazione SAP",
+        "IVA",
+        "Fatturazione elettronica",
+        "SAP Document and Reporting Compliance",
+        "Testo Unico IVA"
+      ],
+      "associatedMedia": {
+        "@type": "MediaObject",
+        "contentUrl": "https://vantagefinanceandtech.com/Vantage_SAP_S4HANA_Localization_Guide.pdf",
+        "encodingFormat": "application/pdf"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://vantagefinanceandtech.com/it/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guide",
+          "item": "https://vantagefinanceandtech.com/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Localizzazione SAP S/4HANA"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site">
+  <div class="inner">
+    <a class="brand" href="/it/"><img src="/guides/logo-header.png" alt="Vantage Finance &amp; Tech" height="44"></a>
+    <nav><a href="/guides/">Guide</a><a href="/it/chi-sono/">Chi sono</a><a href="/it/#contact">Contatti</a></nav>
+  </div>
+</header>
+
+<main>
+  <div class="crumbs"><a href="/it/">Home</a> › <a href="/guides/">Guide</a> › Localizzazione SAP S/4HANA</div>
+
+<h1>Localizzazione SAP S/4HANA: Italia, Spagna, Francia, Germania e Regno Unito</h1>
+  <p class="lead">Cosa serve per rendere SAP S/4HANA conforme alle norme di cinque paesi europei: i componenti comuni, i requisiti fiscali, di fatturazione elettronica e di reporting di ciascun paese, e le attività di configurazione per ognuno.</p>
+
+  <div class="download">
+    <div>
+      <strong>Scarica la guida completa (PDF in inglese, 16 pagine)</strong>
+      <p>Localizzazione SAP S/4HANA · gratuita</p>
+    </div>
+    <a class="btn" href="/Vantage_SAP_S4HANA_Localization_Guide.pdf">Scarica il PDF</a>
+  </div>
+
+<h2>I componenti comuni</h2>
+<p>SAP S/4HANA ha un nucleo internazionale comune, e gli obblighi di ciascun paese sono coperti da una versione paese attivata per società. Prima di configurare un singolo paese servono alcune fondamenta:</p>
+<ul class="points">
+<li>La chiave paese della società, che determina procedura fiscale, formato degli indirizzi e formati di pagamento.</li>
+<li>Un piano dei conti operativo e, dove richiesto, un piano dei conti nazionale.</li>
+<li>Una procedura di calcolo imposte per paese (TAXIT, TAXES, TAXFR, TAXDE, TAXGB).</li>
+<li>I campi del business partner specifici per paese, per codici fiscali e dati bancari.</li>
+<li>Range di numerazione che rispettano gli obblighi di numerazione progressiva.</li>
+<li>Dichiarazioni IVA con Advanced Compliance Reporting, fatturazione elettronica con Document and Reporting Compliance, Intrastat ed elenchi riepilogativi, ritenute con l'extended withholding tax e financial statement version per paese.</li>
+<li>Moduli nazionali, formati di pagamento SEPA e archiviazione a norma.</li>
+</ul>
+
+<h2>I cinque paesi in sintesi</h2>
+<div class="table-wrap">
+<table>
+<tr><th>Paese</th><th>Procedura fiscale</th><th>IVA ordinaria</th><th>Requisito distintivo</th></tr>
+<tr><td>Italia</td><td>TAXIT</td><td>22%</td><td>Fatturazione elettronica obbligatoria tramite SdI (FatturaPA), registri IVA, ritenute d'acconto</td></tr>
+<tr><td>Spagna</td><td>TAXES</td><td>21%</td><td>Comunicazione IVA quasi in tempo reale con il SII entro quattro giorni lavorativi</td></tr>
+<tr><td>Francia</td><td>TAXFR</td><td>20%</td><td>File FEC per le verifiche, Chorus Pro per il B2G, fatturazione elettronica B2B per fasi tramite piattaforme certificate</td></tr>
+<tr><td>Germania</td><td>TAXDE</td><td>19%</td><td>Integrità delle registrazioni secondo GoBD, export DATEV, XRechnung/ZUGFeRD</td></tr>
+<tr><td>Regno Unito</td><td>TAXGB</td><td>20%</td><td>Making Tax Digital per l'IVA tramite le API dell'HMRC</td></tr>
+</table>
+</div>
+
+<h2>Italia</h2>
+<p>L'Italia è una delle localizzazioni SAP più impegnative. Tutte le fatture B2B, B2C e B2G vanno emesse in formato FatturaPA XML e passano dal Sistema di Interscambio; SAP Document and Reporting Compliance gestisce il flusso, comprese le notifiche di esito dello SdI. La configurazione copre i business place, i registri IVA e la liquidazione periodica, le ritenute d'acconto, il canale verso lo SdI (PEC o intermediario accreditato), la numerazione a norma e la financial statement version per il bilancio CEE. Poiché le specifiche SdI cambiano spesso, conviene un ciclo ricorrente di verifica delle SAP Note e di test di regressione.</p>
+<p>Il prossimo adeguamento rilevante è il nuovo <strong>Testo Unico IVA</strong> (D.Lgs. 10/2026), in vigore da gennaio 2027: nuovi codici IVA e conti, varianti dei registri, liquidazione e mappatura dell'esterometro, e il blocco dei codici obsoleti. L'abbiamo appena realizzato in SAP S/4HANA per un gruppo internazionale: <a href="/it/chi-sono/#progetti">vedi il caso</a>.</p>
+
+<h2>Spagna</h2>
+<p>Il SII spagnolo obbliga i grandi contribuenti a trasmettere i dati delle fatture all'agenzia delle entrate entro quattro giorni lavorativi. La configurazione copre la data di attivazione del SII, tipi di messaggio e certificati, la mappatura dei libri IVA, le ritenute, i modelli 303, 349 e 390 e Facturae per la fatturazione alla pubblica amministrazione tramite FACe. Il monitoraggio dei record scartati o accettati parzialmente va previsto nel modello di supporto, non solo nella prima implementazione.</p>
+
+<aside class="cta-inline"><p><strong>Devi affrontarlo nel tuo SAP S/4HANA o Oracle Cloud ERP?</strong> Affianchiamo i team finance dal disegno al go-live.</p><a href="/it/#contact">Parliamone &rarr;</a></aside>
+
+<h2>Francia</h2>
+<p>La Francia combina la compliance IVA con il FEC, un'estrazione standardizzata di tutte le scritture contabili da produrre su richiesta durante le verifiche fiscali, e con l'introduzione per fasi della fatturazione elettronica e dell'e-reporting B2B tramite piattaforme certificate (formati Factur-X, UBL e CII). Le fatture verso la pubblica amministrazione passano già da Chorus Pro. Poiché il calendario dell'obbligo è cambiato più volte, conviene gestirlo come un filone di progetto separato, con una propria data di go-live.</p>
+
+<h2>Germania</h2>
+<p>La Germania ruota attorno ai principi GoBD: registrazioni contabili e modifiche al sistema devono essere inalterabili, tracciabili e reperibili per tutto il periodo di conservazione. La configurazione copre il log delle modifiche, l'archiviazione, la numerazione senza buchi, l'export DATEV per i consulenti fiscali, la fatturazione elettronica XRechnung e ZUGFeRD con l'introduzione progressiva dell'obbligo B2B, la financial statement version HGB, la dichiarazione IVA preventiva e l'elenco riepilogativo. Durante i test conviene simulare un'estrazione dati per una verifica fiscale.</p>
+
+<h2>Regno Unito</h2>
+<p>Dopo la Brexit l'obbligo digitale principale del Regno Unito è Making Tax Digital: registrazioni IVA tenute in digitale e dichiarazione in nove caselle inviata tramite software collegato alle API dell'HMRC. La configurazione copre anche l'IVA all'importazione differita, i formati di pagamento BACS, Faster Payments e CHAPS e i numeri EORI. Le impostazioni pensate per gli scambi intra-UE non vanno riutilizzate senza modifiche per le società britanniche.</p>
+
+<h2>In arrivo: ViDA e la fatturazione elettronica europea</h2>
+<p>Dal 1° luglio 2030 le operazioni B2B intra-UE richiederanno fatture elettroniche strutturate secondo lo standard EN 16931 e una comunicazione digitale per singola operazione, che sostituirà gli elenchi riepilogativi. Per i gruppi presenti in più paesi significa rivedere insieme la localizzazione di tutte le società: formati, anagrafiche, tempi di emissione e collegamento a Peppol. Lo SdI italiano dovrà allinearsi al modello europeo entro il 2035. Tutti i dettagli nella guida <a href="/guides/vida-fatturazione-elettronica-2030/">ViDA 2030: fatturazione elettronica e reporting digitale intra-UE</a>.</p>
+
+<h2>Raccomandazioni</h2>
+<ul class="points">
+<li>Gestisci la localizzazione come filone parallelo, con fit-gap, sviluppo e test propri per ogni paese.</li>
+<li>Coinvolgi esperti fiscali locali già nel disegno, perché soglie e formati cambiano indipendentemente dalle release SAP.</li>
+<li>Testa end-to-end ogni integrazione di fatturazione elettronica e reporting sulle sandbox delle autorità fiscali.</li>
+<li>Rendi obbligatori in fase di inserimento i campi del business partner richiesti per paese, invece di correggerli dopo.</li>
+<li>Monitora con continuità SAP Note e novità normative, con dashboard che permettano alla finanza di reagire nei tempi di legge.</li>
+</ul>
+<p class="note">Il PDF include una checklist di configurazione per tutti e cinque i paesi. È uno strumento di pianificazione, non una consulenza legale o fiscale: verifica sempre le regole aggiornate con le SAP Note e l'autorità fiscale locale.</p>
+
+  <div class="download">
+    <div>
+      <strong>Vuoi la versione completa con diagrammi e tabelle?</strong>
+      <p>16 pagine dalla nostra pratica di consulenza (in inglese).</p>
+    </div>
+    <a class="btn" href="/Vantage_SAP_S4HANA_Localization_Guide.pdf">Scarica il PDF</a>
+  </div>
+
+  <section class="related">
+    <h2>Guide correlate</h2>
+    <ul>
+      <li><a href="/guides/vida-fatturazione-elettronica-2030/">ViDA 2030: fatturazione elettronica e reporting digitale intra-UE</a></li>
+      <li><a href="/guides/fatturazione-elettronica-sap-s4hana-oracle-fusion/">Fatturazione elettronica in Oracle ERP e SAP S/4HANA DRC</a></li>
+      <li><a href="/guides/sap-vim-architettura-funzionale/">SAP VIM: architettura funzionale di Vendor Invoice Management</a></li>
+      <li><a href="/guides/sap-ecc-fine-manutenzione-2027/">Fine manutenzione SAP ECC 2027: opzioni, costi e tempi</a></li>
+    </ul>
+    <p><a href="/guides/">Tutte le guide →</a></p>
+  </section>
+
+  <section class="cta">
+    <h2>Stai lavorando a un progetto simile?</h2>
+    <p>Vantage Finance &amp; Tech affianca aziende in Italia e in Europa su SAP S/4HANA Finance e Oracle Fusion Cloud ERP: IVA e localizzazioni, fatturazione elettronica, IFRS 18 e PMO, dal disegno alla configurazione e al go-live.</p>
+    <a class="btn" href="/it/#contact">Contattaci</a>
+  </section>
+
+  <section class="alt-lang" lang="en">
+    <h2>In English</h2>
+    <p>This guide is also available in English: <a href="/guides/sap-s4hana-localization-europe/" hreflang="en">SAP S/4HANA Localization Guide: Italy, Spain, France, Germany, UK</a>.</p>
+  </section>
+</main>
+
+<footer>© 2026 Vantage Finance &amp; Tech · P. IVA 13449530016 · Rivalta di Torino (TO) · <a href="/cookie-policy/#it">Informativa cookie</a> · <a href="#" onclick="return vftCookieSettings()">Impostazioni cookie</a></footer>
+
+</body>
+</html>
