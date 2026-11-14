@@ -31,6 +31,7 @@ IT_GUIDES = {
     "/guides/ifrs-18-sap-s4hana/": "/guides/ifrs-18-sap-s4hana-guida/",
     "/guides/e-invoicing-sap-s4hana-oracle-fusion/": "/guides/fatturazione-elettronica-sap-s4hana-oracle-fusion/",
     "/guides/erp-trends-cfo-2027-2030/": "/guides/tendenze-erp-cfo-2027-2030/",
+    "/guides/sap-s4hana-localization-europe/": "/guides/localizzazione-sap-s4hana-europa/",
     "/guides/sap-ecc-end-of-support-2027/": "/guides/sap-ecc-fine-manutenzione-2027/",
     "/guides/vida-e-invoicing-2030/": "/guides/vida-fatturazione-elettronica-2030/",
 }
