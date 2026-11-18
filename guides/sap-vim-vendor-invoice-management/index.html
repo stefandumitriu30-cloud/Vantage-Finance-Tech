@@ -35,7 +35,7 @@
       "mainEntityOfPage": "https://vantagefinanceandtech.com/guides/sap-vim-vendor-invoice-management/",
       "image": "https://vantagefinanceandtech.com/logo-vantage.png",
       "datePublished": "2026-11-06",
-      "dateModified": "2026-11-16",
+      "dateModified": "2026-11-18",
       "author": {
         "@type": "Person",
         "@id": "https://vantagefinanceandtech.com/#founder",
@@ -134,6 +134,8 @@
   <nav class="toc" aria-label="Contents">
     <strong>On this page</strong>
     <ol>
+      <li><a href="#vendor-invoice-management">What vendor invoice management is</a></li>
+      <li><a href="#sap-options">Invoice management in SAP: the options</a></li>
       <li><a href="#what">What SAP VIM is</a></li>
       <li><a href="#layers">The five-layer architecture</a></li>
       <li><a href="#dp">Document Processing</a></li>
@@ -146,6 +148,31 @@
       <li><a href="#faq">FAQ</a></li>
     </ol>
   </nav>
+
+<h2 id="vendor-invoice-management">What is vendor invoice management?</h2>
+<p>Vendor invoice management is the part of accounts payable that takes a supplier invoice from the moment it arrives to the moment it is posted and ready for payment. A vendor invoice management system automates that path so that people only handle the invoices that genuinely need a decision.</p>
+<p>Whatever the software, the process has the same steps:</p>
+<ol class="steps">
+<li><strong>Capture</strong>: invoices arrive on paper, as PDF by email, through EDI or a supplier portal, or as structured e-invoices from a national platform.</li>
+<li><strong>Data extraction</strong>: OCR or AI-based extraction reads header and line data from images and PDFs; structured e-invoices skip this step.</li>
+<li><strong>Validation and matching</strong>: checks on supplier, tax and duplicates, then two- or three-way matching against the purchase order and goods receipt.</li>
+<li><strong>Exception handling</strong>: price and quantity differences, missing goods receipts or unknown suppliers are routed to the person who can resolve them.</li>
+<li><strong>Coding and approval</strong>: invoices without a purchase order get cost assignment and go through approval limits by amount and cost owner.</li>
+<li><strong>Posting and archiving</strong>: the invoice becomes an accounting document in the ERP, linked to its image or XML for audit.</li>
+</ol>
+<p>The aim is a high <strong>touchless rate</strong>: invoices posted with no manual intervention. That shortens cycle time, avoids late-payment penalties, makes early-payment discounts reachable and gives auditors a complete trail of who did what.</p>
+
+<h2 id="sap-options">Invoice management in SAP: the options</h2>
+<p>In an SAP landscape, &ldquo;SAP invoice management&rdquo; can mean several different things. The right choice depends on invoice volume, how many invoices come without a purchase order, and whether you run SAP on premise, in a private cloud or in the public cloud.</p>
+<div class="table-wrap">
+<table>
+<tr><th>Option</th><th>What it covers</th><th>Typical fit</th></tr>
+<tr><td>SAP standard (MM-LIV and FI-AP)</td><td>Invoice entry and verification in SAP S/4HANA (<code>MIRO</code>, <code>FB60</code> and the related Fiori apps), with the standard invoice blocks and release.</td><td>Low volumes, mostly PO invoices, few approval steps.</td></tr>
+<tr><td>SAP VIM by OpenText<br>(sold by SAP as <em>SAP Invoice Management by OpenText</em>)</td><td>Runs inside SAP ECC or SAP S/4HANA: capture, extraction, business rules, exception workflow, Chart of Authority approvals and posting. SAP also offers it as a subscription for private cloud landscapes (for example <em>SAP S/4HANA Cloud for invoice management by OpenText, private edition</em>). The subject of this guide.</td><td>High volumes, many non-PO invoices, complex approval rules.</td></tr>
+<tr><td>SAP Ariba invoicing</td><td>Invoices exchanged with suppliers over the SAP Business Network and reconciled against Ariba purchase orders.</td><td>Companies already buying through SAP Ariba.</td></tr>
+</table>
+</div>
+<p>E-invoicing mandates change the balance between these options: when most invoices arrive as structured XML, extraction matters less and validation, exception handling and approval matter more. The <a href="/guides/e-invoicing-sap-s4hana-oracle-fusion/">e-invoicing implementation guide</a> covers the SAP S/4HANA DRC side.</p>
 
 <h2 id="what">What is SAP VIM?</h2>
 <p>SAP VIM (Vendor Invoice Management by OpenText) automates the accounts payable invoice cycle inside SAP ECC and SAP S/4HANA: invoice capture, data recognition, validation, exception handling, approval and posting.</p>
