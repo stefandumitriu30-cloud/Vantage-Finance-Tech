@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SAP S/4HANA RACI Matrix by Phase (Free Template)</title>
-<meta name="description" content="SAP S/4HANA RACI matrix: 22 activities across the SAP Activate phases, 11 programme roles and one accountable owner each. Free CSV template.">
+<meta name="description" content="SAP S/4HANA RACI matrix: 22 activities by SAP Activate phase, 11 roles, one accountable owner each, plus the RISE with SAP split. Free CSV template.">
 <link rel="canonical" href="https://vantagefinanceandtech.com/guides/sap-s4hana-raci-matrix/">
 <link rel="icon" href="/favicon.ico">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -31,7 +31,7 @@
       "mainEntityOfPage": "https://vantagefinanceandtech.com/guides/sap-s4hana-raci-matrix/",
       "image": "https://vantagefinanceandtech.com/logo-vantage.png",
       "datePublished": "2026-11-05",
-      "dateModified": "2026-11-05",
+      "dateModified": "2026-11-18",
       "author": {
         "@type": "Person",
         "@id": "https://vantagefinanceandtech.com/#founder",
@@ -114,6 +114,7 @@
       <li><a href="#roles">The roles</a></li>
       <li><a href="#rules">Rules that make it work</a></li>
       <li><a href="#adapt">Adapting it to your programme</a></li>
+      <li><a href="#rise">RACI with RISE with SAP</a></li>
     </ol>
   </nav>
 
@@ -186,6 +187,25 @@
 
 <h2 id="adapt">Adapting the RACI to your programme</h2>
 <p>Split the BPO column by process area (record to report, procure to pay, order to cash, plan to produce) if one person cannot cover all of them, and split FL by module when partner and internal consultants share the work. On SAP S/4HANA Cloud Public Edition, part of the technical lead's activities move to SAP, so landscape provisioning becomes a C rather than an R. If your programme includes AI agents, add rows for agent design, autonomy approval and monitoring; the <a href="/guides/modern-pmo-erp-cloud-agentic-ai/">Modern PMO guide</a> covers the governance those rows need. For the decisions to take before this RACI exists, see the <a href="/guides/sap-s4hana-phase-zero-deliverables/">phase zero deliverables list</a>.</p>
+
+<h2 id="rise">RACI with RISE with SAP: who does what</h2>
+<p>With RISE with SAP on SAP S/4HANA Cloud, private edition (now also sold as SAP Cloud ERP Private), a third party joins the RACI: SAP Enterprise Cloud Services (ECS), which runs the technical layer of the system. The split is not left to negotiation: every RISE contract includes SAP's <strong>Roles and Responsibilities (R&amp;R) document</strong>, which lists each operational task as a standard service delivered by SAP, an optional service you can buy, or a customer task.</p>
+<p>The R&amp;R covers how the system is <em>operated</em>, not how the <em>programme</em> is run. The implementation RACI above still applies; what changes is who stands behind the technical rows. A simplified view of the typical split:</p>
+<div class="table-wrap">
+<table>
+<tr><th>Area</th><th>SAP (ECS)</th><th>Customer</th><th>Implementation partner</th></tr>
+<tr><td>Hyperscaler infrastructure, operating system and database operations</td><td>A/R</td><td>I</td><td></td></tr>
+<tr><td>System provisioning and landscape setup</td><td>R</td><td>A (orders and approves)</td><td>C</td></tr>
+<tr><td>Backups, high availability and disaster recovery within the contracted SLA</td><td>A/R</td><td>I</td><td></td></tr>
+<tr><td>Technical updates with SAP standard tools</td><td>R</td><td>A (schedules, tests, accepts)</td><td>R (functional regression tests)</td></tr>
+<tr><td>Application-level security notes</td><td>C</td><td>A (assesses, requests, validates)</td><td>R</td></tr>
+<tr><td>Configuration, custom code and extensions</td><td></td><td>A</td><td>R</td></tr>
+<tr><td>Business users, roles and authorisations</td><td></td><td>A/R</td><td>C</td></tr>
+<tr><td>Data migration, testing, training and cutover</td><td>C (technical tasks per R&amp;R)</td><td>A</td><td>R</td></tr>
+</table>
+</div>
+<p>In practice this means three things for the matrix above. <strong>System landscape provisioning</strong> moves from the technical lead (R) to SAP ECS, with the solution architect still accountable. The <strong>technical lead</strong> becomes a coordinator of service requests to SAP rather than the person doing Basis work, but does not disappear. And the <strong>PMO</strong> should add a row for managing SAP ECS service requests and lead times, because cutover rehearsals and system copies now depend on them.</p>
+<p>The R&amp;R is versioned and differs between offerings (for example the standard and the tailored option), so always check the version attached to your contract before finalising the RACI. Tasks marked as optional are not done by SAP unless you buy them: they are the most common source of gaps at go-live.</p>
 
   <section class="related">
     <h2>Related guides</h2>
