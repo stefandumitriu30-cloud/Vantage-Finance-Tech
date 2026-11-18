@@ -15,12 +15,12 @@ SITE = "https://vantagefinanceandtech.com"
 HEAD = {
     "en": {
         "title": "Vantage Finance & Tech | SAP S/4HANA Finance, Oracle ERP Cloud & PMO Consulting",
-        "description": "SAP S/4HANA Finance and Oracle Cloud ERP consulting for international groups, based in Turin: IFRS 18, treasury and cash management, e-invoicing, finance data and PMO. Ex Deloitte and PwC.",
+        "description": "Vantage Finance & Tech is an SAP S/4HANA Finance and Oracle Cloud ERP consultancy for international groups, from Turin: IFRS 18, treasury, e-invoicing and PMO.",
         "url": SITE + "/", "locale": "en_GB", "alt_locale": "it_IT",
     },
     "it": {
         "title": "Vantage Finance & Tech | Consulenza SAP S/4HANA Finance, Oracle Cloud ERP e PMO",
-        "description": "Consulenza SAP S/4HANA Finance e Oracle Cloud ERP per gruppi internazionali, da Torino: IFRS 18, tesoreria e cash management, fatturazione elettronica, dati finance e PMO. Ex Deloitte e PwC.",
+        "description": "Vantage Finance & Tech è una consulenza SAP S/4HANA Finance e Oracle Cloud ERP per gruppi internazionali, da Torino: IFRS 18, tesoreria, e-invoicing e PMO.",
         "url": SITE + "/it/", "locale": "it_IT", "alt_locale": "en_GB",
     },
 }
