@@ -159,7 +159,7 @@
       track('contact_phone', { link_url: href.slice(4), link_text: label });
     } else if (/linkedin\.com/i.test(href)) {
       track('contact_linkedin', { link_url: href, link_text: label });
-    } else if (/\.pdf(\?|#|$)/i.test(href)) {
+    } else if (/\.(pdf|csv|xlsx?)(\?|#|$)/i.test(href)) {
       track('guide_download', { file_name: decodeURIComponent(href.split('/').pop().split(/[?#]/)[0]), link_text: label });
     } else if (/(^|\/)#contact$/.test(href)) {
       track('contact_cta', { link_text: label });
